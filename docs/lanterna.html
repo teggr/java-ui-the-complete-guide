@@ -3,10 +3,17 @@
         <title>
             Java UI - The Complete Guide
         </title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="https://unpkg.com/htmx.org@2.0.4">
+        </script>
     </head>
     <body>
-        <div>
+        <div id="main-content">
+            <div>
+                <a href="index.html" hx-get="index.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true" class="back-link">
+                    ← Back to Home
+                </a>
+            </div>
             <h1>
                 Lanterna
             </h1>
@@ -23,7 +30,7 @@
             <p>
                 Last Release: v3.1.2
             </p>
-            <a href="https://github.com/mabe02/lanterna">
+            <a href="https://github.com/mabe02/lanterna" target="_blank">
                 Lanterna GitHub
             </a>
             <div class="tags">

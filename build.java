@@ -1,5 +1,5 @@
 /// usr/bin/env jbang "$0" "$@" ; exit $?
-//JAVA 25+
+//JAVA 17+
 //DEPS com.j2html:j2html:1.6.0
 //DEPS org.commonmark:commonmark:0.21.0
 //DEPS org.commonmark:commonmark-ext-yaml-front-matter:0.21.0
@@ -14,9 +14,20 @@ import org.commonmark.ext.heading.anchor.HeadingAnchorExtension;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
+import java.io.IOException;
+import java.io.StringWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import static j2html.TagCreator.*;
 
-void main(String... args) throws IOException {
+public class build {
+
+public static void main(String... args) throws IOException {
 
   System.out.println("Building java-ui-the-complete-guide static site...");
 
@@ -85,7 +96,7 @@ void main(String... args) throws IOException {
 
 }
 
-private DomContent project(Map<String, List<String>> data, DomContent content) {
+private static DomContent project(Map<String, List<String>> data, DomContent content) {
 
   String name = data.getOrDefault("name", List.of("Unknown Project")).get(0);
   String status = data.getOrDefault("status", List.of("Unknown Status")).get(0);
@@ -98,6 +109,15 @@ private DomContent project(Map<String, List<String>> data, DomContent content) {
   List<String> tags = data.getOrDefault("tags", List.of());
 
   return div(
+    div(
+      a("← Back to Home")
+        .withHref("index.html")
+        .attr("hx-get", "index.html")
+        .attr("hx-target", "body")
+        .attr("hx-swap", "innerHTML transition:true")
+        .attr("hx-push-url", "true")
+        .withClass("back-link")
+    ),
     each(
       h1(name),
       img().withSrc(image).withAlt(name),
@@ -105,13 +125,13 @@ private DomContent project(Map<String, List<String>> data, DomContent content) {
       p("Java Version: " + javaVersion),
       p("Learning Curve: " + learningCurve),
       p("Last Release: " + lastRelease),
-      a(learnMoreText).withHref(learnMoreHref),
+      a(learnMoreText).withHref(learnMoreHref).withTarget("_blank"),
       div(
         each(tags, tag -> span(tag).withClass("tag"))
       ).withClass("tags"),
       content
     )
-  );
+  ).withId("main-content");
 
 }
 
@@ -121,21 +141,30 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
     p("Welcome to the Java UI - The Complete Guide! This site provides an overview of various Java UI frameworks and libraries, along with their status, Java version compatibility, learning curve, last release date, and more. Explore the projects below to find the right Java UI solution for your needs."),
     div(
       each( markdownData.entrySet(), entry -> {
-        return a( entry.getValue().getOrDefault("name", List.of("ProjectX")).get(0) )
-          .withHref( entry.getValue().getOrDefault("learnMoreHref", List.of("#")).get(0) );
+        String htmlFileName = entry.getKey();
+        String projectName = entry.getValue().getOrDefault("name", List.of("ProjectX")).get(0);
+        return a(projectName)
+          .withHref(htmlFileName)
+          .attr("hx-get", htmlFileName)
+          .attr("hx-target", "body")
+          .attr("hx-swap", "innerHTML transition:true")
+          .attr("hx-push-url", "true");
       })
     ).withClass("project-list")
-  );
+  ).withId("main-content");
 }
 
 static HtmlTag output(DomContent content) {
   return html(
     head(
       title("Java UI - The Complete Guide"),
-      link().withRel("stylesheet").withHref("css/style.css")
+      link().withRel("stylesheet").withHref("css/styles.css"),
+      script().withSrc("https://unpkg.com/htmx.org@2.0.4")
     ),
     body(
       content
     )
   );
+}
+
 }
