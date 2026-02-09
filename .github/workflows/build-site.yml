@@ -22,11 +22,14 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17'
+          java-version: '25'
       
+      - name: Set up JBang
+        uses: jbangdev/setup-jbang@v2
+
       - name: Build site with JBang
         run: |
-          java build-site.java
+          jbang run build.java
       
       - name: Configure Git
         run: |

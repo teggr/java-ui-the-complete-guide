@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="java-ui-the-complete-guide-jbang">
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/com/j2html/j2html/1.6.0/j2html-1.6.0.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/commonmark/commonmark/0.21.0/commonmark-0.21.0.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/commonmark/commonmark-ext-yaml-front-matter/0.21.0/commonmark-ext-yaml-front-matter-0.21.0.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/commonmark/commonmark-ext-heading-anchor/0.21.0/commonmark-ext-heading-anchor-0.21.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MAVEN_REPOSITORY$/com/j2html/j2html/1.6.0/j2html-1.6.0-sources.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/commonmark/commonmark/0.21.0/commonmark-0.21.0-sources.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/commonmark/commonmark-ext-yaml-front-matter/0.21.0/commonmark-ext-yaml-front-matter-0.21.0-sources.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/commonmark/commonmark-ext-heading-anchor/0.21.0/commonmark-ext-heading-anchor-0.21.0-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>
