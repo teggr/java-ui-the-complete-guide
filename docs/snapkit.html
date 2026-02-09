@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>
+            Java UI - The Complete Guide
+        </title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div>
+            <h1>
+                SnapKit
+            </h1>
+            <img src="https://robintegg.com/images/ui-snapkit.png" alt="SnapKit">
+            <p>
+                Status: Production-ready
+            </p>
+            <p>
+                Java Version: 8+
+            </p>
+            <p>
+                Learning Curve: Easy-Moderate
+            </p>
+            <p>
+                Last Release: v2025.12 (Dec 2025)
+            </p>
+            <a href="https://github.com/reportmill/SnapKit">
+                SnapKit GitHub
+            </a>
+            <div class="tags">
+                <span class="tag">
+                    Desktop UI
+                </span>
+            </div>
+            <p>SnapKit is &quot;Swing 2.0&quot;—a UI toolkit developed by ReportMill that aims to run on both desktop and in the browser. Used to power SnapCode (a Java IDE that runs in a browser), SnapKit can deploy to desktop via Swing or JavaFX, and to browsers via CheerpJ JVM. The framework features XML-based UI files with a visual GUI builder (SnapBuilder), a ViewOwner controller pattern, and support for geometric primitives, effects, and even 3D via WebGL/JOGL. While SnapKit presents an interesting approach for dual-platform development, it remains a niche framework with limited adoption compared to mainstream Java UI toolkits.</p>
+            <h2 id="code-example">Code Example</h2>
+            <pre><code class="language-java">import snap.view.*;
+            import snap.viewx.WebPage;
+            import snap.gfx.Font;
+            
+            public class HelloSnapKit extends WebPage {
+                protected View createUI() {
+                    Label label = new Label(&quot;Hello, SnapKit!&quot;);
+                    label.setFont(Font.Arial14.deriveFont(24));
+                    
+                    RowView row = new RowView();
+                    row.setPadding(50, 50, 50, 50);
+                    row.addChild(label);
+                    return row;
+                }
+                
+                public static void main(String[] args) {
+                    new HelloSnapKit().run(args);
+                }
+            }
+            </code></pre>
+        </div>
+    </body>
+</html>

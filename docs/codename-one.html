@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>
+            Java UI - The Complete Guide
+        </title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div>
+            <h1>
+                Codename One
+            </h1>
+            <img src="https://robintegg.com/images/ui-codename-one.png" alt="Codename One">
+            <p>
+                Status: Production-ready, Mature (since 2012)
+            </p>
+            <p>
+                Java Version: 8+ (also supports Kotlin)
+            </p>
+            <p>
+                Learning Curve: Easy
+            </p>
+            <p>
+                Last Release: Active (Feb 2026)
+            </p>
+            <a href="https://www.codenameone.com/">
+                Codename One Official Website
+            </a>
+            <div class="tags">
+                <span class="tag">
+                    Mobile UI
+                </span>
+            </div>
+            <p>Codename One offers true write-once-run-anywhere capabilities for mobile, desktop, and web from a single Java or Kotlin codebase. What makes it unique is the cloud-based build service that eliminates the need for Mac hardware when building iOS applications—it handles Xcode compilation in the cloud. The framework produces truly native apps (not hybrid WebView apps) by statically compiling bytecode to native code: ParparVM for iOS translates bytecode to C, while TeaVM handles web/PWA targets. With 100% code reuse across platforms, drag-and-drop GUI builder, and fast simulator with hot reload, Codename One has powered applications at banks, governments, and telecom companies including BeRider (Prague scooters), HBZ Mobile (banking), and yHomework (1M+ installs). Founded by ex-Sun Microsystems developers from the LWUIT project, it combines open-source core with commercial build services under GPL + Commercial Exception licensing (free for commercial use).</p>
+            <h2 id="code-example">Code Example</h2>
+            <pre><code class="language-java">import com.codename1.ui.*;
+            import com.codename1.ui.layouts.BoxLayout;
+            
+            public class HelloCodenameOne {
+                public void start() {
+                    Form form = new Form(&quot;Codename One&quot;, BoxLayout.y());
+                    form.add(new Label(&quot;Hello, Codename One!&quot;));
+                    form.add(new Button(&quot;Click Me&quot;, e -&gt; 
+                        Dialog.show(&quot;Info&quot;, &quot;Button clicked!&quot;, &quot;OK&quot;, null)
+                    ));
+                    form.show();
+                }
+            }
+            </code></pre>
+        </div>
+    </body>
+</html>

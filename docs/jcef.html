@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>
+            Java UI - The Complete Guide
+        </title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div>
+            <h1>
+                JCEF
+            </h1>
+            <img src="https://robintegg.com/images/ui-jcefmaven.png" alt="JCEF">
+            <p>
+                Status: Production-ready
+            </p>
+            <p>
+                Java Version: Requires JetBrains Runtime
+            </p>
+            <p>
+                Learning Curve: Moderate-Complex
+            </p>
+            <p>
+                Last Release: Active
+            </p>
+            <a href="https://github.com/jcefmaven/jcefmaven">
+                jcefmaven GitHub
+            </a>
+            <div class="tags">
+                <span class="tag">
+                    Desktop UI
+                </span>
+            </div>
+            <p>JCEF is a Java wrapper around the Chromium Embedded Framework (CEF), providing a full Chromium/Blink rendering engine inside Swing applications. It's used extensively in IntelliJ IDEA for markdown previews, browser tools, and throughout the IntelliJ Platform plugin ecosystem. JCEF gives you JavaScript interop, Chrome DevTools access, and modern web rendering capabilities. However, it requires native library distribution and understanding of its multi-process architecture (browser vs renderer processes). JetBrains maintains an active fork that's kept in sync with Chromium updates, making it the de facto standard for embedding modern web content in Java desktop applications.</p>
+            <h2 id="code-example">Code Example</h2>
+            <pre><code class="language-java">import org.cef.CefApp;
+            import org.cef.CefClient;
+            import org.cef.browser.CefBrowser;
+            import javax.swing.*;
+            import java.awt.*;
+            
+            public class HelloJCEF {
+                public static void main(String[] args) {
+                    CefApp cefApp = CefApp.getInstance(args);
+                    CefClient client = cefApp.createClient();
+                    CefBrowser browser = client.createBrowser(&quot;https://www.example.com&quot;, false, false);
+                    
+                    JFrame frame = new JFrame(&quot;JCEF Example&quot;);
+                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    frame.add(browser.getUIComponent(), BorderLayout.CENTER);
+                    frame.setSize(800, 600);
+                    frame.setVisible(true);
+                }
+            }
+            </code></pre>
+        </div>
+    </body>
+</html>

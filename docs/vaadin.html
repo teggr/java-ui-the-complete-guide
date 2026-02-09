@@ -3,26 +3,50 @@
         <title>
             Java UI - The Complete Guide
         </title>
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <h1>
-            Java UI - The Complete Guide
-        </h1>
-        <p>Vaadin is a server-driven UI framework where you write your entire web interface in Java—no JavaScript required. Components live on the JVM and automatically synchronize with the browser, handling all the client-server communication transparently. Vaadin 25 brings deep Spring Boot 3.x integration, support for Java 25 LTS, and the modern Aura design system for professional UIs out of the box. The framework includes AI-assisted development tools and emphasizes security through server-side rendering, which reduces XSS attack surfaces. Vaadin is used by many large enterprises and excels at enterprise dashboards, internal tools, and line-of-business applications where Java teams want to avoid JavaScript context-switching.</p>
-        <h2 id="code-example">Code Example</h2>
-        <pre><code class="language-java">import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-        import com.vaadin.flow.component.html.H1;
-        import com.vaadin.flow.component.button.Button;
-        import com.vaadin.flow.router.Route;
-        
-        @Route(&quot;&quot;)
-        public class HelloVaadin extends VerticalLayout {
-            public HelloVaadin() {
-                add(new H1(&quot;Hello, Vaadin!&quot;));
-                add(new Button(&quot;Click me&quot;, 
-                    e -&gt; add(new H1(&quot;Button clicked!&quot;))));
+        <div>
+            <h1>
+                Vaadin
+            </h1>
+            <img src="https://robintegg.com/images/ui-vaadin.png" alt="Vaadin">
+            <p>
+                Status: Production-ready, Enterprise-focused  
+            </p>
+            <p>
+                Java Version: 17+ (21+ recommended)  
+            </p>
+            <p>
+                Learning Curve: Easy  
+            </p>
+            <p>
+                Last Release: Vaadin 25
+            </p>
+            <a href="https://vaadin.com/">
+                Vaadin Official Website
+            </a>
+            <div class="tags">
+                <span class="tag">
+                    Web UI
+                </span>
+            </div>
+            <p>Vaadin is a server-driven UI framework where you write your entire web interface in Java—no JavaScript required. Components live on the JVM and automatically synchronize with the browser, handling all the client-server communication transparently. Vaadin 25 brings deep Spring Boot 3.x integration, support for Java 25 LTS, and the modern Aura design system for professional UIs out of the box. The framework includes AI-assisted development tools and emphasizes security through server-side rendering, which reduces XSS attack surfaces. Vaadin is used by many large enterprises and excels at enterprise dashboards, internal tools, and line-of-business applications where Java teams want to avoid JavaScript context-switching.</p>
+            <h2 id="code-example">Code Example</h2>
+            <pre><code class="language-java">import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+            import com.vaadin.flow.component.html.H1;
+            import com.vaadin.flow.component.button.Button;
+            import com.vaadin.flow.router.Route;
+            
+            @Route(&quot;&quot;)
+            public class HelloVaadin extends VerticalLayout {
+                public HelloVaadin() {
+                    add(new H1(&quot;Hello, Vaadin!&quot;));
+                    add(new Button(&quot;Click me&quot;, 
+                        e -&gt; add(new H1(&quot;Button clicked!&quot;))));
+                }
             }
-        }
-        </code></pre>
+            </code></pre>
+        </div>
     </body>
 </html>

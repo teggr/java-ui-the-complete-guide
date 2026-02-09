@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>
+            Java UI - The Complete Guide
+        </title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div>
+            <h1>
+                AsciiTable
+            </h1>
+            <img src="https://robintegg.com/images/ui-asciitable.png" alt="AsciiTable">
+            <p>
+                Status: Production-ready, Mature
+            </p>
+            <p>
+                Java Version: 8+
+            </p>
+            <p>
+                Learning Curve: Easy
+            </p>
+            <p>
+                Last Release: v0.3.2
+            </p>
+            <a href="https://github.com/vdmeer/asciitable">
+                AsciiTable GitHub
+            </a>
+            <div class="tags">
+                <span class="tag">
+                    Terminal UI
+                </span>
+            </div>
+            <p>AsciiTable is a versatile library for rendering beautifully formatted ASCII tables in terminal applications, perfect for displaying tabular data in CLI tools, monitoring dashboards, and log outputs. The library removes excessive whitespace and provides fine-grained control over every aspect of table appearance: text alignment (left, right, centered, justified), padding characters for all sides, customizable grid styles with various line weights (normal, light, strong, heavy), and configurable margins and frames. Tables can span columns, handle text wrapping, and even convert characters for LaTeX or HTML output, making it suitable for generating documentation or reports.</p>
+            <p>The framework follows a clean architecture with three core concepts: the table itself for content management, a context for configuration, and a renderer for output generation. This separation allows you to define your table structure once and render it in multiple formats or with different styling options. Whether you're building command-line admin tools that display server statistics, creating terminal-based data visualizations, or formatting log output for better readability, AsciiTable provides the flexibility and control needed for professional-looking tabular output in any terminal environment.</p>
+            <h2 id="code-example">Code Example</h2>
+            <pre><code class="language-java">import de.vandermeer.asciitable.AsciiTable;
+            import de.vandermeer.skb.interfaces.transformers.textformat.TextAlignment;
+            
+            public class HelloAsciiTable {
+                public static void main(String[] args) {
+                    AsciiTable table = new AsciiTable();
+                    table.addRule();
+                    table.addRow(&quot;Name&quot;, &quot;Age&quot;, &quot;City&quot;);
+                    table.addRule();
+                    table.addRow(&quot;Alice&quot;, &quot;30&quot;, &quot;New York&quot;);
+                    table.addRow(&quot;Bob&quot;, &quot;25&quot;, &quot;Los Angeles&quot;);
+                    table.addRow(&quot;Charlie&quot;, &quot;35&quot;, &quot;Chicago&quot;);
+                    table.addRule();
+                    
+                    table.setTextAlignment(TextAlignment.CENTER);
+                    String rendered = table.render();
+                    System.out.println(rendered);
+                }
+            }
+            </code></pre>
+        </div>
+    </body>
+</html>

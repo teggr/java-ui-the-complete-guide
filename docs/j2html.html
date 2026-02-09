@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>
+            Java UI - The Complete Guide
+        </title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div>
+            <h1>
+                j2html
+            </h1>
+            <img src="https://robintegg.com/images/ui-j2html.png" alt="j2html">
+            <p>
+                Status: Production-ready
+            </p>
+            <p>
+                Java Version: 8+
+            </p>
+            <p>
+                Learning Curve: Easy
+            </p>
+            <p>
+                Last Release: v1.6.0 (June 2022, current stable)
+            </p>
+            <a href="https://j2html.com/">
+                j2html Official Website
+            </a>
+            <div class="tags">
+                <span class="tag">
+                    Web UI
+                </span>
+            </div>
+            <p>j2html is not a template engine—it's a type-safe HTML builder for pure Java code. Using a fluent API, you construct HTML with compile-time safety, eliminating risks of unclosed tags, mistyped attributes, or XSS vulnerabilities through automatic escaping. It's extremely fast (100k renders in under 1 second, roughly 1000x faster than Velocity) and enables dynamic reuse of view code that's difficult with templates. j2html works particularly well with lightweight frameworks like Javalin for building APIs that return HTML fragments or generating dynamic emails and forms. While not suitable for traditional websites with large amounts of static HTML or heavy copy-pasted CSS framework markup, it excels when type safety and Java-centric development are priorities.</p>
+            <h2 id="code-example">Code Example</h2>
+            <pre><code class="language-java">import static j2html.TagCreator.*;
+            
+            public class HelloJ2Html {
+                public static void main(String[] args) {
+                    String html = html(
+                        head(
+                            title(&quot;j2html Example&quot;)
+                        ),
+                        body(
+                            h1(&quot;Hello, j2html!&quot;),
+                            p(&quot;Type-safe HTML in Java&quot;),
+                            button(&quot;Click me&quot;).withClass(&quot;btn&quot;)
+                        )
+                    ).render();
+                    
+                    System.out.println(html);
+                }
+            }
+            </code></pre>
+        </div>
+    </body>
+</html>
