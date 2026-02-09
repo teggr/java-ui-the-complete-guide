@@ -25,11 +25,10 @@ public class build_site {
         
         // Read README.md
         Path readmePath = Paths.get("README.md");
-        String readmeContent = "";
-        if (Files.exists(readmePath)) {
-            readmeContent = Files.readString(readmePath);
-            System.out.println("Read README.md");
-        }
+        String readmeContent = Files.exists(readmePath) 
+            ? Files.readString(readmePath) 
+            : "Welcome to Java UI - The Complete Guide";
+        System.out.println("Read README.md");
         
         // Generate index.html
         String html = generateIndexHtml(readmeContent);
@@ -126,8 +125,8 @@ public class build_site {
         // Convert links
         html = html.replaceAll("\\[(.+?)\\]\\((.+?)\\)", "<a href=\"$2\">$1</a>");
         
-        // Convert paragraphs (simple approach)
-        html = html.replaceAll("(?m)^(.+)$", "<p>$1</p>");
+        // Convert paragraphs - only wrap lines that aren't already HTML tags
+        html = html.replaceAll("(?m)^(?!<[hH][1-6]>)(.+?)(?!</[hH][1-6]>)$", "<p>$1</p>");
         
         // Remove empty paragraphs
         html = html.replaceAll("<p>\\s*</p>", "");
