@@ -23,10 +23,9 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '25'
-          check-latest: true
-      
-      - name: Set up JBang
-        uses: jbangdev/setup-jbang@v2
+
+      - name: Setup JBang
+        uses: jbangdev/setup-jbang@main
 
       - name: Build site with JBang
         run: |
