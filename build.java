@@ -1,5 +1,5 @@
 /// usr/bin/env jbang "$0" "$@" ; exit $?
-//JAVA 17+
+//JAVA 25+
 //DEPS com.j2html:j2html:1.6.0
 //DEPS org.commonmark:commonmark:0.21.0
 //DEPS org.commonmark:commonmark-ext-yaml-front-matter:0.21.0
@@ -14,20 +14,9 @@ import org.commonmark.ext.heading.anchor.HeadingAnchorExtension;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
-import java.io.IOException;
-import java.io.StringWriter;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import static j2html.TagCreator.*;
 
-public class build {
-
-public static void main(String... args) throws IOException {
+void main(String... args) throws IOException {
 
   System.out.println("Building java-ui-the-complete-guide static site...");
 
@@ -96,7 +85,7 @@ public static void main(String... args) throws IOException {
 
 }
 
-private static DomContent project(Map<String, List<String>> data, DomContent content) {
+private DomContent project(Map<String, List<String>> data, DomContent content) {
 
   String name = data.getOrDefault("name", List.of("Unknown Project")).get(0);
   String status = data.getOrDefault("status", List.of("Unknown Status")).get(0);
@@ -165,6 +154,4 @@ static HtmlTag output(DomContent content) {
       content
     )
   );
-}
-
 }
