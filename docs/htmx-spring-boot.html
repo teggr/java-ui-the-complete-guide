@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>
+            Java UI - The Complete Guide
+        </title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="https://unpkg.com/htmx.org@2.0.4">
+        </script>
+    </head>
+    <body>
+        <div id="main-content">
+            <div>
+                <a href="index.html" hx-get="index.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true" class="back-link">
+                    ← Back to Home
+                </a>
+            </div>
+            <h1>
+                HTMX + Spring Boot
+            </h1>
+            <img src="https://robintegg.com/images/ui-htmx.png" alt="HTMX + Spring Boot">
+            <p>
+                Status: Modern, Very Active
+            </p>
+            <p>
+                Java Version: 11+ (Spring Boot 2.x+), 17+ (Spring Boot 3.x+)
+            </p>
+            <p>
+                Learning Curve: Easy
+            </p>
+            <p>
+                Last Release: htmx-spring-boot v3.x+
+            </p>
+            <a href="https://github.com/wimdeblauwe/htmx-spring-boot" target="_blank">
+                htmx-spring-boot GitHub
+            </a>
+            <div class="tags">
+                <span class="tag">
+                    Web UI
+                </span>
+            </div>
+            <p>HTMX brings hypermedia-driven development to modern web apps by adding AJAX, WebSockets, and Server-Sent Events via HTML attributes—no JavaScript needed. The htmx-spring-boot library from Wim Deblauwe (with contributions from Spring team members like Oliver Drotbohm) provides annotations like <code>@HxRequest</code>, <code>@HxTrigger</code>, and <code>@HxRefresh</code>, along with specialized views for redirects and out-of-band swaps. The Spring ViewComponent library by Thomas Schhly takes this further with component-based architecture similar to React/Vue but entirely server-side, where ViewComponents are Spring-managed beans with dependency injection. This approach combines the simplicity of server-side rendering with the interactivity of modern SPAs, using template engines like Thymeleaf or JTE. It's gaining strong traction in the Spring community for teams who want dynamic interfaces without heavy JavaScript frameworks.</p>
+            <h2 id="code-example">Code Example</h2>
+            <pre><code class="language-java">@Controller
+            public class HelloController {
+                
+                @GetMapping(&quot;/hello&quot;)
+                public String hello(Model model) {
+                    model.addAttribute(&quot;message&quot;, &quot;Hello, HTMX + Spring!&quot;);
+                    return &quot;hello&quot;;
+                }
+                
+                @GetMapping(&quot;/update&quot;)
+                @HxRequest
+                public String update(Model model) {
+                    model.addAttribute(&quot;message&quot;, &quot;Updated via HTMX!&quot;);
+                    return &quot;hello :: message&quot;;
+                }
+            }
+            
+            // Thymeleaf template (hello.html):
+            // &lt;div id=&quot;content&quot;&gt;
+            //   &lt;p th:fragment=&quot;message&quot; th:text=&quot;${message}&quot;&gt;&lt;/p&gt;
+            //   &lt;button hx-get=&quot;/update&quot; hx-target=&quot;#content&quot; hx-swap=&quot;innerHTML&quot;&gt;
+            //     Update
+            //   &lt;/button&gt;
+            // &lt;/div&gt;
+            </code></pre>
+        </div>
+    </body>
+</html>

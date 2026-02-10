@@ -25,9 +25,12 @@ jobs:
           java-version: '25'
           check-latest: true
       
+      - name: Set up JBang
+        uses: jbangdev/setup-jbang@v2
+
       - name: Build site with JBang
         run: |
-          java build-site.java
+          jbang run build.java
       
       - name: Configure Git
         run: |

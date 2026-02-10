@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>
+            Java UI - The Complete Guide
+        </title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="https://unpkg.com/htmx.org@2.0.4">
+        </script>
+    </head>
+    <body>
+        <div id="main-content">
+            <div>
+                <a href="index.html" hx-get="index.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true" class="back-link">
+                    ← Back to Home
+                </a>
+            </div>
+            <h1>
+                Gluon Mobile
+            </h1>
+            <img src="https://robintegg.com/images/ui-gluon.png" alt="Gluon Mobile">
+            <p>
+                Status: Production-ready, Actively Maintained
+            </p>
+            <p>
+                Java Version: 17+
+            </p>
+            <p>
+                Learning Curve: Moderate
+            </p>
+            <p>
+                Last Release: JavaFX 25.0.2 (Jan 2026)
+            </p>
+            <a href="https://gluonhq.com/products/mobile/" target="_blank">
+                Gluon Mobile Official Website
+            </a>
+            <div class="tags">
+                <span class="tag">
+                    Mobile UI
+                </span>
+            </div>
+            <p>Gluon Mobile brings JavaFX to iOS and Android platforms, enabling developers to write desktop and mobile applications from a single codebase. Developed by Gluon HQ, who co-lead the OpenJFX project itself, the framework provides commercial JavaFX ports with native integrations for mobile platforms. Gluon provides Scene Builder for drag-and-drop UI design, GluonFX Maven and Gradle plugins for building, and optional cloud build services. The framework supports GraalVM native image compilation for mobile deployment (as iOS has historically required ahead-of-time compilation rather than standard JVM execution) and includes commercial long-term support options. For teams already invested in JavaFX for desktop who want to extend to mobile, Gluon Mobile provides a natural migration path.</p>
+            <h2 id="code-example">Code Example</h2>
+            <pre><code class="language-java">import com.gluonhq.charm.glisten.application.AppManager;
+            import com.gluonhq.charm.glisten.control.AppBar;
+            import com.gluonhq.charm.glisten.mvc.View;
+            import javafx.application.Application;
+            import javafx.scene.control.Label;
+            import javafx.stage.Stage;
+            
+            public class HelloGluon extends Application {
+                @Override
+                public void start(Stage stage) {
+                    View view = new View(&quot;Hello&quot;) {
+                        {
+                            setCenter(new Label(&quot;Hello, Gluon Mobile!&quot;));
+                        }
+                        
+                        @Override
+                        protected void updateAppBar(AppBar appBar) {
+                            appBar.setTitleText(&quot;Gluon Example&quot;);
+                        }
+                    };
+                    
+                    AppManager.initialize();
+                    AppManager.getInstance().addViewFactory(&quot;hello&quot;, () -&gt; view);
+                    AppManager.getInstance().start(stage);
+                }
+            }
+            </code></pre>
+        </div>
+    </body>
+</html>

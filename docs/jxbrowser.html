@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>
+            Java UI - The Complete Guide
+        </title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="https://unpkg.com/htmx.org@2.0.4">
+        </script>
+    </head>
+    <body>
+        <div id="main-content">
+            <div>
+                <a href="index.html" hx-get="index.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true" class="back-link">
+                    ← Back to Home
+                </a>
+            </div>
+            <h1>
+                JxBrowser
+            </h1>
+            <img src="https://robintegg.com/images/ui-jxbrowser.png" alt="JxBrowser">
+            <p>
+                Status: Production-ready, Commercial
+            </p>
+            <p>
+                Java Version: 17+
+            </p>
+            <p>
+                Learning Curve: Moderate
+            </p>
+            <p>
+                Last Release: v8.11.0 (2025)
+            </p>
+            <a href="https://www.teamdev.com/jxbrowser" target="_blank">
+                JxBrowser Official Website
+            </a>
+            <div class="tags">
+                <span class="tag">
+                    Desktop UI
+                </span>
+            </div>
+            <p>JxBrowser is a commercial Chromium integration solution from TeamDev that provides superior architecture compared to JCEF. It supports Swing, JavaFX, and SWT with separate process isolation, regular Chromium upgrades (every 3-4 weeks after stable releases), and comprehensive features including hardware acceleration, HiDPI/Retina support, Chrome extensions, PDF rendering, network interception, and DOM manipulation. The Chromium sandbox is fully enabled on Windows and macOS, providing better security than alternatives. With a 30-day free trial and perpetual licensing starting at $1,799 for indie developers, JxBrowser is the professional choice when you need enterprise-grade Chromium embedding with excellent technical support.</p>
+            <h2 id="code-example">Code Example</h2>
+            <pre><code class="language-java">import com.teamdev.jxbrowser.browser.Browser;
+            import com.teamdev.jxbrowser.engine.*;
+            import com.teamdev.jxbrowser.view.swing.BrowserView;
+            import javax.swing.*;
+            
+            public class HelloJxBrowser {
+                public static void main(String[] args) {
+                    Engine engine = Engine.newInstance(EngineOptions.newBuilder()
+                        .build());
+                    Browser browser = engine.newBrowser();
+                    browser.navigation().loadUrl(&quot;https://www.example.com&quot;);
+                    
+                    SwingUtilities.invokeLater(() -&gt; {
+                        BrowserView view = BrowserView.newInstance(browser);
+                        JFrame frame = new JFrame(&quot;JxBrowser Example&quot;);
+                        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        frame.add(view, BorderLayout.CENTER);
+                        frame.setSize(800, 600);
+                        frame.setVisible(true);
+                    });
+                }
+            }
+            </code></pre>
+        </div>
+    </body>
+</html>

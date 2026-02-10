@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>
+            Java UI - The Complete Guide
+        </title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="https://unpkg.com/htmx.org@2.0.4">
+        </script>
+    </head>
+    <body>
+        <div id="main-content">
+            <div>
+                <a href="index.html" hx-get="index.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true" class="back-link">
+                    ← Back to Home
+                </a>
+            </div>
+            <h1>
+                Swing + FlatLaf
+            </h1>
+            <img src="https://robintegg.com/images/ui-flatlaf.png" alt="Swing + FlatLaf">
+            <p>
+                Status: Legacy-but-actively-maintained
+            </p>
+            <p>
+                Java Version: 8+ (11+ recommended for HiDPI)
+            </p>
+            <p>
+                Learning Curve: Easy
+            </p>
+            <p>
+                Last Release: FlatLaf 3.7+ (Dec 2025)
+            </p>
+            <a href="https://www.formdev.com/flatlaf/" target="_blank">
+                FlatLaf Official Website
+            </a>
+            <div class="tags">
+                <span class="tag">
+                    Desktop UI
+                </span>
+            </div>
+            <p>Swing may be a legacy framework, but it's far from dead. The IntelliJ plugin ecosystem relies heavily on Swing, and modern look-and-feel libraries like FlatLaf have completely revitalized its appearance. FlatLaf brings flat, modern design inspired by IntelliJ IDEA and Darcula themes, with built-in light and dark modes, HiDPI/Retina support, and cross-platform consistency. It's actively developed by FormDev Software and used in production by commercial applications like Burp Suite, JOSM (OpenStreetMap editor), and countless IntelliJ plugins. If you're building IntelliJ plugins or maintaining Swing applications, FlatLaf makes them look contemporary with minimal effort.</p>
+            <h2 id="code-example">Code Example</h2>
+            <pre><code class="language-java">import com.formdev.flatlaf.FlatDarkLaf;
+            import javax.swing.*;
+            
+            public class HelloSwingFlatLaf {
+                public static void main(String[] args) {
+                    FlatDarkLaf.setup(); // Modern dark theme
+                    
+                    SwingUtilities.invokeLater(() -&gt; {
+                        JFrame frame = new JFrame(&quot;FlatLaf Example&quot;);
+                        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        frame.add(new JLabel(&quot;Hello, Swing with FlatLaf!&quot;, SwingConstants.CENTER));
+                        frame.setSize(300, 200);
+                        frame.setVisible(true);
+                    });
+                }
+            }
+            </code></pre>
+        </div>
+    </body>
+</html>

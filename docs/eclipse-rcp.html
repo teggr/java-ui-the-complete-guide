@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>
+            Java UI - The Complete Guide
+        </title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="https://unpkg.com/htmx.org@2.0.4">
+        </script>
+    </head>
+    <body>
+        <div id="main-content">
+            <div>
+                <a href="index.html" hx-get="index.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true" class="back-link">
+                    ← Back to Home
+                </a>
+            </div>
+            <h1>
+                Eclipse RCP
+            </h1>
+            <img src="https://robintegg.com/images/ui-eclipse-rcp.png" alt="Eclipse RCP">
+            <p>
+                Status: Production-ready, Mature
+            </p>
+            <p>
+                Java Version: 8+
+            </p>
+            <p>
+                Learning Curve: Steep
+            </p>
+            <p>
+                Last Release: Active
+            </p>
+            <a href="https://github.com/eclipse-platform/eclipse.platform.ui/blob/master/docs/Rich_Client_Platform.md" target="_blank">
+                Eclipse RCP GitHub
+            </a>
+            <div class="tags">
+                <span class="tag">
+                    Desktop UI
+                </span>
+            </div>
+            <p>Eclipse RCP is an OSGi-based Rich Client Platform that powers the Eclipse IDE and countless enterprise applications from companies like IBM and SAP. It uses SWT for native widget rendering, giving applications a true native look and feel on each platform. The platform provides complete application infrastructure including window management, perspectives, views, plugin architectures, and update mechanisms. Eclipse RCP applications can support multiple versions of the same library simultaneously thanks to OSGi's sophisticated class loading. While the learning curve is steep due to OSGi and SWT concepts, the result is highly modular, enterprise-grade desktop applications with massive ecosystem support.</p>
+            <h2 id="code-example">Code Example</h2>
+            <pre><code class="language-java">import org.eclipse.swt.SWT;
+            import org.eclipse.swt.widgets.*;
+            
+            public class HelloEclipseRCP {
+                public static void main(String[] args) {
+                    Display display = new Display();
+                    Shell shell = new Shell(display);
+                    shell.setText(&quot;Eclipse RCP Example&quot;);
+                    shell.setSize(300, 200);
+                    
+                    Label label = new Label(shell, SWT.CENTER);
+                    label.setText(&quot;Hello, Eclipse RCP!&quot;);
+                    label.setBounds(50, 80, 200, 30);
+                    
+                    shell.open();
+                    while (!shell.isDisposed()) {
+                        if (!display.readAndDispatch())
+                            display.sleep();
+                    }
+                    display.dispose();
+                }
+            }
+            </code></pre>
+        </div>
+    </body>
+</html>

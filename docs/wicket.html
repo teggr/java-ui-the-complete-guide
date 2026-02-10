@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>
+            Java UI - The Complete Guide
+        </title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="https://unpkg.com/htmx.org@2.0.4">
+        </script>
+    </head>
+    <body>
+        <div id="main-content">
+            <div>
+                <a href="index.html" hx-get="index.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true" class="back-link">
+                    ← Back to Home
+                </a>
+            </div>
+            <h1>
+                Apache Wicket
+            </h1>
+            <img src="https://robintegg.com/images/ui-wicket.png" alt="Apache Wicket">
+            <p>
+                Status: Production-ready, Mature (since 2004)
+            </p>
+            <p>
+                Java Version: 17+ (Wicket 10)
+            </p>
+            <p>
+                Learning Curve: Moderate
+            </p>
+            <p>
+                Last Release: Wicket 10.7.0 (Sep 2025)
+            </p>
+            <a href="https://wicket.apache.org/" target="_blank">
+                Apache Wicket Official Website
+            </a>
+            <div class="tags">
+                <span class="tag">
+                    Web UI
+                </span>
+            </div>
+            <p>Apache Wicket is a component-oriented web framework that brings Swing-like development to the web. It uses pure Java and HTML markup (no XML), with clean separation between markup and logic. Wicket manages stateful web applications automatically, treating models as opaque POJOs that are serialized between requests. The framework's component hierarchy—Pages, Components, Models—feels familiar to desktop developers and enables significant code reuse through Panels. Wicket 10, built on Java 17, includes Ajax support without writing JavaScript, WebSocket integration, and compatibility with Spring, CDI, and Guice. Widely adopted in enterprise environments, Wicket powers thousands of applications deployed worldwide at governments, banks, and universities, having proven its staying power since surviving the mid-2000s Java web framework wars.</p>
+            <h2 id="code-example">Code Example</h2>
+            <pre><code class="language-java">import org.apache.wicket.markup.html.WebPage;
+            import org.apache.wicket.markup.html.basic.Label;
+            
+            public class HelloWicket extends WebPage {
+                public HelloWicket() {
+                    add(new Label(&quot;message&quot;, &quot;Hello, Wicket!&quot;));
+                }
+            }
+            
+            // Corresponding HTML (HelloWicket.html):
+            // &lt;html&gt;
+            //   &lt;body&gt;
+            //     &lt;span wicket:id=&quot;message&quot;&gt;&lt;/span&gt;
+            //   &lt;/body&gt;
+            // &lt;/html&gt;
+            </code></pre>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>
+            Java UI - The Complete Guide
+        </title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="https://unpkg.com/htmx.org@2.0.4">
+        </script>
+    </head>
+    <body>
+        <div id="main-content">
+            <div>
+                <a href="index.html" hx-get="index.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true" class="back-link">
+                    ← Back to Home
+                </a>
+            </div>
+            <h1>
+                NetBeans Platform
+            </h1>
+            <img src="https://robintegg.com/images/ui-netbeans.png" alt="NetBeans Platform">
+            <p>
+                Status: Production-ready, Mature
+            </p>
+            <p>
+                Java Version: 8+
+            </p>
+            <p>
+                Learning Curve: Steep
+            </p>
+            <p>
+                Last Release: Active
+            </p>
+            <a href="https://netbeans.apache.org/" target="_blank">
+                NetBeans Platform Official Website
+            </a>
+            <div class="tags">
+                <span class="tag">
+                    Desktop UI
+                </span>
+            </div>
+            <p>The NetBeans Platform is a full Rich Client Platform (RCP) for building modular desktop applications. NetBeans IDE itself is built on this platform, demonstrating its scalability for large, complex applications. The platform provides 100+ modules covering window management, auto-update systems, file system abstractions, wizards, property sheets, and more. It's Swing-based and includes the Matisse visual GUI builder for drag-and-drop interface design. If you're building complex, modular desktop applications that need plugin architectures and extensive built-in services, NetBeans Platform provides a comprehensive foundation.</p>
+            <h2 id="code-example">Code Example</h2>
+            <pre><code class="language-java">import org.openide.modules.ModuleInstall;
+            import org.openide.windows.WindowManager;
+            import javax.swing.JLabel;
+            import java.awt.BorderLayout;
+            
+            public class HelloNetBeans extends ModuleInstall {
+                @Override
+                public void restored() {
+                    WindowManager.getDefault().invokeWhenUIReady(() -&gt; {
+                        TopComponent tc = new TopComponent();
+                        tc.setLayout(new BorderLayout());
+                        tc.add(new JLabel(&quot;Hello, NetBeans Platform!&quot;), BorderLayout.CENTER);
+                        tc.setDisplayName(&quot;Hello Example&quot;);
+                        tc.open();
+                        tc.requestActive();
+                    });
+                }
+            }
+            </code></pre>
+        </div>
+    </body>
+</html>

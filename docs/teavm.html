@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>
+            Java UI - The Complete Guide
+        </title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="https://unpkg.com/htmx.org@2.0.4">
+        </script>
+    </head>
+    <body>
+        <div id="main-content">
+            <div>
+                <a href="index.html" hx-get="index.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true" class="back-link">
+                    ← Back to Home
+                </a>
+            </div>
+            <h1>
+                TeaVM
+            </h1>
+            <img src="https://robintegg.com/images/ui-teavm.png" alt="TeaVM">
+            <p>
+                Status: Production-ready
+            </p>
+            <p>
+                Java Version: Any (bytecode-based)
+            </p>
+            <p>
+                Learning Curve: Easy
+            </p>
+            <p>
+                Last Release: Active (2025-2026)
+            </p>
+            <a href="https://teavm.org/" target="_blank">
+                TeaVM Official Website
+            </a>
+            <div class="tags">
+                <span class="tag">
+                    Web UI
+                </span>
+            </div>
+            <p>TeaVM is an ahead-of-time compiler that transpiles Java bytecode to JavaScript or WebAssembly, making it work with any JVM language—Java, Kotlin, Scala, or others. Unlike GWT which works on source code, TeaVM operates on bytecode, giving it broader language support. The framework supports the new WebAssembly GC standard for garbage-collected languages and produces readable, optimized JavaScript without requiring npm, Webpack, or other frontend build tools. TeaVM includes JSO (JavaScript Objects) API for JS interop, DOM module for browser APIs, and sophisticated optimizations like dead code elimination. It's used by WebFX (JavaFX apps in browsers) and various projects where backend Java developers want to target the web without learning the JavaScript ecosystem.</p>
+            <h2 id="code-example">Code Example</h2>
+            <pre><code class="language-java">import org.teavm.jso.dom.html.HTMLDocument;
+            import org.teavm.jso.dom.html.HTMLElement;
+            
+            public class HelloTeaVM {
+                public static void main(String[] args) {
+                    HTMLDocument document = HTMLDocument.current();
+                    HTMLElement body = document.getBody();
+                    HTMLElement div = document.createElement(&quot;div&quot;);
+                    div.setInnerHTML(&quot;Hello, TeaVM!&quot;);
+                    body.appendChild(div);
+                }
+            }
+            </code></pre>
+        </div>
+    </body>
+</html>
