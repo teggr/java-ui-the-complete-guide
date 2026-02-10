@@ -3,10 +3,17 @@
         <title>
             Java UI - The Complete Guide
         </title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="https://unpkg.com/htmx.org@2.0.4">
+        </script>
     </head>
     <body>
-        <div>
+        <div id="main-content">
+            <div>
+                <a href="index.html" hx-get="index.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true" class="back-link">
+                    ← Back to Home
+                </a>
+            </div>
             <h1>
                 JCEF
             </h1>
@@ -23,7 +30,7 @@
             <p>
                 Last Release: Active
             </p>
-            <a href="https://github.com/jcefmaven/jcefmaven">
+            <a href="https://github.com/jcefmaven/jcefmaven" target="_blank">
                 jcefmaven GitHub
             </a>
             <div class="tags">

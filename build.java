@@ -98,6 +98,15 @@ private DomContent project(Map<String, List<String>> data, DomContent content) {
   List<String> tags = data.getOrDefault("tags", List.of());
 
   return div(
+    div(
+      a("← Back to Home")
+        .withHref("index.html")
+        .attr("hx-get", "index.html")
+        .attr("hx-target", "body")
+        .attr("hx-swap", "innerHTML transition:true")
+        .attr("hx-push-url", "true")
+        .withClass("back-link")
+    ),
     each(
       h1(name),
       img().withSrc(image).withAlt(name),
@@ -105,13 +114,13 @@ private DomContent project(Map<String, List<String>> data, DomContent content) {
       p("Java Version: " + javaVersion),
       p("Learning Curve: " + learningCurve),
       p("Last Release: " + lastRelease),
-      a(learnMoreText).withHref(learnMoreHref),
+      a(learnMoreText).withHref(learnMoreHref).withTarget("_blank"),
       div(
         each(tags, tag -> span(tag).withClass("tag"))
       ).withClass("tags"),
       content
     )
-  );
+  ).withId("main-content");
 
 }
 
@@ -121,18 +130,32 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
     p("Welcome to the Java UI - The Complete Guide! This site provides an overview of various Java UI frameworks and libraries, along with their status, Java version compatibility, learning curve, last release date, and more. Explore the projects below to find the right Java UI solution for your needs."),
     div(
       each( markdownData.entrySet(), entry -> {
-        return a( entry.getValue().getOrDefault("name", List.of("ProjectX")).get(0) )
-          .withHref( entry.getValue().getOrDefault("learnMoreHref", List.of("#")).get(0) );
+        String htmlFileName = entry.getKey();
+        String projectName = entry.getValue().getOrDefault("name", List.of("ProjectX")).get(0);
+        String imageUrl = entry.getValue().getOrDefault("image", List.of("https://via.placeholder.com/150")).get(0);
+        return a(
+          div(
+            img().withSrc(imageUrl).withAlt(projectName).withClass("project-thumbnail"),
+            div(projectName).withClass("project-name")
+          ).withClass("project-card-content")
+        )
+          .withHref(htmlFileName)
+          .attr("hx-get", htmlFileName)
+          .attr("hx-target", "body")
+          .attr("hx-swap", "innerHTML transition:true")
+          .attr("hx-push-url", "true")
+          .withClass("project-card");
       })
     ).withClass("project-list")
-  );
+  ).withId("main-content");
 }
 
 static HtmlTag output(DomContent content) {
   return html(
     head(
       title("Java UI - The Complete Guide"),
-      link().withRel("stylesheet").withHref("css/style.css")
+      link().withRel("stylesheet").withHref("css/styles.css"),
+      script().withSrc("https://unpkg.com/htmx.org@2.0.4")
     ),
     body(
       content

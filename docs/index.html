@@ -3,10 +3,12 @@
         <title>
             Java UI - The Complete Guide
         </title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="https://unpkg.com/htmx.org@2.0.4">
+        </script>
     </head>
     <body>
-        <div>
+        <div id="main-content">
             <h1>
                 Java UI - The Complete Guide
             </h1>
@@ -14,73 +16,73 @@
                 Welcome to the Java UI - The Complete Guide! This site provides an overview of various Java UI frameworks and libraries, along with their status, Java version compatibility, learning curve, last release date, and more. Explore the projects below to find the right Java UI solution for your needs.
             </p>
             <div class="project-list">
-                <a href="https://www.teamdev.com/jxbrowser">
-                    JxBrowser
-                </a>
-                <a href="https://github.com/reportmill/SnapKit">
+                <a href="snapkit.html" hx-get="snapkit.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
                     SnapKit
                 </a>
-                <a href="https://github.com/wimdeblauwe/htmx-spring-boot">
+                <a href="jxbrowser.html" hx-get="jxbrowser.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
+                    JxBrowser
+                </a>
+                <a href="htmx-spring-boot.html" hx-get="htmx-spring-boot.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
                     HTMX + Spring Boot
                 </a>
-                <a href="https://netbeans.apache.org/">
+                <a href="netbeans-platform.html" hx-get="netbeans-platform.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
                     NetBeans Platform
                 </a>
-                <a href="https://teavm.org/">
+                <a href="teavm.html" hx-get="teavm.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
                     TeaVM
                 </a>
-                <a href="https://jakarta.ee/specifications/faces/">
+                <a href="jakarta-faces.html" hx-get="jakarta-faces.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
                     Jakarta Faces
                 </a>
-                <a href="https://github.com/vdmeer/asciitable">
+                <a href="asciitable.html" hx-get="asciitable.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
                     AsciiTable
                 </a>
-                <a href="https://github.com/crramirez/casciian">
+                <a href="casciian.html" hx-get="casciian.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
                     Casciian
                 </a>
-                <a href="https://github.com/mabe02/lanterna">
+                <a href="lanterna.html" hx-get="lanterna.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
                     Lanterna
                 </a>
-                <a href="https://gluonhq.com/products/mobile/">
-                    Gluon Mobile
-                </a>
-                <a href="https://j2html.com/">
-                    j2html
-                </a>
-                <a href="https://primefaces.github.io/primefaces/">
+                <a href="primefaces.html" hx-get="primefaces.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
                     PrimeFaces
                 </a>
-                <a href="https://www.codenameone.com/">
+                <a href="j2html.html" hx-get="j2html.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
+                    j2html
+                </a>
+                <a href="gluon-mobile.html" hx-get="gluon-mobile.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
+                    Gluon Mobile
+                </a>
+                <a href="codename-one.html" hx-get="codename-one.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
                     Codename One
                 </a>
-                <a href="https://github.com/eclipse-platform/eclipse.platform.ui/blob/master/docs/Rich_Client_Platform.md">
+                <a href="eclipse-rcp.html" hx-get="eclipse-rcp.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
                     Eclipse RCP
                 </a>
-                <a href="https://wicket.apache.org/">
+                <a href="wicket.html" hx-get="wicket.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
                     Apache Wicket
                 </a>
-                <a href="https://github.com/globaltcad/swing-tree">
+                <a href="swing-tree.html" hx-get="swing-tree.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
                     Swing-Tree
                 </a>
-                <a href="https://openjfx.io/">
-                    JavaFX
-                </a>
-                <a href="https://github.com/jcefmaven/jcefmaven">
-                    JCEF
-                </a>
-                <a href="https://github.com/jline/jline3">
+                <a href="jline.html" hx-get="jline.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
                     JLine
                 </a>
-                <a href="https://vaadin.com/">
+                <a href="jcef.html" hx-get="jcef.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
+                    JCEF
+                </a>
+                <a href="vaadin.html" hx-get="vaadin.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
                     Vaadin
                 </a>
-                <a href="https://www.thymeleaf.org/">
+                <a href="javafx.html" hx-get="javafx.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
+                    JavaFX
+                </a>
+                <a href="thymeleaf.html" hx-get="thymeleaf.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
                     Thymeleaf
                 </a>
-                <a href="https://www.formdev.com/flatlaf/">
+                <a href="flatlaf.html" hx-get="flatlaf.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
                     Swing + FlatLaf
                 </a>
-                <a href="https://github.com/flatscrew/latte">
+                <a href="latte.html" hx-get="latte.html" hx-target="body" hx-swap="innerHTML transition:true" hx-push-url="true">
                     Latte
                 </a>
             </div>
