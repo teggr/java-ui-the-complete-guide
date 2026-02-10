@@ -174,26 +174,44 @@ p {
   margin-top: var(--spacing-xl);
 }
 
-.project-list a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--spacing-md) var(--spacing-lg);
+.project-card {
+  display: block;
   background: linear-gradient(135deg, var(--color-surface) 0%, rgba(255, 155, 80, 0.02) 100%);
   border: 2px solid var(--color-border);
   border-radius: 16px;
   text-decoration: none;
   color: var(--color-text);
-  font-weight: 600;
-  font-size: 1.1rem;
   transition: all var(--transition-speed) var(--transition-smooth);
   position: relative;
   overflow: hidden;
-  min-height: 100px;
+}
+
+.project-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-md);
+  gap: var(--spacing-sm);
+}
+
+.project-thumbnail {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.project-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: var(--spacing-xs) 0;
 }
 
 /* Sweeping accent line on hover */
-.project-list a::before {
+.project-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -205,13 +223,14 @@ p {
     var(--color-primary) 50%, 
     transparent 100%);
   transition: left 0.6s var(--transition-smooth);
+  z-index: 10;
 }
 
-.project-list a:hover::before {
+.project-card:hover::before {
   left: 100%;
 }
 
-.project-list a:hover {
+.project-card:hover {
   transform: translateY(-4px);
   border-color: var(--color-primary);
   box-shadow: 
@@ -220,7 +239,11 @@ p {
   background: linear-gradient(135deg, var(--color-surface) 0%, rgba(255, 155, 80, 0.05) 100%);
 }
 
-.project-list a:active {
+.project-card:hover .project-thumbnail {
+  transform: scale(1.02);
+}
+
+.project-card:active {
   transform: translateY(-2px);
 }
 

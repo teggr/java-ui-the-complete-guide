@@ -132,12 +132,19 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
       each( markdownData.entrySet(), entry -> {
         String htmlFileName = entry.getKey();
         String projectName = entry.getValue().getOrDefault("name", List.of("ProjectX")).get(0);
-        return a(projectName)
+        String imageUrl = entry.getValue().getOrDefault("image", List.of("https://via.placeholder.com/150")).get(0);
+        return a(
+          div(
+            img().withSrc(imageUrl).withAlt(projectName).withClass("project-thumbnail"),
+            div(projectName).withClass("project-name")
+          ).withClass("project-card-content")
+        )
           .withHref(htmlFileName)
           .attr("hx-get", htmlFileName)
           .attr("hx-target", "body")
           .attr("hx-swap", "innerHTML transition:true")
-          .attr("hx-push-url", "true");
+          .attr("hx-push-url", "true")
+          .withClass("project-card");
       })
     ).withClass("project-list")
   ).withId("main-content");
