@@ -21,7 +21,7 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
-          distribution: 'oracle'
+          distribution: 'temurin'
           java-version: '25'
           check-latest: true
       
