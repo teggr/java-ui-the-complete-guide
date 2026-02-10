@@ -151,6 +151,13 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
     h1("Java UI - The Complete Guide"),
     p("Welcome to the Java UI - The Complete Guide! This site provides an overview of various Java UI frameworks and libraries, along with their status, Java version compatibility, learning curve, last release date, and more. Explore the projects below to find the right Java UI solution for your needs."),
     div(
+      a("🚀 Contribute on GitHub")
+        .withHref("https://github.com/teggr/java-ui-the-complete-guide")
+        .withTarget("_blank")
+        .withRel("noopener noreferrer")
+        .withClass("github-cta")
+    ).withClass("github-cta-container"),
+    div(
       each( markdownData.entrySet(), entry -> {
         String htmlFileName = entry.getKey();
         String projectName = entry.getValue().getOrDefault("name", List.of("ProjectX")).get(0);

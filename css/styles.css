@@ -120,6 +120,19 @@ p {
   max-width: 70ch;
 }
 
+/* === Index Page Header Styles === */
+#main-content > h1:first-of-type {
+  text-align: center;
+  max-width: 100%;
+}
+
+#main-content > p:first-of-type {
+  text-align: center;
+  max-width: 80ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* === Main Content Container === */
 #main-content {
   max-width: 1400px;
@@ -246,6 +259,62 @@ p {
 
 .project-card:active {
   transform: translateY(-2px);
+}
+
+/* === GitHub CTA Button === */
+.github-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  margin: var(--spacing-lg) auto;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 
+    0 4px 12px rgba(255, 155, 80, 0.3),
+    0 0 0 1px rgba(255, 155, 80, 0.1);
+  transition: all var(--transition-speed) var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.github-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.3) 50%, 
+    transparent 100%);
+  transition: left 0.6s var(--transition-smooth);
+}
+
+.github-cta:hover::before {
+  left: 100%;
+}
+
+.github-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 20px rgba(255, 155, 80, 0.4),
+    0 0 0 1px rgba(255, 155, 80, 0.2);
+}
+
+.github-cta:active {
+  transform: translateY(0);
+}
+
+.github-cta-container {
+  text-align: center;
+  margin: var(--spacing-xl) 0;
 }
 
 /* === Back Link === */
