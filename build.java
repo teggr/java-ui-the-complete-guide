@@ -21,10 +21,10 @@ void main(String... args) throws IOException {
   System.out.println("Building java-ui-the-complete-guide static site...");
 
   // Create docs directory if it doesn't exist
-  Path docsDir = Paths.get("docs");
-  if (!Files.exists(docsDir)) {
-    Files.createDirectory(docsDir);
-    System.out.println("Created docs directory");
+  Path outputDirectory = Paths.get("_site");
+  if (!Files.exists(outputDirectory)) {
+    Files.createDirectory(outputDirectory);
+    System.out.println("Created output directory");
   }
 
   // collect all markdown data in a map, key is html file name, value is the data from the markdown file
@@ -64,7 +64,7 @@ void main(String... args) throws IOException {
 
         markdownData.put( htmlFileName, frontMatterVisitor.getData() );
 
-        Path htmlPath = docsDir.resolve(htmlFileName);
+        Path htmlPath = outputDirectory.resolve(htmlFileName);
         Files.writeString(htmlPath, finalHtml);
         System.out.println("Generated " + htmlFileName);
       } catch (IOException e) {
@@ -72,14 +72,36 @@ void main(String... args) throws IOException {
       }
     });
 
-
   // Generate index.html
   StringWriter writer = new StringWriter();
   writer.append(output(indexPage(markdownData)).render(IndentedHtml.inMemory()));
   String html = writer.toString();
-  Path indexPath = docsDir.resolve("index.html");
+  Path indexPath = outputDirectory.resolve("index.html");
   Files.writeString(indexPath, html);
   System.out.println("Generated index.html");
+
+  // copy the css directory and all the files inside to the output directory
+  Path cssSource = Paths.get("css");
+  Path cssTarget = outputDirectory.resolve("css");
+  if (Files.exists(cssSource) && Files.isDirectory(cssSource)) {
+    Files.walk(cssSource).forEach(source -> {
+      try {
+        Path target = cssTarget.resolve(cssSource.relativize(source));
+        if (Files.isDirectory(source)) {
+          if (!Files.exists(target)) {
+            Files.createDirectory(target);
+          }
+        } else {
+          Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
+        }
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    });
+    System.out.println("Copied css directory");
+  } else {
+    System.out.println("No css directory found, skipping copy");
+  }
 
   System.out.println("Site build completed successfully!");
 
