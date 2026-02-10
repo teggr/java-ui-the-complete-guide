@@ -22,7 +22,8 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17'
+          java-version: '25'
+          check-latest: true
       
       - name: Build site with JBang
         run: |
