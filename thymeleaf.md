@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: Active
 learnMoreText: Thymeleaf Official Website
 learnMoreHref: https://www.thymeleaf.org/
-image: https://robintegg.com/images/ui-thymeleaf.png
+image: /images/ui-thymeleaf.png
 tags:
     - Web UI
 ---

@@ -6,7 +6,7 @@ learningCurve: Steep
 lastRelease: GXT 10.1 (2023)
 learnMoreText: Sencha GXT Website
 learnMoreHref: https://www.sencha.com/products/gxt/
-image: https://robintegg.com/images/ui-sencha-gxt.png
+image: /images/ui-sencha-gxt.png
 tags:
     - Web UI
     - Web Framework

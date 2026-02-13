@@ -6,7 +6,7 @@ learningCurve: Moderate
 lastRelease: v2.0.0 (2024)
 learnMoreText: Domino UI Website
 learnMoreHref: https://dominokit.github.io/domino-ui/
-image: https://robintegg.com/images/ui-dominokit.png
+image: /images/ui-dominokit.png
 tags:
     - Web UI
     - UI Components

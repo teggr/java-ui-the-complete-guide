@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: Last activity 2020
 learnMoreText: tui4j GitHub
 learnMoreHref: https://github.com/WilliamAGH/tui4j
-image: https://robintegg.com/images/ui-tui4j.png
+image: /images/ui-tui4j.png
 tags:
     - Terminal UI
 ---

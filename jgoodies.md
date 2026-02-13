@@ -6,7 +6,7 @@ learningCurve: Easy-Moderate
 lastRelease: v1.9.0 (2016)
 learnMoreText: JGoodies Website
 learnMoreHref: https://www.jgoodies.com/
-image: https://robintegg.com/images/ui-jgoodies.png
+image: /images/ui-jgoodies.png
 tags:
     - Desktop UI
     - UI Components

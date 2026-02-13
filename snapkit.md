@@ -6,7 +6,7 @@ learningCurve: Easy-Moderate
 lastRelease: v2025.12 (Dec 2025)
 learnMoreText: SnapKit GitHub
 learnMoreHref: https://github.com/reportmill/SnapKit
-image: https://robintegg.com/images/ui-snapkit.png
+image: /images/ui-snapkit.png
 tags:
     - Desktop UI
 ---
