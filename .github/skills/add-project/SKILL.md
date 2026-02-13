@@ -1,3 +1,8 @@
+---
+name: Add project
+description: Create a new markdown documentation file for a Java UI library project following the defined template and workflow. This includes researching the library, writing a description, creating a code example, acquiring an image, and ensuring all metadata is accurate.
+---
+
 # Java UI Library Documentation Skill
 
 This document describes the workflow and templates for creating documentation entries for Java UI libraries in this project.
