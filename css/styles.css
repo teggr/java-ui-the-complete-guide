@@ -117,7 +117,7 @@ p {
   color: var(--color-text);
 }
 
-/* Limit width on index page only */
+/* Constrain width for better readability on index page intro */
 #main-content > p:first-of-type {
   max-width: 80ch;
 }
@@ -269,7 +269,6 @@ p {
   border: none;
   border-radius: 50px;
   text-decoration: none;
-  color: var(--color-bg) !important;
   font-weight: 600;
   font-size: 1rem;
   transition: all var(--transition-speed) var(--transition-smooth);
@@ -277,13 +276,15 @@ p {
   overflow: hidden;
 }
 
-.github-cta i {
-  font-size: 1.2rem;
-  color: var(--color-bg) !important;
+/* Ensure all text content in button is light colored */
+.github-cta,
+.github-cta i,
+.github-cta span {
+  color: var(--color-bg);
 }
 
-.github-cta * {
-  color: var(--color-bg) !important;
+.github-cta i {
+  font-size: 1.2rem;
 }
 
 .github-cta::before {
