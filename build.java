@@ -179,7 +179,17 @@ private DomContent project(Map<String, List<String>> data, DomContent content) {
         i().withClass("bi bi-box-arrow-up-right")
       ).withHref(learnMoreHref).withTarget("_blank"),
       div(
-        each(tags, tag -> span(tag).withClass("tag"))
+        each(tags, tag -> {
+          String tagSlug = tagToSlug(tag);
+          String tagFileName = "tag-" + tagSlug + ".html";
+          return a(tag)
+            .withHref(tagFileName)
+            .attr("hx-get", tagFileName)
+            .attr("hx-target", "body")
+            .attr("hx-swap", "innerHTML transition:true")
+            .attr("hx-push-url", "true")
+            .withClass("tag");
+        })
       ).withClass("tags"),
       content
     )
@@ -252,6 +262,7 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
   return div(
     h1("Java UI - The Complete Guide"),
     p("Welcome to the Java UI - The Complete Guide! This site provides an overview of various Java UI projects, frameworks and libraries, along with their status, Java version compatibility, learning curve, last release date, and more. Explore the projects below to find the right Java UI solution for your needs."),
+    p("This is a community-driven resource, built by Java developers for Java developers. Whether you're discovering a new framework, sharing your expertise, or helping others navigate the Java UI landscape - your contributions make this guide better for everyone. Join us in building the most comprehensive resource for Java UI development!"),
     div(
       a(
         i().withClass("bi bi-github"),
@@ -260,30 +271,8 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
         .withHref("https://github.com/teggr/java-ui-the-complete-guide")
         .withTarget("_blank")
         .withRel("noopener noreferrer")
-        .withClass("github-cta"),
-      button(
-        i().withClass("bi bi-tags-fill"),
-        text(" Show all tags")
-      )
-        .withId("toggle-tags-btn")
-        .withClass("github-cta tags-cta")
+        .withClass("github-cta")
     ).withClass("github-cta-container"),
-    div(
-      hr().withClass("tag-separator"),
-      div(
-        each(uniqueTags, tag -> {
-          String tagSlug = tagToSlug(tag);
-          String tagFileName = "tag-" + tagSlug + ".html";
-          return a(tag)
-            .withHref(tagFileName)
-            .attr("hx-get", tagFileName)
-            .attr("hx-target", "body")
-            .attr("hx-swap", "innerHTML transition:true")
-            .attr("hx-push-url", "true")
-            .withClass("tag-cloud-item");
-        })
-      ).withClass("tag-cloud")
-    ).withClass("tag-cloud-section").withId("tag-cloud-section").withClass("hidden"),
     div(
       each( markdownData.entrySet(), entry -> {
         String htmlFileName = entry.getKey();
@@ -302,7 +291,23 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
           .attr("hx-push-url", "true")
           .withClass("project-card");
       })
-    ).withClass("project-list")
+    ).withClass("project-list"),
+    div(
+      hr().withClass("tag-separator"),
+      div(
+        each(uniqueTags, tag -> {
+          String tagSlug = tagToSlug(tag);
+          String tagFileName = "tag-" + tagSlug + ".html";
+          return a(tag)
+            .withHref(tagFileName)
+            .attr("hx-get", tagFileName)
+            .attr("hx-target", "body")
+            .attr("hx-swap", "innerHTML transition:true")
+            .attr("hx-push-url", "true")
+            .withClass("tag-cloud-item");
+        })
+      ).withClass("tag-cloud")
+    ).withClass("tag-cloud-section")
   ).withId("main-content");
 }
 
@@ -315,26 +320,7 @@ static HtmlTag output(DomContent content) {
       link().withRel("stylesheet").withHref("https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap"),
       link().withRel("stylesheet").withHref("css/styles.css"),
       link().withRel("stylesheet").withHref("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"),
-      script().withSrc("https://unpkg.com/htmx.org@2.0.4"),
-      script(rawHtml("""
-        document.addEventListener('DOMContentLoaded', function() {
-          const tagCloud = document.getElementById('tag-cloud-section');
-          const btn = document.getElementById('toggle-tags-btn');
-          
-          if (btn) {
-            btn.addEventListener('click', function() {
-              tagCloud.classList.toggle('hidden');
-              const icon = btn.querySelector('i');
-              const isHidden = tagCloud.classList.contains('hidden');
-              
-              // Clear and rebuild button content safely
-              btn.textContent = '';
-              btn.appendChild(icon);
-              btn.appendChild(document.createTextNode(isHidden ? ' Show all tags' : ' Hide tags'));
-            });
-          }
-        });
-        """))
+      script().withSrc("https://unpkg.com/htmx.org@2.0.4")
     ),
     body(
       content

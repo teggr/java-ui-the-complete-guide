@@ -117,18 +117,15 @@ p {
   color: var(--color-text);
 }
 
-/* Constrain width for better readability on index page intro */
-#main-content > p:first-of-type {
-  max-width: 80ch;
-}
-
 /* === Index Page Header Styles === */
 #main-content > h1:first-of-type {
   text-align: center;
   max-width: 100%;
 }
 
-#main-content > p:first-of-type {
+/* Style both intro paragraphs with centered text and constrained width */
+#main-content > p:first-of-type,
+#main-content > p:nth-of-type(2) {
   text-align: center;
   max-width: 80ch;
   margin-left: auto;
@@ -382,7 +379,7 @@ img:hover {
 }
 
 /* === Links === */
-a:not(.back-link):not(.project-list a):not(.github-cta) {
+a:not(.back-link):not(.project-list a):not(.github-cta):not(.tag-cloud-item):not(.tag) {
   color: var(--color-primary);
   text-decoration: underline;
   text-decoration-color: var(--color-primary);
@@ -393,7 +390,7 @@ a:not(.back-link):not(.project-list a):not(.github-cta) {
   transition: color var(--transition-speed) var(--transition-smooth);
 }
 
-a:not(.back-link):not(.project-list a):not(.github-cta):hover {
+a:not(.back-link):not(.project-list a):not(.github-cta):not(.tag-cloud-item):not(.tag):hover {
   color: var(--color-primary-dark);
   text-decoration-color: var(--color-primary-dark);
 }
@@ -421,6 +418,7 @@ a[target="_blank"]:not(.back-link):not(.project-list a) i {
   border-radius: 50px;
   font-size: 0.85rem;
   font-weight: 600;
+  text-decoration: none;
   transition: transform var(--transition-speed) var(--transition-smooth);
 }
 
