@@ -269,6 +269,7 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
         text(" Browse by Platform")
       )
         .withHref("#tags-section")
+        .attr("hx-boost", "false")
         .withClass("github-cta"),
       a(
         i().withClass("bi bi-github"),
