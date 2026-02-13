@@ -115,7 +115,11 @@ h2 {
 p {
   margin-bottom: var(--spacing-sm);
   color: var(--color-text);
-  max-width: 70ch;
+}
+
+/* Constrain width for better readability on index page intro */
+#main-content > p:first-of-type {
+  max-width: 80ch;
 }
 
 /* === Index Page Header Styles === */
@@ -265,7 +269,6 @@ p {
   border: none;
   border-radius: 50px;
   text-decoration: none;
-  color: var(--color-bg);
   font-weight: 600;
   font-size: 1rem;
   transition: all var(--transition-speed) var(--transition-smooth);
@@ -273,9 +276,15 @@ p {
   overflow: hidden;
 }
 
+/* Ensure all text content in button is light colored */
+.github-cta,
+.github-cta i,
+.github-cta span {
+  color: var(--color-bg);
+}
+
 .github-cta i {
   font-size: 1.2rem;
-  color: var(--color-bg);
 }
 
 .github-cta::before {
@@ -350,29 +359,25 @@ img:hover {
 /* === Links === */
 a:not(.back-link):not(.project-list a) {
   color: var(--color-primary);
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
   font-weight: 600;
   position: relative;
   transition: color var(--transition-speed) var(--transition-smooth);
 }
 
-a:not(.back-link):not(.project-list a)::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--color-primary);
-  transition: width var(--transition-speed) var(--transition-smooth);
-}
-
 a:not(.back-link):not(.project-list a):hover {
   color: var(--color-primary-dark);
+  text-decoration-color: var(--color-primary-dark);
 }
 
-a:not(.back-link):not(.project-list a):hover::after {
-  width: 100%;
+/* External link icon */
+a[target="_blank"]:not(.back-link):not(.project-list a) i {
+  margin-left: 0.25rem;
+  font-size: 0.9em;
+  vertical-align: baseline;
 }
 
 /* === Tags === */

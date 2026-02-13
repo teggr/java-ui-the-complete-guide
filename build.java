@@ -159,7 +159,10 @@ private DomContent project(Map<String, List<String>> data, DomContent content) {
       p("Java Version: " + javaVersion),
       p("Learning Curve: " + learningCurve),
       p("Last Release: " + lastRelease),
-      a(learnMoreText).withHref(learnMoreHref).withTarget("_blank"),
+      a(
+        text(learnMoreText),
+        i().withClass("bi bi-box-arrow-up-right")
+      ).withHref(learnMoreHref).withTarget("_blank"),
       div(
         each(tags, tag -> span(tag).withClass("tag"))
       ).withClass("tags"),
