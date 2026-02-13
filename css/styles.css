@@ -317,6 +317,31 @@ p {
 .github-cta-container {
   text-align: center;
   margin: var(--spacing-xl) 0;
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+/* Tags CTA Button - styled as a button element */
+.tags-cta {
+  cursor: pointer;
+  font-family: var(--font-family);
+}
+
+button.github-cta {
+  border: none;
+  background: var(--color-primary);
+  cursor: pointer;
+}
+
+button.github-cta:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+button.github-cta:active {
+  transform: translateY(0);
 }
 
 /* === Back Link === */
@@ -474,6 +499,11 @@ code {
 }
 
 /* === Accessibility === */
+/* Hidden utility class */
+.hidden {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
