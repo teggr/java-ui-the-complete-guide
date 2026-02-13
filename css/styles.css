@@ -499,6 +499,11 @@ code {
 }
 
 /* === Accessibility === */
+/* Hidden utility class */
+.hidden {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
