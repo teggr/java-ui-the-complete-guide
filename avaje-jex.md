@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: v2.5 (2025)
 learnMoreText: Avaje Jex GitHub
 learnMoreHref: https://github.com/avaje/avaje-jex
-image: images/ui-avaje-jex.png
+image: images/ui-avaje-jex-screenshot.png
 tags:
     - Web Framework
     - Microservices

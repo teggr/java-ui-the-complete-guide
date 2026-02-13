@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: v3.2.3 (2026)
 learnMoreText: JTE Official Website
 learnMoreHref: https://jte.gg/
-image: images/ui-jte.png
+image: images/ui-jte-screenshot.png
 tags:
     - Template Engine
     - Web UI

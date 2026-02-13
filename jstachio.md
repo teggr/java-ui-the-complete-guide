@@ -6,7 +6,7 @@ learningCurve: Easy-Moderate
 lastRelease: v1.3.7 (2025)
 learnMoreText: JStachio Official Website
 learnMoreHref: https://jstach.io/
-image: images/ui-jstachio.png
+image: images/ui-jstachio-screenshot.png
 tags:
     - Template Engine
     - Web UI

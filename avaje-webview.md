@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: Early development
 learnMoreText: Avaje WebView GitHub
 learnMoreHref: https://github.com/avaje/avaje-webview
-image: images/ui-avaje-webview.png
+image: images/ui-avaje-webview-screenshot.png
 tags:
     - Desktop UI
     - Web UI

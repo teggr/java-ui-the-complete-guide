@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: v3.0.0
 learnMoreText: Clique GitHub
 learnMoreHref: https://github.com/kusoroadeolu/Clique
-image: /images/ui-clique.png
+image: images/ui-clique-screenshot.png
 tags:
     - Terminal UI
 ---

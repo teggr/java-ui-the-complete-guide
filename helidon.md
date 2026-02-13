@@ -6,7 +6,7 @@ learningCurve: Moderate
 lastRelease: v4.1.6 (2026)
 learnMoreText: Helidon Official Website
 learnMoreHref: https://helidon.io/
-image: images/ui-helidon.png
+image: images/ui-helidon-screenshot.png
 tags:
     - Web Framework
     - Cloud-Native

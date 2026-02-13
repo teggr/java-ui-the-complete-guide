@@ -6,7 +6,7 @@ learningCurve: Moderate
 lastRelease: v1.14.0 (October 2025)
 learnMoreText: LibGDX Official Website
 learnMoreHref: https://libgdx.com/
-image: images/ui-libgdx.png
+image: images/ui-libgdx-screenshot.png
 tags:
     - Game Development
     - Desktop UI
