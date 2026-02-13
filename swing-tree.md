@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: v0.13.0
 learnMoreText: Swing-Tree GitHub
 learnMoreHref: https://github.com/globaltcad/swing-tree
-image: /images/ui-swing-tree.png
+image: images/ui-swing-tree.png
 tags:
     - Desktop UI
 ---

@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: FlatLaf 3.7+ (Dec 2025)
 learnMoreText: FlatLaf Official Website
 learnMoreHref: https://www.formdev.com/flatlaf/
-image: /images/ui-flatlaf.png
+image: images/ui-flatlaf.png
 tags:
     - Desktop UI
 ---

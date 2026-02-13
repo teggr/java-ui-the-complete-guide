@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: v1.1.0 (2024)
 learnMoreText: Maven Tailwind Plugin GitHub
 learnMoreHref: https://github.com/4ndreiDev/maven-tailwind-plugin
-image: /images/ui-maven-tailwind-plugin.png
+image: images/ui-maven-tailwind-plugin.png
 tags:
     - Build Tools
     - Web UI

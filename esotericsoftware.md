@@ -6,7 +6,7 @@ learningCurve: N/A (End-user applications)
 lastRelease: Ongoing updates
 learnMoreText: Esotericsoftware Website
 learnMoreHref: https://esotericsoftware.com/
-image: /images/ui-esotericsoftware.png
+image: images/ui-esotericsoftware.png
 tags:
     - Desktop UI
     - Game Development

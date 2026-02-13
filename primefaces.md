@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: Active
 learnMoreText: PrimeFaces Official Website
 learnMoreHref: https://primefaces.github.io/primefaces/
-image: /images/ui-primefaces.png
+image: images/ui-primefaces.png
 tags:
     - Web UI
 ---

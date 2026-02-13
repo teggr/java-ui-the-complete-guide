@@ -6,7 +6,7 @@ learningCurve: Moderate
 lastRelease: Wicket 10.7.0 (Sep 2025)
 learnMoreText: Apache Wicket Official Website
 learnMoreHref: https://wicket.apache.org/
-image: /images/ui-wicket.png
+image: images/ui-wicket.png
 tags:
     - Web UI
 ---

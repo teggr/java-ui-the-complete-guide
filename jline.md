@@ -6,7 +6,7 @@ learningCurve: Easy-Moderate
 lastRelease: v4.0.0
 learnMoreText: JLine GitHub
 learnMoreHref: https://github.com/jline/jline3
-image: /images/ui-jline.png
+image: images/ui-jline.png
 tags:
     - Terminal UI
 ---

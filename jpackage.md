@@ -6,7 +6,7 @@ learningCurve: Moderate
 lastRelease: Part of JDK (Updated with each release)
 learnMoreText: JEP 343 - jpackage
 learnMoreHref: https://openjdk.java.net/jeps/343
-image: /images/ui-jpackage.png
+image: images/ui-jpackage.png
 tags:
     - Build Tools
     - Desktop UI

@@ -175,7 +175,7 @@ private DomContent project(Map<String, List<String>> data, DomContent content) {
 static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData) {
   return div(
     h1("Java UI - The Complete Guide"),
-    p("Welcome to the Java UI - The Complete Guide! This site provides an overview of various Java UI frameworks and libraries, along with their status, Java version compatibility, learning curve, last release date, and more. Explore the projects below to find the right Java UI solution for your needs."),
+    p("Welcome to the Java UI - The Complete Guide! This site provides an overview of various Java UI projects, frameworks and libraries, along with their status, Java version compatibility, learning curve, last release date, and more. Explore the projects below to find the right Java UI solution for your needs."),
     div(
       a(
         i().withClass("bi bi-github"),

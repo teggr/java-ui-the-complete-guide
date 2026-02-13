@@ -6,7 +6,7 @@ learningCurve: Steep
 lastRelease: Active
 learnMoreText: Eclipse RCP GitHub
 learnMoreHref: https://github.com/eclipse-platform/eclipse.platform.ui/blob/master/docs/Rich_Client_Platform.md
-image: /images/ui-eclipse-rcp.png
+image: images/ui-eclipse-rcp.png
 tags:
     - Desktop UI
 ---

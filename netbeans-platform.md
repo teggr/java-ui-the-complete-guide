@@ -6,7 +6,7 @@ learningCurve: Steep
 lastRelease: Active
 learnMoreText: NetBeans Platform Official Website
 learnMoreHref: https://netbeans.apache.org/
-image: /images/ui-netbeans.png
+image: images/ui-netbeans.png
 tags:
     - Desktop UI
 ---

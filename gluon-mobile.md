@@ -6,7 +6,7 @@ learningCurve: Moderate
 lastRelease: JavaFX 25.0.2 (Jan 2026)
 learnMoreText: Gluon Mobile Official Website
 learnMoreHref: https://gluonhq.com/products/mobile/
-image: /images/ui-gluon.png
+image: images/ui-gluon.png
 tags:
     - Mobile UI
 ---

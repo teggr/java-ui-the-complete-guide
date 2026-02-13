@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: v0.0.8 (2023)
 learnMoreText: JavaFX Maven Plugin GitHub
 learnMoreHref: https://github.com/openjfx/javafx-maven-plugin
-image: /images/ui-javafx-maven-plugin.png
+image: images/ui-javafx-maven-plugin.png
 tags:
     - Build Tools
     - Desktop UI

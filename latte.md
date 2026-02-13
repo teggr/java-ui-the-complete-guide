@@ -6,7 +6,7 @@ learningCurve: Easy-Moderate
 lastRelease: v0.1.1
 learnMoreText: Latte GitHub
 learnMoreHref: https://github.com/flatscrew/latte
-image: /images/ui-latte.png
+image: images/ui-latte.png
 tags:
     - Terminal UI
 ---

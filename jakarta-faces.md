@@ -6,7 +6,7 @@ learningCurve: Moderate
 lastRelease: Active
 learnMoreText: Jakarta Faces Official Website
 learnMoreHref: https://jakarta.ee/specifications/faces/
-image: /images/ui-jsf.png
+image: images/ui-jsf.png
 tags:
     - Web UI
 ---

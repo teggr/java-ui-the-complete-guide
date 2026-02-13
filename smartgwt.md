@@ -6,7 +6,7 @@ learningCurve: Steep
 lastRelease: v13.1 (2024)
 learnMoreText: SmartGWT Website
 learnMoreHref: https://www.smartclient.com/product/smartgwt.jsp
-image: /images/ui-smartgwt.png
+image: images/ui-smartgwt.png
 tags:
     - Web UI
     - Web Framework

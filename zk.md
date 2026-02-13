@@ -6,7 +6,7 @@ learningCurve: Moderate
 lastRelease: ZK 10.0.0 (2024)
 learnMoreText: ZK Framework Website
 learnMoreHref: https://www.zkoss.org/
-image: /images/ui-zk.png
+image: images/ui-zk.png
 tags:
     - Web UI
     - Web Framework

@@ -25,7 +25,7 @@ learningCurve: Moderate               # Difficulty (Easy, Easy-Moderate, Moderat
 lastRelease: v1.2.3 (January 2026)   # Latest version with date or "Active"/"Ongoing"
 learnMoreText: Official Website       # Link text for documentation
 learnMoreHref: https://example.com/   # URL to official docs
-image: images/ui-libraryname.png      # Image path (local: images/ui-*.png or external URL)
+image: images/ui-libraryname.png      # Image path - MUST use relative path (images/ui-*.png), NOT absolute (/images/)
 tags:                                 # Array of category tags
     - Desktop UI
     - Web UI
@@ -132,6 +132,14 @@ curl -L "https://example.com/logo.png" -o images/ui-libraryname.png
 # From GitHub raw
 curl -L "https://github.com/{owner}/{repo}/raw/main/logo.png" -o images/ui-libraryname.png
 ```
+
+**Important: Image Path Format**
+
+Always use **relative paths** in the `image:` field:
+- ✅ Correct: `image: images/ui-libraryname.png`
+- ❌ Wrong: `image: /images/ui-libraryname.png`
+
+Absolute paths starting with `/` break when the site is deployed to GitHub Pages under a subdirectory. Relative paths work correctly in all deployment scenarios.
 
 ## File Naming Conventions
 
@@ -257,6 +265,7 @@ Requirements:
 5. Assess learning curve (Easy/Moderate/Steep) based on API complexity
 6. Download logo/image and save to images/ui-[kebab-name].png
 7. Use YAML front matter schema defined above
+8. IMPORTANT: Use relative image path (images/ui-*.png) NOT absolute path (/images/ui-*.png)
 
 Output should be a complete markdown file ready to commit.
 ```
@@ -284,6 +293,7 @@ Before committing a new library entry:
 - [ ] Code example includes imports
 - [ ] Image file exists in images/ directory
 - [ ] Image displays correctly (not corrupt)
+- [ ] Image path uses relative format (images/ui-*.png, NOT /images/ui-*.png)
 - [ ] Filename uses kebab-case
 - [ ] Tags are appropriate and consistent
 - [ ] URL is validated and accessible

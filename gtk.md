@@ -6,7 +6,7 @@ learningCurve: Moderate-Steep
 lastRelease: Early development (2024)
 learnMoreText: java-gtk GitHub
 learnMoreHref: https://github.com/bailuk/java-gtk
-image: /images/ui-gtk.png
+image: images/ui-gtk.png
 tags:
     - Desktop UI
 ---

@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: v1.5.3 (2023)
 learnMoreText: VisUI GitHub
 learnMoreHref: https://github.com/kotcrab/vis-ui
-image: /images/ui-visui.png
+image: images/ui-visui.png
 tags:
     - Game Development
     - UI Components
