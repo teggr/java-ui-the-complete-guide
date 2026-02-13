@@ -265,6 +265,12 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
     p("This is a community-driven resource, built by Java developers for Java developers. Whether you're discovering a new framework, sharing your expertise, or helping others navigate the Java UI landscape - your contributions make this guide better for everyone. Join us in building the most comprehensive resource for Java UI development!"),
     div(
       a(
+        i().withClass("bi bi-tags"),
+        text(" Browse by Platform")
+      )
+        .withHref("#tags-section")
+        .withClass("github-cta"),
+      a(
         i().withClass("bi bi-github"),
         text(" Contribute on GitHub")
       )
@@ -307,7 +313,7 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
             .withClass("tag-cloud-item");
         })
       ).withClass("tag-cloud")
-    ).withClass("tag-cloud-section")
+    ).withClass("tag-cloud-section").withId("tags-section")
   ).withId("main-content");
 }
 
