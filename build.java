@@ -80,6 +80,21 @@ void main(String... args) throws IOException {
   Files.writeString(indexPath, html);
   System.out.println("Generated index.html");
 
+  // Collect unique tags from all markdown data
+  Set<String> uniqueTags = collectUniqueTags(markdownData);
+
+  // Generate tag pages
+  for (String tag : uniqueTags) {
+    String tagSlug = tagToSlug(tag);
+    String tagFileName = "tag-" + tagSlug + ".html";
+    StringWriter tagWriter = new StringWriter();
+    tagWriter.append(output(tagPage(tag, markdownData)).render(IndentedHtml.inMemory()));
+    String tagHtml = tagWriter.toString();
+    Path tagPath = outputDirectory.resolve(tagFileName);
+    Files.writeString(tagPath, tagHtml);
+    System.out.println("Generated " + tagFileName + " for tag: " + tag);
+  }
+
   // copy the css directory and all the files inside to the output directory
   Path cssSource = Paths.get("css");
   Path cssTarget = outputDirectory.resolve("css");
@@ -172,7 +187,68 @@ private DomContent project(Map<String, List<String>> data, DomContent content) {
 
 }
 
+private static Set<String> collectUniqueTags(Map<String, Map<String, List<String>>> markdownData) {
+  Set<String> uniqueTags = new HashSet<>();
+  for (Map<String, List<String>> data : markdownData.values()) {
+    List<String> tags = data.getOrDefault("tags", List.of());
+    uniqueTags.addAll(tags);
+  }
+  return uniqueTags;
+}
+
+private static String tagToSlug(String tag) {
+  return tag.toLowerCase()
+    .replaceAll("\\s+", "-")
+    .replaceAll("[^a-z0-9-]", "");
+}
+
+static DomContent tagPage(String tag, Map<String, Map<String, List<String>>> markdownData) {
+  // Filter projects by tag
+  Map<String, Map<String, List<String>>> filteredProjects = new HashMap<>();
+  for (Map.Entry<String, Map<String, List<String>>> entry : markdownData.entrySet()) {
+    List<String> projectTags = entry.getValue().getOrDefault("tags", List.of());
+    if (projectTags.contains(tag)) {
+      filteredProjects.put(entry.getKey(), entry.getValue());
+    }
+  }
+  
+  return div(
+    div(
+      a("← Back to Home")
+        .withHref("index.html")
+        .attr("hx-get", "index.html")
+        .attr("hx-target", "body")
+        .attr("hx-swap", "innerHTML transition:true")
+        .attr("hx-push-url", "true")
+        .withClass("back-link")
+    ),
+    h1("Projects tagged: " + tag),
+    div(
+      each(filteredProjects.entrySet(), entry -> {
+        String htmlFileName = entry.getKey();
+        String projectName = entry.getValue().getOrDefault("name", List.of("ProjectX")).get(0);
+        String imageUrl = entry.getValue().getOrDefault("image", List.of("https://via.placeholder.com/150")).get(0);
+        return a(
+          div(
+            img().withSrc(imageUrl).withAlt(projectName).withClass("project-thumbnail"),
+            div(projectName).withClass("project-name")
+          ).withClass("project-card-content")
+        )
+          .withHref(htmlFileName)
+          .attr("hx-get", htmlFileName)
+          .attr("hx-target", "body")
+          .attr("hx-swap", "innerHTML transition:true")
+          .attr("hx-push-url", "true")
+          .withClass("project-card");
+      })
+    ).withClass("project-list")
+  ).withId("main-content");
+}
+
 static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData) {
+  // Collect unique tags
+  Set<String> uniqueTags = collectUniqueTags(markdownData);
+  
   return div(
     h1("Java UI - The Complete Guide"),
     p("Welcome to the Java UI - The Complete Guide! This site provides an overview of various Java UI projects, frameworks and libraries, along with their status, Java version compatibility, learning curve, last release date, and more. Explore the projects below to find the right Java UI solution for your needs."),
@@ -186,6 +262,22 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
         .withRel("noopener noreferrer")
         .withClass("github-cta")
     ).withClass("github-cta-container"),
+    div(
+      hr().withClass("tag-separator"),
+      div(
+        each(uniqueTags, tag -> {
+          String tagSlug = tagToSlug(tag);
+          String tagFileName = "tag-" + tagSlug + ".html";
+          return a(tag)
+            .withHref(tagFileName)
+            .attr("hx-get", tagFileName)
+            .attr("hx-target", "body")
+            .attr("hx-swap", "innerHTML transition:true")
+            .attr("hx-push-url", "true")
+            .withClass("tag-cloud-item");
+        })
+      ).withClass("tag-cloud")
+    ).withClass("tag-cloud-section"),
     div(
       each( markdownData.entrySet(), entry -> {
         String htmlFileName = entry.getKey();
