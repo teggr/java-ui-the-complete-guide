@@ -357,7 +357,7 @@ img:hover {
 }
 
 /* === Links === */
-a:not(.back-link):not(.project-list a) {
+a:not(.back-link):not(.project-list a):not(.github-cta) {
   color: var(--color-primary);
   text-decoration: underline;
   text-decoration-color: var(--color-primary);
@@ -368,7 +368,7 @@ a:not(.back-link):not(.project-list a) {
   transition: color var(--transition-speed) var(--transition-smooth);
 }
 
-a:not(.back-link):not(.project-list a):hover {
+a:not(.back-link):not(.project-list a):not(.github-cta):hover {
   color: var(--color-primary-dark);
   text-decoration-color: var(--color-primary-dark);
 }
