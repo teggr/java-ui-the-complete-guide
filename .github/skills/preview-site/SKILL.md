@@ -1,5 +1,4 @@
 ---
-name: preview-site
 description: Start a local web server to preview the generated static site. Use this when asked to preview the site, start a preview server, or view the site locally.
 ---
 
