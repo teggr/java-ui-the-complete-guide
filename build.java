@@ -260,7 +260,13 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
         .withHref("https://github.com/teggr/java-ui-the-complete-guide")
         .withTarget("_blank")
         .withRel("noopener noreferrer")
-        .withClass("github-cta")
+        .withClass("github-cta"),
+      button(
+        i().withClass("bi bi-tags-fill"),
+        text(" Show all tags")
+      )
+        .withId("toggle-tags-btn")
+        .withClass("github-cta tags-cta")
     ).withClass("github-cta-container"),
     div(
       hr().withClass("tag-separator"),
@@ -277,7 +283,7 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
             .withClass("tag-cloud-item");
         })
       ).withClass("tag-cloud")
-    ).withClass("tag-cloud-section"),
+    ).withClass("tag-cloud-section").withId("tag-cloud-section").withClass("hidden"),
     div(
       each( markdownData.entrySet(), entry -> {
         String htmlFileName = entry.getKey();
@@ -309,7 +315,26 @@ static HtmlTag output(DomContent content) {
       link().withRel("stylesheet").withHref("https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap"),
       link().withRel("stylesheet").withHref("css/styles.css"),
       link().withRel("stylesheet").withHref("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"),
-      script().withSrc("https://unpkg.com/htmx.org@2.0.4")
+      script().withSrc("https://unpkg.com/htmx.org@2.0.4"),
+      script(rawHtml("""
+        document.addEventListener('DOMContentLoaded', function() {
+          const tagCloud = document.getElementById('tag-cloud-section');
+          const btn = document.getElementById('toggle-tags-btn');
+          
+          if (btn) {
+            btn.addEventListener('click', function() {
+              tagCloud.classList.toggle('hidden');
+              const icon = btn.querySelector('i');
+              const isHidden = tagCloud.classList.contains('hidden');
+              
+              // Clear and rebuild button content safely
+              btn.textContent = '';
+              btn.appendChild(icon);
+              btn.appendChild(document.createTextNode(isHidden ? ' Show all tags' : ' Hide tags'));
+            });
+          }
+        });
+        """))
     ),
     body(
       content
