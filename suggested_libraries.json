@@ -1,184 +1,210 @@
 [
   {
     "name": "QtJambi",
-    "urls": [
-      "https://github.com/OmixVisualization/qtjambi"
-    ],
-    "description": "Java bindings for Qt framework, still maintained"
+    "urls": ["https://github.com/OmixVisualization/qtjambi"],
+    "description": "Java bindings for Qt framework, still maintained",
+    "processed": true,
+    "markdownFile": "qtjambi.md",
+    "notes": "Completed with v6.10.2 release info"
   },
   {
     "name": "Avaje WebView",
-    "urls": [
-      "https://github.com/avaje/avaje-webview"
-    ],
-    "description": "Java webview bindings for desktop applications"
+    "urls": ["https://github.com/avaje/avaje-webview"],
+    "description": "Java webview bindings for desktop applications",
+    "processed": true,
+    "markdownFile": "avaje-webview.md",
+    "notes": "Early development status noted"
   },
   {
     "name": "HTMX",
-    "urls": [
-      "https://htmx.org/"
-    ],
-    "description": "JavaScript library for access AJAX, WebSockets and Server Sent Events directly in HTML"
+    "urls": ["https://htmx.org/"],
+    "description": "JavaScript library for access AJAX, WebSockets and Server Sent Events directly in HTML",
+    "processed": true,
+    "markdownFile": "htmx.md",
+    "notes": "v2.0.8, positioned for Java web development"
   },
   {
     "name": "Quarkus",
-    "urls": [
-      "https://quarkus.io/"
-    ],
-    "description": "Kubernetes-native Java framework optimized for GraalVM and OpenJDK"
+    "urls": ["https://quarkus.io/"],
+    "description": "Kubernetes-native Java framework optimized for GraalVM and OpenJDK",
+    "processed": true,
+    "markdownFile": "quarkus.md",
+    "notes": "v3.31.3, Commonhaus Foundation"
   },
   {
     "name": "Helidon",
-    "urls": [
-      "https://helidon.io/"
-    ],
-    "description": "Cloud-native Java frameworks for building microservices"
+    "urls": ["https://helidon.io/"],
+    "description": "Cloud-native Java frameworks for building microservices",
+    "processed": true,
+    "markdownFile": "helidon.md",
+    "notes": "v4.1.6, virtual threads support"
   },
   {
     "name": "Javalin",
-    "urls": [
-      "https://javalin.io/"
-    ],
-    "description": "Simple and lightweight web framework for Java"
+    "urls": ["https://javalin.io/"],
+    "description": "Simple and lightweight web framework for Java",
+    "processed": true,
+    "markdownFile": "javalin.md",
+    "notes": "v6.4.0, Jetty-based"
   },
   {
     "name": "JStachio",
-    "urls": [
-      "https://jstach.io/"
-    ],
-    "description": "Compile-time template engine for Java with records support"
+    "urls": ["https://jstach.io/"],
+    "description": "Compile-time template engine for Java with records support",
+    "processed": true,
+    "markdownFile": "jstachio.md",
+    "notes": "v1.3.7, compile-time type safety"
   },
   {
     "name": "JTE",
-    "urls": [
-      "https://jte.gg/"
-    ],
-    "description": "Java templating engine strongly adopted by Kotlin community, supports hot loading"
+    "urls": ["https://jte.gg/"],
+    "description": "Java templating engine strongly adopted by Kotlin community, supports hot loading",
+    "processed": true,
+    "markdownFile": "jte.md",
+    "notes": "v3.2.3, IntelliJ plugin support"
   },
   {
     "name": "Avaje Jex",
-    "urls": [
-      "https://github.com/avaje/avaje-jex"
-    ],
-    "description": "Micro web framework for Java"
+    "urls": ["https://github.com/avaje/avaje-jex"],
+    "description": "Micro web framework for Java",
+    "processed": true,
+    "markdownFile": "avaje-jex.md",
+    "notes": "v2.5, multiple backend support"
   },
   {
     "name": "LibGDX",
-    "urls": [
-      "https://libgdx.com/"
-    ],
-    "description": "Cross-platform game development framework for Java with scene2d.ui for UI"
+    "urls": ["https://libgdx.com/"],
+    "description": "Cross-platform game development framework for Java with scene2d.ui for UI",
+    "processed": true,
+    "markdownFile": "libgdx.md",
+    "notes": "v1.14.0, Scene2D UI system"
   },
   {
     "name": "GWT",
-    "urls": [
-      "http://www.gwtproject.org/"
-    ],
-    "description": "Google Web Toolkit - Java to JavaScript compiler, still maintained and used"
+    "urls": ["http://www.gwtproject.org/"],
+    "description": "Google Web Toolkit - Java to JavaScript compiler, still maintained and used",
+    "processed": true,
+    "markdownFile": "gwt.md",
+    "notes": "v2.12.1, legacy but active"
   },
   {
     "name": "JavaFX Maven Plugin",
-    "urls": [
-      "https://github.com/openjfx/javafx-maven-plugin"
-    ],
-    "description": "Maven plugin to simplify JavaFX project configuration"
+    "urls": ["https://github.com/openjfx/javafx-maven-plugin"],
+    "description": "Maven plugin to simplify JavaFX project configuration",
+    "processed": true,
+    "markdownFile": "javafx-maven-plugin.md",
+    "notes": "v0.0.8, official OpenJFX plugin"
   },
   {
     "name": "Conveyor",
-    "urls": [
-      "https://conveyor.hydraulic.dev/"
-    ],
-    "description": "Tool for creating native installers and auto-update infrastructure for Java apps"
+    "urls": ["https://conveyor.hydraulic.dev/"],
+    "description": "Tool for creating native installers and auto-update infrastructure for Java apps",
+    "processed": true,
+    "markdownFile": "conveyor.md",
+    "notes": "v14.3, commercial with free tier"
   },
   {
     "name": "Frontend Maven Plugin",
-    "urls": [
-      "https://github.com/eirslett/frontend-maven-plugin"
-    ],
-    "description": "Maven plugin for downloading and running Node.js and npm"
+    "urls": ["https://github.com/eirslett/frontend-maven-plugin"],
+    "description": "Maven plugin for downloading and running Node.js and npm",
+    "processed": true,
+    "markdownFile": "frontend-maven-plugin.md",
+    "notes": "v1.15.1, Node.js integration"
   },
   {
     "name": "Maven Tailwind Plugin",
-    "urls": [
-      "https://github.com/4ndreiDev/maven-tailwind-plugin"
-    ],
-    "description": "Maven plugin for using Tailwind CSS with Java web applications"
+    "urls": ["https://github.com/4ndreiDev/maven-tailwind-plugin"],
+    "description": "Maven plugin for using Tailwind CSS with Java web applications",
+    "processed": true,
+    "markdownFile": "maven-tailwind-plugin.md",
+    "notes": "v1.1.0, standalone Tailwind CLI"
   },
   {
     "name": "jpackage",
-    "urls": [
-      "https://openjdk.java.net/jeps/343"
-    ],
-    "description": "Java tool for packaging self-contained Java applications"
+    "urls": ["https://openjdk.java.net/jeps/343"],
+    "description": "Java tool for packaging self-contained Java applications",
+    "processed": true,
+    "markdownFile": "jpackage.md",
+    "notes": "Part of JDK 14+, native installers"
   },
   {
     "name": "Esotericsoftware Projects",
-    "urls": [
-      "https://esotericsoftware.com/"
-    ],
-    "description": "Desktop productivity applications built with LibGDX"
+    "urls": ["https://esotericsoftware.com/"],
+    "description": "Desktop productivity applications built with LibGDX",
+    "processed": true,
+    "markdownFile": "esotericsoftware.md",
+    "notes": "Applications, not library - Spine, etc."
   },
   {
     "name": "ZK Framework",
-    "urls": [
-      "https://github.com/zkoss/zk"
-    ],
-    "description": ""
+    "urls": ["https://github.com/zkoss/zk"],
+    "description": "Component-based web framework with event-driven model",
+    "processed": true,
+    "markdownFile": "zk.md",
+    "notes": "v10.0.0, commercial & open source"
   },
   {
     "name": "JGoodies",
-    "urls": [
-      "https://www.jgoodies.com/home/about/"
-    ],
-    "description": ""
+    "urls": ["https://www.jgoodies.com/home/about/"],
+    "description": "Swing enhancement libraries for layouts and look-and-feels",
+    "processed": true,
+    "markdownFile": "jgoodies.md",
+    "notes": "v1.9.0, mature/maintenance mode"
   },
   {
     "name": "VisUI",
-    "urls": [
-      "https://github.com/kotcrab/vis-ui"
-    ],
-    "description": ""
+    "urls": ["https://github.com/kotcrab/vis-ui"],
+    "description": "Flat design skin and widgets for LibGDX Scene2D",
+    "processed": true,
+    "markdownFile": "visui.md",
+    "notes": "v1.5.3, Material Design inspired"
   },
   {
     "name": "tui4j",
-    "urls": [
-      "https://github.com/WilliamAGH/tui4j"
-    ],
-    "description": ""
+    "urls": ["https://github.com/WilliamAGH/tui4j"],
+    "description": "Terminal UI library (archived)",
+    "processed": true,
+    "markdownFile": "tui4j.md",
+    "notes": "Archived, last activity 2020"
   },
   {
-    "name": "Domino Kit",
-    "urls": [
-      "https://dominokit.com/home"
-    ],
-    "description": ""
+    "name": "Domino UI",
+    "urls": ["https://dominokit.github.io/domino-ui/"],
+    "description": "Material Design components for GWT/J2CL",
+    "processed": true,
+    "markdownFile": "domino-ui.md",
+    "notes": "v2.0.0, modern GWT components"
   },
   {
-    "name": "Smart Client",
-    "urls": [
-      "https://smartclient.com/product/smartgwt.jsp"
-    ],
-    "description": ""
+    "name": "SmartGWT",
+    "urls": ["https://smartclient.com/product/smartgwt.jsp"],
+    "description": "Enterprise GWT framework with rich widgets",
+    "processed": true,
+    "markdownFile": "smartgwt.md",
+    "notes": "v13.1, commercial & open source"
   },
   {
-    "name": "Sencha",
-    "urls": [
-      "https://www.sencha.com/products/gxt/"
-    ],
-    "description": ""
+    "name": "Sencha GXT",
+    "urls": ["https://www.sencha.com/products/gxt/"],
+    "description": "Commercial GWT widget library",
+    "processed": true,
+    "markdownFile": "sencha-gxt.md",
+    "notes": "v10.1, commercial license required"
   },
   {
     "name": "JSP",
-    "urls": [
-      ""
-    ],
-    "description": ""
+    "urls": ["https://jakarta.ee/specifications/pages/"],
+    "description": "Jakarta Server Pages (legacy template technology)",
+    "processed": true,
+    "markdownFile": "jsp.md",
+    "notes": "Jakarta Pages 4.0, legacy but maintained"
   },
   {
-    "name": "GTK",
-    "urls": [
-      " https://github.com/bailuk/java-gtk "
-    ],
-    "description": ""
+    "name": "java-gtk",
+    "urls": ["https://github.com/bailuk/java-gtk"],
+    "description": "Java bindings for GTK+ (experimental)",
+    "processed": true,
+    "markdownFile": "gtk.md",
+    "notes": "Early development, not production-ready"
   }
 ]
