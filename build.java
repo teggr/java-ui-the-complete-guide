@@ -81,11 +81,7 @@ void main(String... args) throws IOException {
   System.out.println("Generated index.html");
 
   // Collect unique tags from all markdown data
-  Set<String> uniqueTags = new HashSet<>();
-  for (Map<String, List<String>> data : markdownData.values()) {
-    List<String> tags = data.getOrDefault("tags", List.of());
-    uniqueTags.addAll(tags);
-  }
+  Set<String> uniqueTags = collectUniqueTags(markdownData);
 
   // Generate tag pages
   for (String tag : uniqueTags) {
@@ -191,6 +187,15 @@ private DomContent project(Map<String, List<String>> data, DomContent content) {
 
 }
 
+private static Set<String> collectUniqueTags(Map<String, Map<String, List<String>>> markdownData) {
+  Set<String> uniqueTags = new HashSet<>();
+  for (Map<String, List<String>> data : markdownData.values()) {
+    List<String> tags = data.getOrDefault("tags", List.of());
+    uniqueTags.addAll(tags);
+  }
+  return uniqueTags;
+}
+
 private static String tagToSlug(String tag) {
   return tag.toLowerCase()
     .replaceAll("\\s+", "-")
@@ -242,11 +247,7 @@ static DomContent tagPage(String tag, Map<String, Map<String, List<String>>> mar
 
 static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData) {
   // Collect unique tags
-  Set<String> uniqueTags = new HashSet<>();
-  for (Map<String, List<String>> data : markdownData.values()) {
-    List<String> tags = data.getOrDefault("tags", List.of());
-    uniqueTags.addAll(tags);
-  }
+  Set<String> uniqueTags = collectUniqueTags(markdownData);
   
   return div(
     h1("Java UI - The Complete Guide"),
