@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: v0.3.2
 learnMoreText: AsciiTable GitHub
 learnMoreHref: https://github.com/vdmeer/asciitable
-image: https://robintegg.com/images/ui-asciitable.png
+image: /images/ui-asciitable.png
 tags:
     - Terminal UI
 ---

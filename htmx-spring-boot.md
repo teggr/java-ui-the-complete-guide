@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: htmx-spring-boot v3.x+
 learnMoreText: htmx-spring-boot GitHub
 learnMoreHref: https://github.com/wimdeblauwe/htmx-spring-boot
-image: https://robintegg.com/images/ui-htmx.png
+image: /images/ui-htmx.png
 tags:
     - Web UI
 ---

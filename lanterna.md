@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: v3.1.2
 learnMoreText: Lanterna GitHub
 learnMoreHref: https://github.com/mabe02/lanterna
-image: https://robintegg.com/images/ui-lanterna.png
+image: /images/ui-lanterna.png
 tags:
     - Terminal UI
 ---

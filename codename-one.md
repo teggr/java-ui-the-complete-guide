@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: Active (Feb 2026)
 learnMoreText: Codename One Official Website
 learnMoreHref: https://www.codenameone.com/
-image: https://robintegg.com/images/ui-codename-one.png
+image: /images/ui-codename-one.png
 tags:
     - Mobile UI
 ---

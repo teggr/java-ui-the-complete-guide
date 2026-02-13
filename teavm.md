@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: Active (2025-2026)
 learnMoreText: TeaVM Official Website
 learnMoreHref: https://teavm.org/
-image: https://robintegg.com/images/ui-teavm.png
+image: /images/ui-teavm.png
 tags:
     - Web UI
 ---

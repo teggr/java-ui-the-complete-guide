@@ -6,7 +6,7 @@ learningCurve: Moderate
 lastRelease: v1.0.0
 learnMoreText: Casciian GitHub
 learnMoreHref: https://github.com/crramirez/casciian
-image: https://robintegg.com/images/ui-casciian.png
+image: /images/ui-casciian.png
 tags:
     - Terminal UI
 ---

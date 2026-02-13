@@ -103,6 +103,29 @@ void main(String... args) throws IOException {
     System.out.println("No css directory found, skipping copy");
   }
 
+  // copy the images directory and all the files inside to the output directory
+  Path imagesSource = Paths.get("images");
+  Path imagesTarget = outputDirectory.resolve("images");
+  if (Files.exists(imagesSource) && Files.isDirectory(imagesSource)) {
+    Files.walk(imagesSource).forEach(source -> {
+      try {
+        Path target = imagesTarget.resolve(imagesSource.relativize(source));
+        if (Files.isDirectory(source)) {
+          if (!Files.exists(target)) {
+            Files.createDirectory(target);
+          }
+        } else {
+          Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
+        }
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    });
+    System.out.println("Copied images directory");
+  } else {
+    System.out.println("No images directory found, skipping copy");
+  }
+
   System.out.println("Site build completed successfully!");
 
 }

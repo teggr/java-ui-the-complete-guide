@@ -6,7 +6,7 @@ learningCurve: Moderate
 lastRelease: v8.11.0 (2025)
 learnMoreText: JxBrowser Official Website
 learnMoreHref: https://www.teamdev.com/jxbrowser
-image: https://robintegg.com/images/ui-jxbrowser.png
+image: /images/ui-jxbrowser.png
 tags:
     - Desktop UI
 ---
