@@ -1,0 +1,184 @@
+[
+  {
+    "name": "QtJambi",
+    "urls": [
+      "https://github.com/OmixVisualization/qtjambi"
+    ],
+    "description": "Java bindings for Qt framework, still maintained"
+  },
+  {
+    "name": "Avaje WebView",
+    "urls": [
+      "https://github.com/avaje/avaje-webview"
+    ],
+    "description": "Java webview bindings for desktop applications"
+  },
+  {
+    "name": "HTMX",
+    "urls": [
+      "https://htmx.org/"
+    ],
+    "description": "JavaScript library for access AJAX, WebSockets and Server Sent Events directly in HTML"
+  },
+  {
+    "name": "Quarkus",
+    "urls": [
+      "https://quarkus.io/"
+    ],
+    "description": "Kubernetes-native Java framework optimized for GraalVM and OpenJDK"
+  },
+  {
+    "name": "Helidon",
+    "urls": [
+      "https://helidon.io/"
+    ],
+    "description": "Cloud-native Java frameworks for building microservices"
+  },
+  {
+    "name": "Javalin",
+    "urls": [
+      "https://javalin.io/"
+    ],
+    "description": "Simple and lightweight web framework for Java"
+  },
+  {
+    "name": "JStachio",
+    "urls": [
+      "https://jstach.io/"
+    ],
+    "description": "Compile-time template engine for Java with records support"
+  },
+  {
+    "name": "JTE",
+    "urls": [
+      "https://jte.gg/"
+    ],
+    "description": "Java templating engine strongly adopted by Kotlin community, supports hot loading"
+  },
+  {
+    "name": "Avaje Jex",
+    "urls": [
+      "https://github.com/avaje/avaje-jex"
+    ],
+    "description": "Micro web framework for Java"
+  },
+  {
+    "name": "LibGDX",
+    "urls": [
+      "https://libgdx.com/"
+    ],
+    "description": "Cross-platform game development framework for Java with scene2d.ui for UI"
+  },
+  {
+    "name": "GWT",
+    "urls": [
+      "http://www.gwtproject.org/"
+    ],
+    "description": "Google Web Toolkit - Java to JavaScript compiler, still maintained and used"
+  },
+  {
+    "name": "JavaFX Maven Plugin",
+    "urls": [
+      "https://github.com/openjfx/javafx-maven-plugin"
+    ],
+    "description": "Maven plugin to simplify JavaFX project configuration"
+  },
+  {
+    "name": "Conveyor",
+    "urls": [
+      "https://conveyor.hydraulic.dev/"
+    ],
+    "description": "Tool for creating native installers and auto-update infrastructure for Java apps"
+  },
+  {
+    "name": "Frontend Maven Plugin",
+    "urls": [
+      "https://github.com/eirslett/frontend-maven-plugin"
+    ],
+    "description": "Maven plugin for downloading and running Node.js and npm"
+  },
+  {
+    "name": "Maven Tailwind Plugin",
+    "urls": [
+      "https://github.com/4ndreiDev/maven-tailwind-plugin"
+    ],
+    "description": "Maven plugin for using Tailwind CSS with Java web applications"
+  },
+  {
+    "name": "jpackage",
+    "urls": [
+      "https://openjdk.java.net/jeps/343"
+    ],
+    "description": "Java tool for packaging self-contained Java applications"
+  },
+  {
+    "name": "Esotericsoftware Projects",
+    "urls": [
+      "https://esotericsoftware.com/"
+    ],
+    "description": "Desktop productivity applications built with LibGDX"
+  },
+  {
+    "name": "ZK Framework",
+    "urls": [
+      "https://github.com/zkoss/zk"
+    ],
+    "description": ""
+  },
+  {
+    "name": "JGoodies",
+    "urls": [
+      "https://www.jgoodies.com/home/about/"
+    ],
+    "description": ""
+  },
+  {
+    "name": "VisUI",
+    "urls": [
+      "https://github.com/kotcrab/vis-ui"
+    ],
+    "description": ""
+  },
+  {
+    "name": "tui4j",
+    "urls": [
+      "https://github.com/WilliamAGH/tui4j"
+    ],
+    "description": ""
+  },
+  {
+    "name": "Domino Kit",
+    "urls": [
+      "https://dominokit.com/home"
+    ],
+    "description": ""
+  },
+  {
+    "name": "Smart Client",
+    "urls": [
+      "https://smartclient.com/product/smartgwt.jsp"
+    ],
+    "description": ""
+  },
+  {
+    "name": "Sencha",
+    "urls": [
+      "https://www.sencha.com/products/gxt/"
+    ],
+    "description": ""
+  },
+  {
+    "name": "JSP",
+    "urls": [
+      ""
+    ],
+    "description": ""
+  },
+  {
+    "name": "GTK",
+    "urls": [
+      " https://github.com/bailuk/java-gtk "
+    ],
+    "description": ""
+  }
+]
