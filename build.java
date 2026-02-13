@@ -174,7 +174,10 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
     h1("Java UI - The Complete Guide"),
     p("Welcome to the Java UI - The Complete Guide! This site provides an overview of various Java UI frameworks and libraries, along with their status, Java version compatibility, learning curve, last release date, and more. Explore the projects below to find the right Java UI solution for your needs."),
     div(
-      a("🚀 Contribute on GitHub")
+      a(
+        i().withClass("bi bi-github"),
+        text(" Contribute on GitHub")
+      )
         .withHref("https://github.com/teggr/java-ui-the-complete-guide")
         .withTarget("_blank")
         .withRel("noopener noreferrer")
@@ -206,6 +209,10 @@ static HtmlTag output(DomContent content) {
   return html(
     head(
       title("Java UI - The Complete Guide"),
+      link().withRel("stylesheet").withHref("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"),
+      link().withRel("preconnect").withHref("https://fonts.googleapis.com"),
+      link().withRel("preconnect").withHref("https://fonts.gstatic.com").attr("crossorigin", ""),
+      link().withRel("stylesheet").withHref("https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap"),
       link().withRel("stylesheet").withHref("css/styles.css"),
       script().withSrc("https://unpkg.com/htmx.org@2.0.4")
     ),
