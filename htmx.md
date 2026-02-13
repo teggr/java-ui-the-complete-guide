@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: v2.0.8 (2026)
 learnMoreText: HTMX Official Website
 learnMoreHref: https://htmx.org/
-image: images/ui-htmx-screenshot.png
+image: images/ui-htmx.png
 tags:
     - Web UI
     - Frontend Library

@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: v6.4.0 (2026)
 learnMoreText: Javalin Official Website
 learnMoreHref: https://javalin.io/
-image: images/ui-javalin-screenshot.png
+image: images/ui-javalin.png
 tags:
     - Web Framework
     - Microservices

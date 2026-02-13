@@ -6,7 +6,7 @@ learningCurve: Moderate
 lastRelease: v3.31.3 (February 2026)
 learnMoreText: Quarkus Official Website
 learnMoreHref: https://quarkus.io/
-image: images/ui-quarkus-screenshot.png
+image: images/ui-quarkus.png
 tags:
     - Web Framework
     - Cloud-Native

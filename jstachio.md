@@ -4,9 +4,9 @@ status: Production-ready, Active
 javaVersion: 11+
 learningCurve: Easy-Moderate
 lastRelease: v1.3.7 (2025)
-learnMoreText: JStachio Official Website
-learnMoreHref: https://jstach.io/
-image: images/ui-jstachio-screenshot.png
+learnMoreText: JStachio GitHub
+learnMoreHref: https://github.com/jstachio/jstachio
+image: images/ui-jstachio.png
 tags:
     - Template Engine
     - Web UI

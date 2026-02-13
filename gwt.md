@@ -6,7 +6,7 @@ learningCurve: Steep
 lastRelease: v2.12.1 (2025)
 learnMoreText: GWT Project Website
 learnMoreHref: http://www.gwtproject.org/
-image: images/ui-gwt-screenshot.png
+image: images/ui-gwt.png
 tags:
     - Web UI
     - Compiler/Transpiler
