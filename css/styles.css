@@ -97,19 +97,15 @@ body.htmx-settling {
 h1 {
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--color-text);
+  color: var(--color-primary-dark);
   margin-bottom: var(--spacing-md);
   line-height: 1.2;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 h2 {
   font-size: 1.75rem;
   font-weight: 700;
-  color: var(--color-text);
+  color: var(--color-primary);
   margin-top: var(--spacing-lg);
   margin-bottom: var(--spacing-sm);
 }
@@ -141,8 +137,8 @@ p {
   background: var(--color-surface);
   border-radius: 24px;
   box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.08),
-    0 0 0 1px var(--color-border);
+    0 20px 60px rgba(120, 41, 15, 0.15),
+    0 0 0 1px rgba(21, 97, 109, 0.2);
   position: relative;
   overflow: hidden;
 }
@@ -155,7 +151,7 @@ p {
   right: -10%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(255, 125, 0, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 125, 0, 0.06) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
@@ -168,7 +164,7 @@ p {
   left: -10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(21, 97, 109, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(21, 97, 109, 0.06) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
@@ -189,8 +185,8 @@ p {
 
 .project-card {
   display: block;
-  background: linear-gradient(135deg, var(--color-surface) 0%, rgba(255, 125, 0, 0.04) 100%);
-  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  border: 2px solid rgba(21, 97, 109, 0.3);
   border-radius: 16px;
   text-decoration: none;
   color: var(--color-text);
@@ -222,6 +218,7 @@ p {
   font-size: 1.1rem;
   text-align: center;
   padding: var(--spacing-xs) 0;
+  color: var(--color-secondary);
 }
 
 /* Sweeping accent line on hover */
@@ -248,9 +245,9 @@ p {
   transform: translateY(-4px);
   border-color: var(--color-primary);
   box-shadow: 
-    0 12px 30px rgba(255, 125, 0, 0.25),
-    0 0 0 1px rgba(255, 125, 0, 0.15);
-  background: linear-gradient(135deg, var(--color-surface) 0%, rgba(255, 125, 0, 0.08) 100%);
+    0 12px 30px rgba(255, 125, 0, 0.3),
+    0 0 0 1px var(--color-primary);
+  background: var(--color-surface);
 }
 
 .project-card:hover .project-thumbnail {
