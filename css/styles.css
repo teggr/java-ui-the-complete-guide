@@ -491,3 +491,50 @@ button:focus-visible {
   outline-offset: 2px;
   border-radius: 4px;
 }
+
+/* === Tag Cloud Section === */
+.tag-cloud-section {
+  margin: var(--spacing-xl) 0;
+  padding: var(--spacing-lg) 0;
+}
+
+.tag-separator {
+  border: none;
+  height: 2px;
+  background: var(--color-primary); /* vivid tangerine */
+  margin: var(--spacing-lg) auto var(--spacing-md) auto;
+  max-width: 200px;
+  border-radius: 2px;
+}
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.tag-cloud-item {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: var(--color-primary);
+  color: var(--color-bg);
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-speed) var(--transition-smooth);
+  border: 2px solid var(--color-primary);
+}
+
+.tag-cloud-item:hover {
+  transform: translateY(-2px);
+  background: var(--color-bg);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.tag-cloud-item:active {
+  transform: translateY(0);
+}
