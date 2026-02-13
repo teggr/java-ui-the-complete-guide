@@ -97,8 +97,6 @@ public class DownloadImages {
     // Now update all markdown files to use local image paths
     System.out.println("\nUpdating markdown files to use local image paths...");
     
-    int updated = 0;
-    
     Files.list(Paths.get("."))
         .filter(path -> path.toString().endsWith(".md") && !path.getFileName().toString().equals("README.md"))
         .forEach(path -> {
