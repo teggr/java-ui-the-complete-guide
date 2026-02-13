@@ -5,8 +5,8 @@ javaVersion: 11+
 learningCurve: Moderate
 lastRelease: v2.0.0 (2024)
 learnMoreText: Domino UI Website
-learnMoreHref: https://dominokit.github.io/domino-ui/
-image: /images/ui-dominokit.png
+learnMoreHref: https://dominokit.com/home
+image: /images/ui-domino-ui.png
 tags:
     - Web UI
     - UI Components
