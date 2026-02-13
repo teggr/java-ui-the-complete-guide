@@ -6,7 +6,7 @@ learningCurve: Moderate
 lastRelease: v0.1.0 (2026)
 learnMoreText: Krema Official Website
 learnMoreHref: https://krema.build/
-image: images/ui-krema.svg
+image: images/ui-krema.png
 tags:
     - Desktop UI
     - Web UI
