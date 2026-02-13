@@ -76,3 +76,34 @@ The front matter schema:
 - Rebuild the site locally after markdown changes to preview
 - Open `_site/index.html` in a browser to view the site
 
+## Web Site Styles
+
+- CSV
+
+001524,15616d,ffecd1,ff7d00,78290f
+
+- With #
+
+#001524, #15616d, #ffecd1, #ff7d00, #78290f
+
+- Array
+
+["001524","15616d","ffecd1","ff7d00","78290f"]
+
+- Object
+
+{"Ink Black":"001524","Stormy Teal":"15616d","Papaya Whip":"ffecd1","Vivid Tangerine":"ff7d00","Brandy":"78290f"}
+
+- Extended Array
+
+[{"name":"Ink Black","hex":"001524","rgb":[0,21,36],"cmyk":[100,42,0,86],"hsb":[205,100,14],"hsl":[205,100,7],"lab":[6,-2,-13]},{"name":"Stormy Teal","hex":"15616d","rgb":[21,97,109],"cmyk":[81,11,0,57],"hsb":[188,81,43],"hsl":[188,68,25],"lab":[38,-18,-13]},{"name":"Papaya Whip","hex":"ffecd1","rgb":[255,236,209],"cmyk":[0,7,18,0],"hsb":[35,18,100],"hsl":[35,100,91],"lab":[94,2,15]},{"name":"Vivid Tangerine","hex":"ff7d00","rgb":[255,125,0],"cmyk":[0,51,100,0],"hsb":[29,100,100],"hsl":[29,100,50],"lab":[66,44,74]},{"name":"Brandy","hex":"78290f","rgb":[120,41,15],"cmyk":[0,66,88,53],"hsb":[15,88,47],"hsl":[15,78,26],"lab":[28,33,34]}]
+
+- XML
+
+<palette>
+  <color name="Ink Black" hex="001524" r="0" g="21" b="36" />
+  <color name="Stormy Teal" hex="15616d" r="21" g="97" b="109" />
+  <color name="Papaya Whip" hex="ffecd1" r="255" g="236" b="209" />
+  <color name="Vivid Tangerine" hex="ff7d00" r="255" g="125" b="0" />
+  <color name="Brandy" hex="78290f" r="120" g="41" b="15" />
+</palette>

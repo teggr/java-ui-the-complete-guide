@@ -1,24 +1,24 @@
 /* ============================================
    Java UI - The Complete Guide - Modern Theme
-   Sweet Orange & Pastels with Sweeping Lines
+   Bold Colors with High Contrast
    ============================================ */
 
 /* === CSS Variables for Theming === */
 :root {
-  /* Pastel Color Palette */
-  --color-primary: #FF9B50;        /* Sweet Orange */
-  --color-primary-light: #FFB67A;  /* Light Orange */
-  --color-primary-dark: #E88742;   /* Dark Orange */
-  --color-secondary: #7CB9E8;      /* Sky Blue */
-  --color-accent: #B19CD9;         /* Lavender */
-  --color-accent-2: #FFB7C3;       /* Blush Pink */
+  /* New Bold Color Palette */
+  --color-primary: #ff7d00;        /* Vivid Tangerine - Primary accent */
+  --color-primary-light: #ffa040;  /* Lighter Tangerine */
+  --color-primary-dark: #78290f;   /* Brandy - Dark accent */
+  --color-secondary: #15616d;      /* Stormy Teal */
+  --color-accent: #ff7d00;         /* Vivid Tangerine */
+  --color-accent-2: #78290f;       /* Brandy */
   
   /* Neutral Colors */
-  --color-bg: #FAFBFC;             /* Off-white Background */
+  --color-bg: #ffecd1;             /* Papaya Whip - Warm background */
   --color-surface: #FFFFFF;        /* Pure White */
-  --color-text: #2D3748;           /* Dark Gray */
-  --color-text-light: #718096;     /* Medium Gray */
-  --color-border: #E2E8F0;         /* Light Gray */
+  --color-text: #001524;           /* Ink Black - High contrast text */
+  --color-text-light: #15616d;     /* Stormy Teal for secondary text */
+  --color-border: #15616d;         /* Stormy Teal for borders */
   
   /* Spacing */
   --spacing-xs: 0.5rem;
@@ -30,6 +30,7 @@
   
   /* Typography */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  --font-family-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   --font-size-base: 16px;
   --line-height: 1.6;
   
@@ -56,8 +57,8 @@ body {
   color: var(--color-text);
   background: var(--color-bg);
   background-image: 
-    linear-gradient(135deg, rgba(255, 155, 80, 0.05) 0%, transparent 50%),
-    linear-gradient(45deg, rgba(124, 185, 232, 0.05) 50%, transparent 100%);
+    linear-gradient(135deg, rgba(255, 125, 0, 0.08) 0%, transparent 50%),
+    linear-gradient(45deg, rgba(21, 97, 109, 0.08) 50%, transparent 100%);
   background-attachment: fixed;
   min-height: 100vh;
   padding: var(--spacing-lg);
@@ -95,15 +96,12 @@ body.htmx-settling {
 
 /* === Typography === */
 h1 {
+  font-family: var(--font-family-heading);
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--color-text);
+  color: var(--color-secondary);
   margin-bottom: var(--spacing-md);
   line-height: 1.2;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 h2 {
@@ -116,8 +114,12 @@ h2 {
 
 p {
   margin-bottom: var(--spacing-sm);
-  color: var(--color-text-light);
-  max-width: 70ch;
+  color: var(--color-text);
+}
+
+/* Constrain width for better readability on index page intro */
+#main-content > p:first-of-type {
+  max-width: 80ch;
 }
 
 /* === Index Page Header Styles === */
@@ -140,9 +142,7 @@ p {
   padding: var(--spacing-xl);
   background: var(--color-surface);
   border-radius: 24px;
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.08),
-    0 0 0 1px var(--color-border);
+  border: 1px solid var(--color-primary);
   position: relative;
   overflow: hidden;
 }
@@ -155,7 +155,7 @@ p {
   right: -10%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(255, 155, 80, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 125, 0, 0.06) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
@@ -168,7 +168,7 @@ p {
   left: -10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(124, 185, 232, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(21, 97, 109, 0.06) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
@@ -189,8 +189,8 @@ p {
 
 .project-card {
   display: block;
-  background: linear-gradient(135deg, var(--color-surface) 0%, rgba(255, 155, 80, 0.02) 100%);
-  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  border: 2px solid var(--color-primary);
   border-radius: 16px;
   text-decoration: none;
   color: var(--color-text);
@@ -213,7 +213,6 @@ p {
   object-fit: cover;
   border-radius: 8px;
   margin: 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform var(--transition-speed) var(--transition-smooth);
 }
 
@@ -222,6 +221,7 @@ p {
   font-size: 1.1rem;
   text-align: center;
   padding: var(--spacing-xs) 0;
+  color: var(--color-text);
 }
 
 /* Sweeping accent line on hover */
@@ -247,10 +247,7 @@ p {
 .project-card:hover {
   transform: translateY(-4px);
   border-color: var(--color-primary);
-  box-shadow: 
-    0 12px 30px rgba(255, 155, 80, 0.2),
-    0 0 0 1px rgba(255, 155, 80, 0.1);
-  background: linear-gradient(135deg, var(--color-surface) 0%, rgba(255, 155, 80, 0.05) 100%);
+  background: var(--color-surface);
 }
 
 .project-card:hover .project-thumbnail {
@@ -268,19 +265,26 @@ p {
   gap: var(--spacing-xs);
   padding: var(--spacing-sm) var(--spacing-lg);
   margin: var(--spacing-lg) auto;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  background: var(--color-primary);
   border: none;
   border-radius: 50px;
   text-decoration: none;
-  color: white;
   font-weight: 600;
   font-size: 1rem;
-  box-shadow: 
-    0 4px 12px rgba(255, 155, 80, 0.3),
-    0 0 0 1px rgba(255, 155, 80, 0.1);
   transition: all var(--transition-speed) var(--transition-smooth);
   position: relative;
   overflow: hidden;
+}
+
+/* Ensure all text content in button is light colored */
+.github-cta,
+.github-cta i,
+.github-cta span {
+  color: var(--color-bg);
+}
+
+.github-cta i {
+  font-size: 1.2rem;
 }
 
 .github-cta::before {
@@ -303,9 +307,7 @@ p {
 
 .github-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 
-    0 8px 20px rgba(255, 155, 80, 0.4),
-    0 0 0 1px rgba(255, 155, 80, 0.2);
+  opacity: 0.9;
 }
 
 .github-cta:active {
@@ -325,10 +327,10 @@ p {
   padding: var(--spacing-xs) var(--spacing-md);
   margin-bottom: var(--spacing-lg);
   background: var(--color-bg);
-  border: 1px solid var(--color-border);
+  border: 2px solid var(--color-primary);
   border-radius: 50px;
   text-decoration: none;
-  color: var(--color-text-light);
+  color: var(--color-text);
   font-weight: 500;
   font-size: 0.9rem;
   transition: all var(--transition-speed) var(--transition-smooth);
@@ -336,7 +338,7 @@ p {
 
 .back-link:hover {
   background: var(--color-primary);
-  color: white;
+  color: var(--color-bg);
   border-color: var(--color-primary);
   transform: translateX(-4px);
 }
@@ -347,7 +349,6 @@ img {
   height: auto;
   border-radius: 12px;
   margin: var(--spacing-md) 0;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   transition: transform var(--transition-speed) var(--transition-smooth);
 }
 
@@ -356,31 +357,27 @@ img:hover {
 }
 
 /* === Links === */
-a:not(.back-link):not(.project-list a) {
+a:not(.back-link):not(.project-list a):not(.github-cta) {
   color: var(--color-primary);
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
   font-weight: 600;
   position: relative;
   transition: color var(--transition-speed) var(--transition-smooth);
 }
 
-a:not(.back-link):not(.project-list a)::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--color-primary);
-  transition: width var(--transition-speed) var(--transition-smooth);
-}
-
-a:not(.back-link):not(.project-list a):hover {
+a:not(.back-link):not(.project-list a):not(.github-cta):hover {
   color: var(--color-primary-dark);
+  text-decoration-color: var(--color-primary-dark);
 }
 
-a:not(.back-link):not(.project-list a):hover::after {
-  width: 100%;
+/* External link icon */
+a[target="_blank"]:not(.back-link):not(.project-list a) i {
+  margin-left: 0.25rem;
+  font-size: 0.9em;
+  vertical-align: baseline;
 }
 
 /* === Tags === */
@@ -394,12 +391,11 @@ a:not(.back-link):not(.project-list a):hover::after {
 .tag {
   display: inline-block;
   padding: var(--spacing-xs) var(--spacing-sm);
-  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-bg);
   border-radius: 50px;
   font-size: 0.85rem;
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(255, 155, 80, 0.3);
   transition: transform var(--transition-speed) var(--transition-smooth);
 }
 
@@ -409,14 +405,13 @@ a:not(.back-link):not(.project-list a):hover::after {
 
 /* === Code Blocks === */
 pre {
-  background: #2D3748;
-  color: #E2E8F0;
+  background: #001524;
+  color: #ffecd1;
   padding: var(--spacing-md);
   border-radius: 12px;
   overflow-x: auto;
   margin: var(--spacing-md) 0;
   border-left: 4px solid var(--color-primary);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 code {
