@@ -6,7 +6,7 @@ learningCurve: Moderate
 lastRelease: Ongoing (OpenJFX)
 learnMoreText: OpenJFX Official Website
 learnMoreHref: https://openjfx.io/
-image: https://robintegg.com/images/ui-javafx.png
+image: /images/ui-javafx.png
 tags:
     - Desktop UI
 ---

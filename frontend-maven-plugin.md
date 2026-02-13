@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: v1.15.1 (2024)
 learnMoreText: Frontend Maven Plugin GitHub
 learnMoreHref: https://github.com/eirslett/frontend-maven-plugin
-image: https://robintegg.com/images/ui-frontend-maven-plugin.png
+image: /images/ui-frontend-maven-plugin.png
 tags:
     - Build Tools
     - Web UI

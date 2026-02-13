@@ -6,7 +6,7 @@ learningCurve: Moderate-Complex
 lastRelease: Active
 learnMoreText: jcefmaven GitHub
 learnMoreHref: https://github.com/jcefmaven/jcefmaven
-image: https://robintegg.com/images/ui-jcefmaven.png
+image: /images/ui-jcefmaven.png
 tags:
     - Desktop UI
 ---

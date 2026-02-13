@@ -6,7 +6,7 @@ learningCurve: Easy-Moderate
 lastRelease: v14.3 (2026)
 learnMoreText: Conveyor Official Website
 learnMoreHref: https://conveyor.hydraulic.dev/
-image: https://robintegg.com/images/ui-conveyor.png
+image: /images/ui-conveyor.png
 tags:
     - Build Tools
     - Desktop UI

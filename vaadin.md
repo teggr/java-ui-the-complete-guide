@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: Vaadin 25
 learnMoreText: Vaadin Official Website
 learnMoreHref: https://vaadin.com/
-image: https://robintegg.com/images/ui-vaadin.png
+image: /images/ui-vaadin.png
 tags:
     - Web UI
 ---

@@ -6,7 +6,7 @@ learningCurve: Easy
 lastRelease: v1.6.0 (June 2022, current stable)
 learnMoreText: j2html Official Website
 learnMoreHref: https://j2html.com/
-image: https://robintegg.com/images/ui-j2html.png
+image: /images/ui-j2html.png
 tags:
     - Web UI
 ---

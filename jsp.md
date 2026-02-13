@@ -6,7 +6,7 @@ learningCurve: Easy-Moderate
 lastRelease: Jakarta Pages 4.0 (2024)
 learnMoreText: Jakarta EE Pages Specification
 learnMoreHref: https://jakarta.ee/specifications/pages/
-image: https://robintegg.com/images/ui-jsp.png
+image: /images/ui-jsp.png
 tags:
     - Web UI
     - Template Engine
