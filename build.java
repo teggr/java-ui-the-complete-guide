@@ -232,7 +232,8 @@ static DomContent tagPage(String tag, Map<String, Map<String, List<String>>> mar
         .attr("hx-push-url", "true")
         .withClass("back-link")
     ),
-    h1("Projects tagged: " + tag),
+    h1("Java UI - The Complete Guide"),
+    h2("Projects tagged: " + tag),
     div(
       each(filteredProjects.entrySet(), entry -> {
         String htmlFileName = entry.getKey();
