@@ -264,12 +264,11 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
     p("Welcome to the Java UI - The Complete Guide! This site provides an overview of various Java UI projects, frameworks and libraries, along with their status, Java version compatibility, learning curve, last release date, and more. Explore the projects below to find the right Java UI solution for your needs."),
     p("This is a community-driven resource, built by Java developers for Java developers. Whether you're discovering a new framework, sharing your expertise, or helping others navigate the Java UI landscape - your contributions make this guide better for everyone. Join us in building the most comprehensive resource for Java UI development!"),
     div(
-      a(
+      button(
         i().withClass("bi bi-tags"),
         text(" Browse by Platform")
       )
-        .withHref("#tags-section")
-        .attr("hx-boost", "false")
+        .attr("onclick", "document.getElementById('tags-section').scrollIntoView({ behavior: 'smooth', block: 'start' })")
         .withClass("github-cta"),
       a(
         i().withClass("bi bi-github"),

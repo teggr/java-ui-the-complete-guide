@@ -37,9 +37,6 @@
   /* Transitions */
   --transition-speed: 0.3s;
   --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-  
-  /* Scroll behavior */
-  --scroll-offset: 20rem; /* Offset for hash navigation to keep context visible */
 }
 
 /* === Global Styles === */
@@ -527,7 +524,6 @@ button:focus-visible {
 .tag-cloud-section {
   margin: var(--spacing-xl) 0;
   padding: var(--spacing-lg) 0;
-  scroll-margin-top: var(--scroll-offset);
 }
 
 .tag-separator {
