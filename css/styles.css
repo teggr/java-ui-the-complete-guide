@@ -524,6 +524,7 @@ button:focus-visible {
 .tag-cloud-section {
   margin: var(--spacing-xl) 0;
   padding: var(--spacing-lg) 0;
+  scroll-margin-top: 20rem;
 }
 
 .tag-separator {
