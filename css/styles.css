@@ -123,6 +123,13 @@ p {
   max-width: 100%;
 }
 
+/* === Tag Page Header Styles === */
+#main-content > h2 {
+  text-align: center;
+  max-width: 100%;
+  margin-top: var(--spacing-md);
+}
+
 /* Style both intro paragraphs with centered text and constrained width */
 #main-content > p:first-of-type,
 #main-content > p:nth-of-type(2) {
