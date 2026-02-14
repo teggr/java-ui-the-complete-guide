@@ -163,7 +163,7 @@ private DomContent project(Map<String, List<String>> data, DomContent content) {
         .withHref("index.html")
         .attr("hx-get", "index.html")
         .attr("hx-target", "body")
-        .attr("hx-swap", "innerHTML transition:true")
+        .attr("hx-swap", "innerHTML transition:true show:top")
         .attr("hx-push-url", "true")
         .withClass("back-link")
     ),
@@ -186,7 +186,7 @@ private DomContent project(Map<String, List<String>> data, DomContent content) {
             .withHref(tagFileName)
             .attr("hx-get", tagFileName)
             .attr("hx-target", "body")
-            .attr("hx-swap", "innerHTML transition:true")
+            .attr("hx-swap", "innerHTML transition:true show:top")
             .attr("hx-push-url", "true")
             .withClass("tag");
         })
@@ -228,7 +228,7 @@ static DomContent tagPage(String tag, Map<String, Map<String, List<String>>> mar
         .withHref("index.html")
         .attr("hx-get", "index.html")
         .attr("hx-target", "body")
-        .attr("hx-swap", "innerHTML transition:true")
+        .attr("hx-swap", "innerHTML transition:true show:top")
         .attr("hx-push-url", "true")
         .withClass("back-link")
     ),
@@ -247,7 +247,7 @@ static DomContent tagPage(String tag, Map<String, Map<String, List<String>>> mar
           .withHref(htmlFileName)
           .attr("hx-get", htmlFileName)
           .attr("hx-target", "body")
-          .attr("hx-swap", "innerHTML transition:true")
+          .attr("hx-swap", "innerHTML transition:true show:top")
           .attr("hx-push-url", "true")
           .withClass("project-card");
       })
@@ -269,6 +269,7 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
         text(" Browse by Platform")
       )
         .withHref("#tags-section")
+        .attr("hx-boost", "false")
         .withClass("github-cta"),
       a(
         i().withClass("bi bi-github"),
@@ -293,7 +294,7 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
           .withHref(htmlFileName)
           .attr("hx-get", htmlFileName)
           .attr("hx-target", "body")
-          .attr("hx-swap", "innerHTML transition:true")
+          .attr("hx-swap", "innerHTML transition:true show:top")
           .attr("hx-push-url", "true")
           .withClass("project-card");
       })
@@ -308,7 +309,7 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
             .withHref(tagFileName)
             .attr("hx-get", tagFileName)
             .attr("hx-target", "body")
-            .attr("hx-swap", "innerHTML transition:true")
+            .attr("hx-swap", "innerHTML transition:true show:top")
             .attr("hx-push-url", "true")
             .withClass("tag-cloud-item");
         })
