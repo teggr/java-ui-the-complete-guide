@@ -268,7 +268,9 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
         i().withClass("bi bi-tags"),
         text(" Browse by Platform")
       )
-        .attr("onclick", "document.getElementById('tags-section').scrollIntoView({ behavior: 'smooth', block: 'start' })")
+        .attr("type", "button")
+        .attr("aria-label", "Scroll to browse platforms by category")
+        .attr("onclick", "const el = document.getElementById('tags-section'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });")
         .withClass("github-cta"),
       a(
         i().withClass("bi bi-github"),
