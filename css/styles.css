@@ -312,14 +312,27 @@ p {
   margin-bottom: 0;
 }
 
-/* Legacy styles for centered layout (fallback) */
+/* === Project Page Title Styles === */
 #main-content > h1:first-of-type {
-  text-align: center;
-  max-width: 100%;
-  background: linear-gradient(135deg, var(--color-text) 0%, var(--color-secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-family: var(--font-family-display);
+  font-weight: 400;
+  font-size: var(--font-size-3xl);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  #main-content > h1:first-of-type {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  #main-content > h1:first-of-type {
+    font-size: var(--font-size-5xl);
+  }
 }
 
 /* Intro paragraphs - centered with constrained width */
@@ -689,6 +702,62 @@ li code {
 .tag-cloud-section {
   margin-top: var(--spacing-3xl);
   padding-top: var(--spacing-2xl);
+}
+
+/* === Tag Page Styles === */
+/* Tag page title - "Projects tagged: X" */
+#main-content > h1:first-of-type:has(+ .project-list),
+#main-content > .back-link + h1 {
+  font-family: var(--font-family-display);
+  font-weight: 400;
+  font-size: var(--font-size-3xl);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 3px solid var(--color-primary);
+}
+
+@media (min-width: 768px) {
+  #main-content > h1:first-of-type:has(+ .project-list),
+  #main-content > .back-link + h1 {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  #main-content > h1:first-of-type:has(+ .project-list),
+  #main-content > .back-link + h1 {
+    font-size: var(--font-size-5xl);
+  }
+}
+
+/* === Project Page Header Section === */
+/* Container for the project info section */
+#main-content > div:has(.back-link) + h1,
+#main-content > div > h1:first-of-type {
+  font-family: var(--font-family-display);
+  font-weight: 400;
+  font-size: var(--font-size-3xl);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  #main-content > div:has(.back-link) + h1,
+  #main-content > div > h1:first-of-type {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  #main-content > div:has(.back-link) + h1,
+  #main-content > div > h1:first-of-type {
+    font-size: var(--font-size-5xl);
+  }
 }
 
 .tag-separator {
