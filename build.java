@@ -337,7 +337,7 @@ record SeoMetadata(String title, String description, String image, String url, L
     return new SeoMetadata(
       "Awesome Java UI - The Complete Guide to Java UI Frameworks",
       "A comprehensive guide to Java UI libraries and frameworks for desktop, web, terminal, and mobile development. Discover the best Java UI solutions for your next project.",
-      "images/og-default.png",
+      "images/awesome-java-ui.png",
       "",
       List.of("Java", "UI", "Desktop", "Web", "Mobile", "Terminal")
     );
@@ -348,7 +348,7 @@ record SeoMetadata(String title, String description, String image, String url, L
     return new SeoMetadata(
       tag + " - Awesome Java UI",
       "Explore Java UI libraries and frameworks tagged with " + tag + ". Find the best " + tag.toLowerCase() + " solutions for Java development.",
-      "images/og-default.png",
+      "images/awesome-java-ui.png",
       "tag-" + tagToSlug(tag) + ".html",
       List.of("Java", "UI", tag)
     );
@@ -357,7 +357,7 @@ record SeoMetadata(String title, String description, String image, String url, L
   // Metadata for project pages
   static SeoMetadata forProject(Map<String, List<String>> data, String htmlFileName) {
     String name = data.getOrDefault("name", List.of("Unknown Project")).get(0);
-    String image = data.getOrDefault("image", List.of("images/og-default.png")).get(0);
+    String image = data.getOrDefault("image", List.of("images/awesome-java-ui.png")).get(0);
     List<String> projectTags = data.getOrDefault("tags", List.of());
     String status = data.getOrDefault("status", List.of("")).get(0);
     String javaVersion = data.getOrDefault("javaVersion", List.of("")).get(0);
