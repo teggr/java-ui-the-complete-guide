@@ -2,6 +2,8 @@
 
 Guide to the Java UI landscape: desktop, web, terminal and mobile
 
+Visit [https://awesome-java-ui.com](https://awesome-java-ui.com)
+
 ## Quick Start
 
 **Prerequisites:**
