@@ -826,7 +826,16 @@ li::marker {
   #main-content {
     padding: var(--spacing-lg) var(--spacing-md);
   }
-  
+
+  .hero-title,
+  #main-content > h1:first-of-type,
+  #main-content > h1:first-of-type:has(+ .project-list),
+  #main-content > .back-link + h1,
+  #main-content > div:has(.back-link) + h1,
+  #main-content > div > h1:first-of-type {
+    text-align: center;
+  }
+
   .project-list {
     gap: var(--spacing-md);
   }
