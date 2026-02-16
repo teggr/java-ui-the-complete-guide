@@ -357,7 +357,14 @@ record SeoMetadata(String title, String description, String image, String url, L
   // Metadata for project pages
   static SeoMetadata forProject(Map<String, List<String>> data, String htmlFileName) {
     String name = data.getOrDefault("name", List.of("Unknown Project")).get(0);
-    String image = data.getOrDefault("image", List.of("images/awesome-java-ui.png")).get(0);
+    List<String> imageValues = data.get("image");
+    String image = "images/awesome-java-ui.png";
+    if (imageValues != null && !imageValues.isEmpty()) {
+      String candidate = imageValues.get(0).trim();
+      if (!candidate.isEmpty()) {
+        image = candidate;
+      }
+    }
     List<String> projectTags = data.getOrDefault("tags", List.of());
     String status = data.getOrDefault("status", List.of("")).get(0);
     String javaVersion = data.getOrDefault("javaVersion", List.of("")).get(0);
