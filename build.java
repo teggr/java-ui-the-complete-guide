@@ -269,7 +269,8 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
         text(" Browse by Platform")
       )
         .withHref("#tags-section")
-        .withClass("github-cta"),
+        .withClass("github-cta")
+        .attr("hx-boost", "false"),
       a(
         i().withClass("bi bi-github"),
         text(" Contribute on GitHub")

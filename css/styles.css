@@ -140,40 +140,10 @@ p {
   background: var(--color-surface);
   border-radius: 24px;
   border: 1px solid var(--color-primary);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Sweeping decorative element */
-#main-content::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -10%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(255, 125, 0, 0.06) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-#main-content::after {
-  content: '';
-  position: absolute;
-  bottom: -30%;
-  left: -10%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(21, 97, 109, 0.06) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
 }
 
 #main-content > * {
   position: relative;
-  z-index: 1;
 }
 
 /* === Gallery-Style Project Grid === */
