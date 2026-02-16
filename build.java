@@ -387,7 +387,7 @@ record SeoMetadata(String title, String description, String image, String url, L
 }
 
 // Base URL for the site (used for absolute URLs in Open Graph tags)
-static final String SITE_BASE_URL = "https://awesome-java-ui/";
+static final String SITE_BASE_URL = "https://awesome-java-ui.com/";
 
 static HtmlTag output(DomContent content, SeoMetadata seo) {
   String fullImageUrl = seo.image().startsWith("http") ? seo.image() : SITE_BASE_URL + seo.image();
