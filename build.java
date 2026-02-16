@@ -55,7 +55,8 @@ void main(String... args) throws IOException {
         html = html.replaceAll("(<code[^>]*>)([^ \\n])", "$1\n$2");
 
         // Write HTML to docs directory
-        HtmlTag htmlTag = output(project(frontMatterVisitor.getData(), rawHtml(html)));
+        HtmlTag htmlTag = output(project(frontMatterVisitor.getData(), rawHtml(html)),
+          SeoMetadata.forProject(frontMatterVisitor.getData(), path.getFileName().toString().replace(".md", ".html")));
 
         StringWriter writer = new StringWriter();
         writer.append(htmlTag.render(IndentedHtml.inMemory()));
@@ -76,7 +77,7 @@ void main(String... args) throws IOException {
 
   // Generate index.html
   StringWriter writer = new StringWriter();
-  writer.append(output(indexPage(markdownData)).render(IndentedHtml.inMemory()));
+  writer.append(output(indexPage(markdownData), SeoMetadata.index()).render(IndentedHtml.inMemory()));
   String html = writer.toString();
   Path indexPath = outputDirectory.resolve("index.html");
   Files.writeString(indexPath, html);
@@ -90,7 +91,7 @@ void main(String... args) throws IOException {
     String tagSlug = tagToSlug(tag);
     String tagFileName = "tag-" + tagSlug + ".html";
     StringWriter tagWriter = new StringWriter();
-    tagWriter.append(output(tagPage(tag, markdownData)).render(IndentedHtml.inMemory()));
+    tagWriter.append(output(tagPage(tag, markdownData), SeoMetadata.forTag(tag)).render(IndentedHtml.inMemory()));
     String tagHtml = tagWriter.toString();
     Path tagPath = outputDirectory.resolve(tagFileName);
     Files.writeString(tagPath, tagHtml);
@@ -262,26 +263,35 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
   Set<String> uniqueTags = collectUniqueTags(markdownData);
   
   return div(
-    h1("Awesome Java UI"),
-    p("Welcome to Awesome Java UI! This site provides an overview of the latest and greatest Java UI projects, frameworks and libraries, along with their status, Java version compatibility, learning curve, last release date, and more. Explore the projects below to find the right Java UI solution for your needs."),
-    p("This is a community-driven resource, built by Java developers for Java developers. Whether you're discovering a new framework, sharing your expertise, or helping others navigate the Java UI landscape - your contributions make this guide better for everyone. Join us in building the most comprehensive resource for Java UI development!"),
+    // Hero Section with split layout
     div(
-      a(
-        i().withClass("bi bi-tags"),
-        text(" Browse by Platform")
-      )
-        .withHref("#tags-section")
-        .withClass("github-cta")
-        .attr("hx-boost", "false"),
-      a(
-        i().withClass("bi bi-github"),
-        text(" Contribute on GitHub")
-      )
-        .withHref("https://github.com/teggr/java-ui-the-complete-guide")
-        .withTarget("_blank")
-        .withRel("noopener noreferrer")
-        .withClass("github-cta")
-    ).withClass("github-cta-container"),
+      // Left column - Title and CTAs
+      div(
+        h1("Awesome Java UI").withClass("hero-title"),
+        div(
+          a(
+            i().withClass("bi bi-tags"),
+            text(" Browse by Platform")
+          )
+            .withHref("#tags-section")
+            .withClass("github-cta")
+            .attr("hx-boost", "false"),
+          a(
+            i().withClass("bi bi-github"),
+            text(" Contribute on GitHub")
+          )
+            .withHref("https://github.com/teggr/java-ui-the-complete-guide")
+            .withTarget("_blank")
+            .withRel("noopener noreferrer")
+            .withClass("github-cta")
+        ).withClass("github-cta-container")
+      ).withClass("hero-left"),
+      // Right column - Description paragraphs
+      div(
+        p("Welcome to Awesome Java UI! This site provides an overview of the latest and greatest Java UI projects, frameworks and libraries, along with their status, Java version compatibility, learning curve, last release date, and more. Explore the projects below to find the right Java UI solution for your needs."),
+        p("This is a community-driven resource, built by Java developers for Java developers. Whether you're discovering a new framework, sharing your expertise, or helping others navigate the Java UI landscape - your contributions make this guide better for everyone. Join us in building the most comprehensive resource for Java UI development!")
+      ).withClass("hero-right")
+    ).withClass("hero-section"),
     div(
       each( markdownData.entrySet(), entry -> {
         String htmlFileName = entry.getKey();
@@ -320,12 +330,101 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
   ).withId("main-content");
 }
 
-static HtmlTag output(DomContent content) {
+// SEO metadata record for page generation
+record SeoMetadata(String title, String description, String image, String url, List<String> tags) {
+  // Default metadata for index page
+  static SeoMetadata index() {
+    return new SeoMetadata(
+      "Awesome Java UI - The Complete Guide to Java UI Frameworks",
+      "A comprehensive guide to Java UI libraries and frameworks for desktop, web, terminal, and mobile development. Discover the best Java UI solutions for your next project.",
+      "images/og-default.png",
+      "",
+      List.of("Java", "UI", "Desktop", "Web", "Mobile", "Terminal")
+    );
+  }
+
+  // Metadata for tag pages
+  static SeoMetadata forTag(String tag) {
+    return new SeoMetadata(
+      tag + " - Awesome Java UI",
+      "Explore Java UI libraries and frameworks tagged with " + tag + ". Find the best " + tag.toLowerCase() + " solutions for Java development.",
+      "images/og-default.png",
+      "tag-" + tagToSlug(tag) + ".html",
+      List.of("Java", "UI", tag)
+    );
+  }
+
+  // Metadata for project pages
+  static SeoMetadata forProject(Map<String, List<String>> data, String htmlFileName) {
+    String name = data.getOrDefault("name", List.of("Unknown Project")).get(0);
+    String image = data.getOrDefault("image", List.of("images/og-default.png")).get(0);
+    List<String> projectTags = data.getOrDefault("tags", List.of());
+    String status = data.getOrDefault("status", List.of("")).get(0);
+    String javaVersion = data.getOrDefault("javaVersion", List.of("")).get(0);
+
+    String description = name + " - " + status + ". ";
+    if (!javaVersion.isEmpty()) {
+      description += "Supports Java " + javaVersion + ". ";
+    }
+    if (!projectTags.isEmpty()) {
+      description += "Categories: " + String.join(", ", projectTags) + ".";
+    }
+
+    return new SeoMetadata(
+      name + " - Awesome Java UI",
+      description,
+      image,
+      htmlFileName,
+      projectTags
+    );
+  }
+
+  private static String tagToSlug(String tag) {
+    return tag.toLowerCase()
+      .replaceAll("\\s+", "-")
+      .replaceAll("[^a-z0-9-]", "");
+  }
+}
+
+// Base URL for the site (used for absolute URLs in Open Graph tags)
+static final String SITE_BASE_URL = "https://awesome-java-ui/";
+
+static HtmlTag output(DomContent content, SeoMetadata seo) {
+  String fullImageUrl = seo.image().startsWith("http") ? seo.image() : SITE_BASE_URL + seo.image();
+  String fullPageUrl = SITE_BASE_URL + seo.url();
+  String keywords = String.join(", ", seo.tags());
+
   return html(
     head(
       meta().withCharset("UTF-8"),
       meta().withName("viewport").withContent("width=device-width, initial-scale=1.0"),
-      title("Awesome Java UI"),
+
+      // Basic SEO meta tags
+      title(seo.title()),
+      meta().withName("description").withContent(seo.description()),
+      meta().withName("keywords").withContent(keywords),
+      meta().withName("author").withContent("Awesome Java UI Community"),
+      meta().withName("robots").withContent("index, follow"),
+
+      // Open Graph meta tags (Facebook, LinkedIn, etc.)
+      meta().attr("property", "og:type").withContent("website"),
+      meta().attr("property", "og:title").withContent(seo.title()),
+      meta().attr("property", "og:description").withContent(seo.description()),
+      meta().attr("property", "og:image").withContent(fullImageUrl),
+      meta().attr("property", "og:url").withContent(fullPageUrl),
+      meta().attr("property", "og:site_name").withContent("Awesome Java UI"),
+      meta().attr("property", "og:locale").withContent("en_US"),
+
+      // Twitter Card meta tags (also used by X, Mastodon, Bluesky)
+      meta().withName("twitter:card").withContent("summary_large_image"),
+      meta().withName("twitter:title").withContent(seo.title()),
+      meta().withName("twitter:description").withContent(seo.description()),
+      meta().withName("twitter:image").withContent(fullImageUrl),
+
+      // Canonical URL
+      link().withRel("canonical").withHref(fullPageUrl),
+
+      // Fonts and stylesheets
       link().withRel("preconnect").withHref("https://fonts.googleapis.com"),
       link().withRel("preconnect").withHref("https://fonts.gstatic.com").attr("crossorigin", ""),
       link().withRel("stylesheet").withHref("https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap"),
@@ -338,5 +437,5 @@ static HtmlTag output(DomContent content) {
     body(
       content
     )
-  );
+  ).attr("lang", "en");
 }
