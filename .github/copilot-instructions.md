@@ -1,4 +1,4 @@
-# Copilot Instructions for java-ui-the-complete-guide
+# Copilot Instructions for Awesome Java UI
 
 This repository is a comprehensive guide to the Java UI landscape (desktop, web, terminal, and mobile) presented as a static website.
 

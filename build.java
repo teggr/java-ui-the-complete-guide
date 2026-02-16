@@ -18,7 +18,7 @@ import static j2html.TagCreator.*;
 
 void main(String... args) throws IOException {
 
-  System.out.println("Building java-ui-the-complete-guide static site...");
+  System.out.println("Building Awesome Java UI static site...");
 
   // Create docs directory if it doesn't exist
   Path outputDirectory = Paths.get("_site");
@@ -262,8 +262,8 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
   Set<String> uniqueTags = collectUniqueTags(markdownData);
   
   return div(
-    h1("Java UI - The Complete Guide"),
-    p("Welcome to the Java UI - The Complete Guide! This site provides an overview of various Java UI projects, frameworks and libraries, along with their status, Java version compatibility, learning curve, last release date, and more. Explore the projects below to find the right Java UI solution for your needs."),
+    h1("Awesome Java UI"),
+    p("Welcome to Awesome Java UI! This site provides an overview of the latest and greatest Java UI projects, frameworks and libraries, along with their status, Java version compatibility, learning curve, last release date, and more. Explore the projects below to find the right Java UI solution for your needs."),
     p("This is a community-driven resource, built by Java developers for Java developers. Whether you're discovering a new framework, sharing your expertise, or helping others navigate the Java UI landscape - your contributions make this guide better for everyone. Join us in building the most comprehensive resource for Java UI development!"),
     div(
       a(
@@ -323,7 +323,9 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
 static HtmlTag output(DomContent content) {
   return html(
     head(
-      title("Java UI - The Complete Guide"),
+      meta().withCharset("UTF-8"),
+      meta().withName("viewport").withContent("width=device-width, initial-scale=1.0"),
+      title("Awesome Java UI"),
       link().withRel("preconnect").withHref("https://fonts.googleapis.com"),
       link().withRel("preconnect").withHref("https://fonts.gstatic.com").attr("crossorigin", ""),
       link().withRel("stylesheet").withHref("https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap"),
