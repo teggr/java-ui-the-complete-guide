@@ -326,7 +326,40 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
             .withClass("tag-cloud-item");
         })
       ).withClass("tag-cloud")
-    ).withClass("tag-cloud-section").withId("tags-section")
+    ).withClass("tag-cloud-section").withId("tags-section"),
+    div(
+      hr().withClass("about-separator"),
+      div(
+        h2("About This Guide"),
+        p("This guide was created out of frustration with outdated and inaccurate resources about Java UI frameworks. I found an article that referenced archived libraries, included non-UI frameworks, and clearly hadn't been updated in years."),
+        p("Rather than complain, I decided to build something better: an up-to-date overview of the UI options genuinely available to Java developers in 2026. This site covers desktop frameworks, web-based UIs written in Java, embedded browser approaches, terminal UIs, and everything in between."),
+        p("The goal isn't to crown a \"best\" framework, but to lay out what's actually alive, maintained, and being used today. Each library is documented with its current status, Java version support, learning curve, and recent releases so you can make informed decisions."),
+        p(
+          text("This is a "),
+          strong("community-driven reference"),
+          text(". If you're building Java UIs, I'd love to hear about it:")
+        ),
+        ul(
+          li("What are you using?"),
+          li("What's surprisingly good?"),
+          li("What should people stop recommending already?")
+        ),
+        p(
+          text("Interested in more? Check out the original "),
+          a("blog post")
+            .withHref("https://robintegg.com/2026/02/08/java-ui-in-2026-the-complete-guide")
+            .withTarget("_blank")
+            .withRel("noopener noreferrer"),
+          text(" or join the discussion on "),
+          a("Reddit")
+            .withHref("https://www.reddit.com/r/java/comments/1qzidbm/java_ui_in_2026_an_overview_of_current_frameworks/")
+            .withTarget("_blank")
+            .withRel("noopener noreferrer"),
+          text(".")
+        ),
+        p("—Robin")
+      ).withClass("about-content")
+    ).withClass("about-section").withId("about-section")
   ).withId("main-content");
 }
 
