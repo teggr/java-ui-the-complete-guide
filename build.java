@@ -51,6 +51,8 @@ void main(String... args) throws IOException {
         document.accept(frontMatterVisitor);
 
         String html = renderer.render(document);
+        // Fix formatting: add newline after opening code tag for proper indentation
+        html = html.replaceAll("(<code[^>]*>)([^ \\n])", "$1\n$2");
 
         // Write HTML to docs directory
         HtmlTag htmlTag = output(project(frontMatterVisitor.getData(), rawHtml(html)));
