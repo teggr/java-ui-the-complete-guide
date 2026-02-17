@@ -1,0 +1,30 @@
+{
+  "name": "Awesome Java UI - Java 25",
+  "image": "mcr.microsoft.com/devcontainers/java:25",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "25",
+      "installMaven": "false",
+      "installGradle": "false"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
+      ],
+      "settings": {
+        "java.configuration.runtimes": [
+          {
+            "name": "JavaSE-25",
+            "path": "/usr/local/sdkman/candidates/java/current"
+          }
+        ]
+      }
+    }
+  },
+  "postCreateCommand": "bash -c 'cd /tmp && curl -Ls https://sh.jbang.dev -o jbang-install.sh && bash jbang-install.sh app setup && rm jbang-install.sh'",
+  "remoteUser": "vscode"
+}
