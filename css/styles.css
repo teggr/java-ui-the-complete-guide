@@ -238,7 +238,7 @@ p {
   .hero-section {
     flex-direction: row;
     align-items: flex-start;
-    gap: var(--spacing-3xl);
+    gap: var(--spacing-2xl);
   }
 }
 
@@ -249,7 +249,7 @@ p {
 
 @media (min-width: 1024px) {
   .hero-left {
-    flex: 0 0 45%;
+    flex: 0 0 46%;
     position: sticky;
     top: var(--spacing-2xl);
   }
@@ -287,7 +287,12 @@ p {
 /* Hero CTA Container - Below title on left */
 .hero-left .github-cta-container {
   justify-content: flex-start;
+  flex-wrap: nowrap;
   margin: var(--spacing-xl) 0 0 0;
+}
+
+.hero-left .github-cta {
+  padding: var(--spacing-sm) var(--spacing-xl);
 }
 
 /* Hero Right Column - Description text */
@@ -512,6 +517,11 @@ p {
   box-shadow: var(--shadow-md);
 }
 
+/* Browse toggle button - prevent text wrapping on toggle */
+#browse-toggle-btn {
+  white-space: nowrap;
+}
+
 /* Secondary button style */
 .github-cta:nth-child(2) {
   background: var(--color-surface);
@@ -702,6 +712,34 @@ li code {
 .tag-cloud-section {
   margin-top: var(--spacing-3xl);
   padding-top: var(--spacing-2xl);
+}
+
+/* === Tag Group Styles (Browse by Platform view) === */
+.tag-group {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.tag-group-title {
+  font-family: var(--font-family-display);
+  font-weight: 400;
+  font-size: var(--font-size-2xl);
+  color: var(--color-text);
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 3px solid var(--color-primary);
+}
+
+@media (min-width: 768px) {
+  .tag-group-title {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .tag-group-title {
+    font-size: var(--font-size-3xl);
+  }
 }
 
 /* === Tag Page Styles === */

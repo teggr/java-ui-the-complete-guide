@@ -83,6 +83,17 @@ void main(String... args) throws IOException {
   Files.writeString(indexPath, html);
   System.out.println("Generated index.html");
 
+  // Generate grid partials for htmx sorting
+  StringWriter gridAlphaWriter = new StringWriter();
+  gridAlphaWriter.append(gridAlphabetical(markdownData).render(IndentedHtml.inMemory()));
+  Files.writeString(outputDirectory.resolve("grid-alphabetical.html"), gridAlphaWriter.toString());
+  System.out.println("Generated grid-alphabetical.html");
+
+  StringWriter gridTagWriter = new StringWriter();
+  gridTagWriter.append(gridByTag(markdownData).render(IndentedHtml.inMemory()));
+  Files.writeString(outputDirectory.resolve("grid-by-tag.html"), gridTagWriter.toString());
+  System.out.println("Generated grid-by-tag.html");
+
   // Collect unique tags from all markdown data
   Set<String> uniqueTags = collectUniqueTags(markdownData);
 
@@ -258,10 +269,109 @@ static DomContent tagPage(String tag, Map<String, Map<String, List<String>>> mar
   ).withId("main-content");
 }
 
+// Grid content for initial page render (no OOB button)
+static DomContent gridAlphabeticalContent(Map<String, Map<String, List<String>>> markdownData) {
+  return div(
+    each( markdownData.entrySet(), entry -> {
+      String htmlFileName = entry.getKey();
+      String projectName = entry.getValue().getOrDefault("name", List.of("ProjectX")).get(0);
+      String imageUrl = entry.getValue().getOrDefault("image", List.of("https://via.placeholder.com/150")).get(0);
+      return a(
+        div(
+          img().withSrc(imageUrl).withAlt(projectName).withClass("project-thumbnail"),
+          div(projectName).withClass("project-name")
+        ).withClass("project-card-content")
+      )
+        .withHref(htmlFileName)
+        .attr("hx-get", htmlFileName)
+        .attr("hx-target", "body")
+        .attr("hx-swap", "innerHTML transition:true")
+        .attr("hx-push-url", "true")
+        .withClass("project-card");
+    })
+  ).withClass("project-list").withId("browse-section");
+}
+
+// Partial response for htmx: alphabetical grid + OOB button swap
+static DomContent gridAlphabetical(Map<String, Map<String, List<String>>> markdownData) {
+  return each(
+    gridAlphabeticalContent(markdownData),
+    a(
+      i().withClass("bi bi-tags"),
+      text(" Browse by Platform")
+    )
+      .withHref("grid-by-tag.html")
+      .withClass("github-cta")
+      .attr("hx-get", "grid-by-tag.html")
+      .attr("hx-target", "#browse-section")
+      .attr("hx-swap", "outerHTML transition:true")
+      .withId("browse-toggle-btn")
+      .attr("hx-swap-oob", "true")
+  );
+}
+
+// Grid content for tag-grouped initial page render (no OOB button)
+static DomContent gridByTagContent(Map<String, Map<String, List<String>>> markdownData) {
+  Set<String> uniqueTags = new TreeSet<>(collectUniqueTags(markdownData));
+
+  return div(
+    each(uniqueTags, tag -> {
+      // Filter projects by tag
+      Map<String, Map<String, List<String>>> filteredProjects = new TreeMap<>();
+      for (Map.Entry<String, Map<String, List<String>>> entry : markdownData.entrySet()) {
+        List<String> projectTags = entry.getValue().getOrDefault("tags", List.of());
+        if (projectTags.contains(tag)) {
+          filteredProjects.put(entry.getKey(), entry.getValue());
+        }
+      }
+      return div(
+        h2(tag).withClass("tag-group-title"),
+        div(
+          each(filteredProjects.entrySet(), entry -> {
+            String htmlFileName = entry.getKey();
+            String projectName = entry.getValue().getOrDefault("name", List.of("ProjectX")).get(0);
+            String imageUrl = entry.getValue().getOrDefault("image", List.of("https://via.placeholder.com/150")).get(0);
+            return a(
+              div(
+                img().withSrc(imageUrl).withAlt(projectName).withClass("project-thumbnail"),
+                div(projectName).withClass("project-name")
+              ).withClass("project-card-content")
+            )
+              .withHref(htmlFileName)
+              .attr("hx-get", htmlFileName)
+              .attr("hx-target", "body")
+              .attr("hx-swap", "innerHTML transition:true")
+              .attr("hx-push-url", "true")
+              .withClass("project-card");
+          })
+        ).withClass("project-list")
+      ).withClass("tag-group");
+    })
+  ).withId("browse-section");
+}
+
+// Partial response for htmx: tag-grouped grid + OOB button swap
+static DomContent gridByTag(Map<String, Map<String, List<String>>> markdownData) {
+  return each(
+    gridByTagContent(markdownData),
+    a(
+      i().withClass("bi bi-sort-alpha-down"),
+      text(" Browse Alphabetically")
+    )
+      .withHref("grid-alphabetical.html")
+      .withClass("github-cta")
+      .attr("hx-get", "grid-alphabetical.html")
+      .attr("hx-target", "#browse-section")
+      .attr("hx-swap", "outerHTML transition:true")
+      .withId("browse-toggle-btn")
+      .attr("hx-swap-oob", "true")
+  );
+}
+
 static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData) {
   // Collect unique tags
   Set<String> uniqueTags = collectUniqueTags(markdownData);
-  
+
   return div(
     // Hero Section with split layout
     div(
@@ -270,12 +380,15 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
         h1("Awesome Java UI").withClass("hero-title"),
         div(
           a(
-            i().withClass("bi bi-tags"),
-            text(" Browse by Platform")
+            i().withClass("bi bi-sort-alpha-down"),
+            text(" Browse Alphabetically")
           )
-            .withHref("#tags-section")
+            .withHref("grid-alphabetical.html")
             .withClass("github-cta")
-            .attr("hx-boost", "false"),
+            .attr("hx-get", "grid-alphabetical.html")
+            .attr("hx-target", "#browse-section")
+            .attr("hx-swap", "outerHTML transition:true")
+            .withId("browse-toggle-btn"),
           a(
             i().withClass("bi bi-github"),
             text(" Contribute on GitHub")
@@ -292,25 +405,7 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
         p("This is a community-driven resource, built by Java developers for Java developers. Whether you're discovering a new framework, sharing your expertise, or helping others navigate the Java UI landscape - your contributions make this guide better for everyone. Join us in building the most comprehensive resource for Java UI development!")
       ).withClass("hero-right")
     ).withClass("hero-section"),
-    div(
-      each( markdownData.entrySet(), entry -> {
-        String htmlFileName = entry.getKey();
-        String projectName = entry.getValue().getOrDefault("name", List.of("ProjectX")).get(0);
-        String imageUrl = entry.getValue().getOrDefault("image", List.of("https://via.placeholder.com/150")).get(0);
-        return a(
-          div(
-            img().withSrc(imageUrl).withAlt(projectName).withClass("project-thumbnail"),
-            div(projectName).withClass("project-name")
-          ).withClass("project-card-content")
-        )
-          .withHref(htmlFileName)
-          .attr("hx-get", htmlFileName)
-          .attr("hx-target", "body")
-          .attr("hx-swap", "innerHTML transition:true")
-          .attr("hx-push-url", "true")
-          .withClass("project-card");
-      })
-    ).withClass("project-list"),
+    gridByTagContent(markdownData),
     div(
       hr().withClass("tag-separator"),
       div(
