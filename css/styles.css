@@ -513,9 +513,9 @@ p {
   box-shadow: var(--shadow-md);
 }
 
-/* Browse toggle button - fixed width to prevent layout shift on text change */
+/* Browse toggle button - prevent text wrapping on toggle */
 #browse-toggle-btn {
-  min-width: 14em;
+  white-space: nowrap;
 }
 
 /* Secondary button style */
