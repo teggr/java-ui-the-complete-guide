@@ -238,7 +238,7 @@ p {
   .hero-section {
     flex-direction: row;
     align-items: flex-start;
-    gap: var(--spacing-3xl);
+    gap: var(--spacing-2xl);
   }
 }
 
@@ -289,6 +289,10 @@ p {
   justify-content: flex-start;
   flex-wrap: nowrap;
   margin: var(--spacing-xl) 0 0 0;
+}
+
+.hero-left .github-cta {
+  padding: var(--spacing-sm) var(--spacing-xl);
 }
 
 /* Hero Right Column - Description text */
