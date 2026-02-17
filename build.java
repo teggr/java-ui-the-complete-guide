@@ -475,7 +475,35 @@ static HtmlTag output(DomContent content, SeoMetadata seo) {
       script().withSrc("https://scripts.simpleanalyticscdn.com/latest.js").attr("async", "")
     ),
     body(
-      content
+      content,
+      siteFooter()
     )
   ).attr("lang", "en");
+}
+
+private static DomContent siteFooter() {
+  return footer(
+    div(
+      div(
+        text("Built with "),
+        a(
+          i().withClass("bi bi-hammer"),
+          text(" j2html")
+        )
+          .withHref("https://j2html.com/")
+          .withTarget("_blank")
+          .withRel("noopener noreferrer")
+          .withClass("footer-link"),
+        text(" & "),
+        a(
+          i().withClass("bi bi-terminal"),
+          text(" JBang")
+        )
+          .withHref("https://www.jbang.dev/")
+          .withTarget("_blank")
+          .withRel("noopener noreferrer")
+          .withClass("footer-link")
+      ).withClass("footer-content")
+    ).withClass("footer-container")
+  ).withClass("site-footer");
 }
