@@ -249,7 +249,7 @@ p {
 
 @media (min-width: 1024px) {
   .hero-left {
-    flex: 0 0 45%;
+    flex: 0 0 46%;
     position: sticky;
     top: var(--spacing-2xl);
   }
