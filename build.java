@@ -356,6 +356,9 @@ static DomContent gridByTag(Map<String, Map<String, List<String>>> markdownData)
 }
 
 static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData) {
+  // Collect unique tags
+  Set<String> uniqueTags = collectUniqueTags(markdownData);
+
   return div(
     // Hero Section with split layout
     div(
@@ -380,6 +383,22 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
       ).withClass("hero-right")
     ).withClass("hero-section"),
     gridAlphabetical(markdownData),
+    div(
+      hr().withClass("tag-separator"),
+      div(
+        each(uniqueTags, tag -> {
+          String tagSlug = tagToSlug(tag);
+          String tagFileName = "tag-" + tagSlug + ".html";
+          return a(tag)
+            .withHref(tagFileName)
+            .attr("hx-get", tagFileName)
+            .attr("hx-target", "body")
+            .attr("hx-swap", "innerHTML transition:true")
+            .attr("hx-push-url", "true")
+            .withClass("tag-cloud-item");
+        })
+      ).withClass("tag-cloud")
+    ).withClass("tag-cloud-section").withId("tags-section"),
     div(
       hr().withClass("about-separator"),
       div(
