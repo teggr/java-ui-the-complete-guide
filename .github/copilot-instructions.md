@@ -72,7 +72,7 @@ The front matter schema:
 - Uses JBang to run the build script in the CI environment
 
 ### Copilot Java 25 Workflow
-- GitHub Actions workflow in `.github/workflows/copilot-java-setup.yml`
+- GitHub Actions workflow in `.github/workflows/copilot-setup-steps.yml`
 - Ensures Java 25 environment for Copilot agents on pull requests
 - Includes JBang setup with caching for improved performance
 - Validates the build process with Java 25
