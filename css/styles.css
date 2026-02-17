@@ -287,6 +287,7 @@ p {
 /* Hero CTA Container - Below title on left */
 .hero-left .github-cta-container {
   justify-content: flex-start;
+  flex-wrap: nowrap;
   margin: var(--spacing-xl) 0 0 0;
 }
 
