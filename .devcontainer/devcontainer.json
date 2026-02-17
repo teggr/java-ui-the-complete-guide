@@ -25,6 +25,6 @@
       }
     }
   },
-  "postCreateCommand": "curl -Ls https://sh.jbang.dev | bash -s - app setup",
+  "postCreateCommand": "bash -c 'cd /tmp && curl -Ls https://sh.jbang.dev -o jbang-install.sh && bash jbang-install.sh app setup && rm jbang-install.sh'",
   "remoteUser": "vscode"
 }
