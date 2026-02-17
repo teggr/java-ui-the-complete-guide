@@ -28,7 +28,7 @@ void main(String... args) throws IOException {
   }
 
   // collect all markdown data in a map, key is html file name, value is the data from the markdown file
-  Map<String, Map<String, List<String>>> markdownData = new HashMap<>();
+  Map<String, Map<String, List<String>>> markdownData = new TreeMap<>();
 
   // start iterating over the markdown files in the root folder, excluding README.md
   Files.list(Paths.get("."))
@@ -217,7 +217,7 @@ private static String tagToSlug(String tag) {
 
 static DomContent tagPage(String tag, Map<String, Map<String, List<String>>> markdownData) {
   // Filter projects by tag
-  Map<String, Map<String, List<String>>> filteredProjects = new HashMap<>();
+  Map<String, Map<String, List<String>>> filteredProjects = new TreeMap<>();
   for (Map.Entry<String, Map<String, List<String>>> entry : markdownData.entrySet()) {
     List<String> projectTags = entry.getValue().getOrDefault("tags", List.of());
     if (projectTags.contains(tag)) {
@@ -491,6 +491,15 @@ private static DomContent siteFooter() {
           text(" j2html")
         )
           .withHref("https://j2html.com/")
+          .withTarget("_blank")
+          .withRel("noopener noreferrer")
+          .withClass("footer-link"),
+        text(", "),
+        a(
+          i().withClass("bi bi-lightning-charge"),
+          text(" htmx")
+        )
+          .withHref("https://htmx.org/")
           .withTarget("_blank")
           .withRel("noopener noreferrer")
           .withClass("footer-link"),
