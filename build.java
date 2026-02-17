@@ -494,6 +494,15 @@ private static DomContent siteFooter() {
           .withTarget("_blank")
           .withRel("noopener noreferrer")
           .withClass("footer-link"),
+        text(", "),
+        a(
+          i().withClass("bi bi-lightning-charge"),
+          text(" htmx")
+        )
+          .withHref("https://htmx.org/")
+          .withTarget("_blank")
+          .withRel("noopener noreferrer")
+          .withClass("footer-link"),
         text(" & "),
         a(
           i().withClass("bi bi-terminal"),
