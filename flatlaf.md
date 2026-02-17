@@ -1,6 +1,6 @@
 ---
 name: Swing + FlatLaf
-status: Legacy-but-actively-maintained
+status: Actively-maintained
 javaVersion: 8+ (11+ recommended for HiDPI)
 learningCurve: Easy
 lastRelease: FlatLaf 3.7+ (Dec 2025)
