@@ -5,6 +5,10 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
+permissions:
+  contents: read
+  actions: read
+
 jobs:
   setup-java-25:
     name: Setup Java 25 Environment
