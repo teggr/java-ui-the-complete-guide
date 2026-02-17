@@ -310,46 +310,50 @@ static DomContent gridAlphabetical(Map<String, Map<String, List<String>>> markdo
   );
 }
 
-// Partial response for htmx: tag-grouped grid + OOB button swap
-static DomContent gridByTag(Map<String, Map<String, List<String>>> markdownData) {
-  // Collect unique tags and sort them
+// Grid content for tag-grouped initial page render (no OOB button)
+static DomContent gridByTagContent(Map<String, Map<String, List<String>>> markdownData) {
   Set<String> uniqueTags = new TreeSet<>(collectUniqueTags(markdownData));
 
-  return each(
-    div(
-      each(uniqueTags, tag -> {
-        // Filter projects by tag
-        Map<String, Map<String, List<String>>> filteredProjects = new TreeMap<>();
-        for (Map.Entry<String, Map<String, List<String>>> entry : markdownData.entrySet()) {
-          List<String> projectTags = entry.getValue().getOrDefault("tags", List.of());
-          if (projectTags.contains(tag)) {
-            filteredProjects.put(entry.getKey(), entry.getValue());
-          }
+  return div(
+    each(uniqueTags, tag -> {
+      // Filter projects by tag
+      Map<String, Map<String, List<String>>> filteredProjects = new TreeMap<>();
+      for (Map.Entry<String, Map<String, List<String>>> entry : markdownData.entrySet()) {
+        List<String> projectTags = entry.getValue().getOrDefault("tags", List.of());
+        if (projectTags.contains(tag)) {
+          filteredProjects.put(entry.getKey(), entry.getValue());
         }
-        return div(
-          h2(tag).withClass("tag-group-title"),
-          div(
-            each(filteredProjects.entrySet(), entry -> {
-              String htmlFileName = entry.getKey();
-              String projectName = entry.getValue().getOrDefault("name", List.of("ProjectX")).get(0);
-              String imageUrl = entry.getValue().getOrDefault("image", List.of("https://via.placeholder.com/150")).get(0);
-              return a(
-                div(
-                  img().withSrc(imageUrl).withAlt(projectName).withClass("project-thumbnail"),
-                  div(projectName).withClass("project-name")
-                ).withClass("project-card-content")
-              )
-                .withHref(htmlFileName)
-                .attr("hx-get", htmlFileName)
-                .attr("hx-target", "body")
-                .attr("hx-swap", "innerHTML transition:true")
-                .attr("hx-push-url", "true")
-                .withClass("project-card");
-            })
-          ).withClass("project-list")
-        ).withClass("tag-group");
-      })
-    ).withId("browse-section"),
+      }
+      return div(
+        h2(tag).withClass("tag-group-title"),
+        div(
+          each(filteredProjects.entrySet(), entry -> {
+            String htmlFileName = entry.getKey();
+            String projectName = entry.getValue().getOrDefault("name", List.of("ProjectX")).get(0);
+            String imageUrl = entry.getValue().getOrDefault("image", List.of("https://via.placeholder.com/150")).get(0);
+            return a(
+              div(
+                img().withSrc(imageUrl).withAlt(projectName).withClass("project-thumbnail"),
+                div(projectName).withClass("project-name")
+              ).withClass("project-card-content")
+            )
+              .withHref(htmlFileName)
+              .attr("hx-get", htmlFileName)
+              .attr("hx-target", "body")
+              .attr("hx-swap", "innerHTML transition:true")
+              .attr("hx-push-url", "true")
+              .withClass("project-card");
+          })
+        ).withClass("project-list")
+      ).withClass("tag-group");
+    })
+  ).withId("browse-section");
+}
+
+// Partial response for htmx: tag-grouped grid + OOB button swap
+static DomContent gridByTag(Map<String, Map<String, List<String>>> markdownData) {
+  return each(
+    gridByTagContent(markdownData),
     a(
       i().withClass("bi bi-sort-alpha-down"),
       text(" Browse Alphabetically")
@@ -376,12 +380,12 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
         h1("Awesome Java UI").withClass("hero-title"),
         div(
           a(
-            i().withClass("bi bi-tags"),
-            text(" Browse by Platform")
+            i().withClass("bi bi-sort-alpha-down"),
+            text(" Browse Alphabetically")
           )
-            .withHref("grid-by-tag.html")
+            .withHref("grid-alphabetical.html")
             .withClass("github-cta")
-            .attr("hx-get", "grid-by-tag.html")
+            .attr("hx-get", "grid-alphabetical.html")
             .attr("hx-target", "#browse-section")
             .attr("hx-swap", "outerHTML transition:true")
             .withId("browse-toggle-btn"),
@@ -401,7 +405,7 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
         p("This is a community-driven resource, built by Java developers for Java developers. Whether you're discovering a new framework, sharing your expertise, or helping others navigate the Java UI landscape - your contributions make this guide better for everyone. Join us in building the most comprehensive resource for Java UI development!")
       ).withClass("hero-right")
     ).withClass("hero-section"),
-    gridAlphabeticalContent(markdownData),
+    gridByTagContent(markdownData),
     div(
       hr().withClass("tag-separator"),
       div(
