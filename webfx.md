@@ -5,7 +5,7 @@ javaVersion: 11+
 learningCurve: Moderate
 lastRelease: Active development (February 2026)
 learnMoreText: WebFX Documentation
-learnMoreHref: https://docs.webfx.dev/
+learnMoreHref: https://webfx.dev/
 image: images/ui-webfx.png
 tags:
     - Compiler/Transpiler
