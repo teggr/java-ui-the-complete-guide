@@ -6,6 +6,15 @@ Visit [https://awesome-java-ui.com](https://awesome-java-ui.com)
 
 ## Quick Start
 
+### Option 1: GitHub Codespaces or VS Code DevContainer
+The easiest way to get started is with our pre-configured development environment:
+
+1. Open this repository in GitHub Codespaces or VS Code with DevContainers
+2. The environment will automatically set up Java 25 and JBang
+3. Run `jbang run build.java` to build the site
+4. Open `_site/index.html` in a browser to view the site
+
+### Option 2: Local Development
 **Prerequisites:**
 - Java 25+
 - JBang

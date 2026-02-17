@@ -71,6 +71,20 @@ The front matter schema:
 - Automatically builds and deploys to GitHub Pages on push to main
 - Uses JBang to run the build script in the CI environment
 
+### Copilot Java 25 Workflow
+- GitHub Actions workflow in `.github/workflows/copilot-java-setup.yml`
+- Ensures Java 25 environment for Copilot agents on pull requests
+- Includes JBang setup with caching for improved performance
+- Validates the build process with Java 25
+- Can be manually triggered via workflow_dispatch
+
+### Development Environment
+- DevContainer configuration in `.devcontainer/devcontainer.json`
+- Pre-configured with Java 25 for GitHub Codespaces and VS Code
+- Includes GitHub Copilot extensions and Java development tools
+- Automatically sets up JBang on container creation
+- Provides consistent development environment across all contributors
+
 ### Local Development
 - Output directory (`_site/`) is gitignored
 - Rebuild the site locally after markdown changes to preview
