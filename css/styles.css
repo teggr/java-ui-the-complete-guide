@@ -512,6 +512,11 @@ p {
   box-shadow: var(--shadow-md);
 }
 
+/* Browse toggle button - fixed width to prevent layout shift on text change */
+#browse-toggle-btn {
+  min-width: 14em;
+}
+
 /* Secondary button style */
 .github-cta:nth-child(2) {
   background: var(--color-surface);
