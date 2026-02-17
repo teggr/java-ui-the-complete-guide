@@ -83,6 +83,17 @@ void main(String... args) throws IOException {
   Files.writeString(indexPath, html);
   System.out.println("Generated index.html");
 
+  // Generate grid partials for htmx sorting
+  StringWriter gridAlphaWriter = new StringWriter();
+  gridAlphaWriter.append(gridAlphabetical(markdownData).render(IndentedHtml.inMemory()));
+  Files.writeString(outputDirectory.resolve("grid-alphabetical.html"), gridAlphaWriter.toString());
+  System.out.println("Generated grid-alphabetical.html");
+
+  StringWriter gridTagWriter = new StringWriter();
+  gridTagWriter.append(gridByTag(markdownData).render(IndentedHtml.inMemory()));
+  Files.writeString(outputDirectory.resolve("grid-by-tag.html"), gridTagWriter.toString());
+  System.out.println("Generated grid-by-tag.html");
+
   // Collect unique tags from all markdown data
   Set<String> uniqueTags = collectUniqueTags(markdownData);
 
@@ -258,40 +269,19 @@ static DomContent tagPage(String tag, Map<String, Map<String, List<String>>> mar
   ).withId("main-content");
 }
 
-static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData) {
-  // Collect unique tags
-  Set<String> uniqueTags = collectUniqueTags(markdownData);
-  
+static DomContent gridAlphabetical(Map<String, Map<String, List<String>>> markdownData) {
   return div(
-    // Hero Section with split layout
     div(
-      // Left column - Title and CTAs
-      div(
-        h1("Awesome Java UI").withClass("hero-title"),
-        div(
-          a(
-            i().withClass("bi bi-tags"),
-            text(" Browse by Platform")
-          )
-            .withHref("#tags-section")
-            .withClass("github-cta")
-            .attr("hx-boost", "false"),
-          a(
-            i().withClass("bi bi-github"),
-            text(" Contribute on GitHub")
-          )
-            .withHref("https://github.com/teggr/java-ui-the-complete-guide")
-            .withTarget("_blank")
-            .withRel("noopener noreferrer")
-            .withClass("github-cta")
-        ).withClass("github-cta-container")
-      ).withClass("hero-left"),
-      // Right column - Description paragraphs
-      div(
-        p("Welcome to Awesome Java UI! This site provides an overview of the latest and greatest Java UI projects, frameworks and libraries, along with their status, Java version compatibility, learning curve, last release date, and more. Explore the projects below to find the right Java UI solution for your needs."),
-        p("This is a community-driven resource, built by Java developers for Java developers. Whether you're discovering a new framework, sharing your expertise, or helping others navigate the Java UI landscape - your contributions make this guide better for everyone. Join us in building the most comprehensive resource for Java UI development!")
-      ).withClass("hero-right")
-    ).withClass("hero-section"),
+      a(
+        i().withClass("bi bi-tags"),
+        text(" Browse by Platform")
+      )
+        .withHref("grid-by-tag.html")
+        .withClass("browse-toggle")
+        .attr("hx-get", "grid-by-tag.html")
+        .attr("hx-target", "#browse-section")
+        .attr("hx-swap", "outerHTML transition:true")
+    ).withClass("browse-toggle-container"),
     div(
       each( markdownData.entrySet(), entry -> {
         String htmlFileName = entry.getKey();
@@ -310,23 +300,86 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
           .attr("hx-push-url", "true")
           .withClass("project-card");
       })
-    ).withClass("project-list"),
+    ).withClass("project-list")
+  ).withId("browse-section");
+}
+
+static DomContent gridByTag(Map<String, Map<String, List<String>>> markdownData) {
+  // Collect unique tags and sort them
+  Set<String> uniqueTags = new TreeSet<>(collectUniqueTags(markdownData));
+
+  return div(
     div(
-      hr().withClass("tag-separator"),
+      a(
+        i().withClass("bi bi-sort-alpha-down"),
+        text(" Browse Alphabetically")
+      )
+        .withHref("grid-alphabetical.html")
+        .withClass("browse-toggle")
+        .attr("hx-get", "grid-alphabetical.html")
+        .attr("hx-target", "#browse-section")
+        .attr("hx-swap", "outerHTML transition:true")
+    ).withClass("browse-toggle-container"),
+    each(uniqueTags, tag -> {
+      // Filter projects by tag
+      Map<String, Map<String, List<String>>> filteredProjects = new TreeMap<>();
+      for (Map.Entry<String, Map<String, List<String>>> entry : markdownData.entrySet()) {
+        List<String> projectTags = entry.getValue().getOrDefault("tags", List.of());
+        if (projectTags.contains(tag)) {
+          filteredProjects.put(entry.getKey(), entry.getValue());
+        }
+      }
+      return div(
+        h2(tag).withClass("tag-group-title"),
+        div(
+          each(filteredProjects.entrySet(), entry -> {
+            String htmlFileName = entry.getKey();
+            String projectName = entry.getValue().getOrDefault("name", List.of("ProjectX")).get(0);
+            String imageUrl = entry.getValue().getOrDefault("image", List.of("https://via.placeholder.com/150")).get(0);
+            return a(
+              div(
+                img().withSrc(imageUrl).withAlt(projectName).withClass("project-thumbnail"),
+                div(projectName).withClass("project-name")
+              ).withClass("project-card-content")
+            )
+              .withHref(htmlFileName)
+              .attr("hx-get", htmlFileName)
+              .attr("hx-target", "body")
+              .attr("hx-swap", "innerHTML transition:true")
+              .attr("hx-push-url", "true")
+              .withClass("project-card");
+          })
+        ).withClass("project-list")
+      ).withClass("tag-group");
+    })
+  ).withId("browse-section");
+}
+
+static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData) {
+  return div(
+    // Hero Section with split layout
+    div(
+      // Left column - Title and CTAs
       div(
-        each(uniqueTags, tag -> {
-          String tagSlug = tagToSlug(tag);
-          String tagFileName = "tag-" + tagSlug + ".html";
-          return a(tag)
-            .withHref(tagFileName)
-            .attr("hx-get", tagFileName)
-            .attr("hx-target", "body")
-            .attr("hx-swap", "innerHTML transition:true")
-            .attr("hx-push-url", "true")
-            .withClass("tag-cloud-item");
-        })
-      ).withClass("tag-cloud")
-    ).withClass("tag-cloud-section").withId("tags-section"),
+        h1("Awesome Java UI").withClass("hero-title"),
+        div(
+          a(
+            i().withClass("bi bi-github"),
+            text(" Contribute on GitHub")
+          )
+            .withHref("https://github.com/teggr/java-ui-the-complete-guide")
+            .withTarget("_blank")
+            .withRel("noopener noreferrer")
+            .withClass("github-cta")
+        ).withClass("github-cta-container")
+      ).withClass("hero-left"),
+      // Right column - Description paragraphs
+      div(
+        p("Welcome to Awesome Java UI! This site provides an overview of the latest and greatest Java UI projects, frameworks and libraries, along with their status, Java version compatibility, learning curve, last release date, and more. Explore the projects below to find the right Java UI solution for your needs."),
+        p("This is a community-driven resource, built by Java developers for Java developers. Whether you're discovering a new framework, sharing your expertise, or helping others navigate the Java UI landscape - your contributions make this guide better for everyone. Join us in building the most comprehensive resource for Java UI development!")
+      ).withClass("hero-right")
+    ).withClass("hero-section"),
+    gridAlphabetical(markdownData),
     div(
       hr().withClass("about-separator"),
       div(
