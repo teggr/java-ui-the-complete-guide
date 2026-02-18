@@ -567,7 +567,62 @@ static HtmlTag output(DomContent content, SeoMetadata seo) {
       link().withRel("stylesheet").withHref("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"),
       script().withSrc("https://unpkg.com/htmx.org@2.0.4"),
       rawHtml("<!-- 100% privacy-first analytics -->"),
-      script().withSrc("https://scripts.simpleanalyticscdn.com/latest.js").attr("async", "")
+      script().withSrc("https://scripts.simpleanalyticscdn.com/latest.js").attr("async", ""),
+      // State preservation script for navigation
+      script(rawHtml("""
+        (function() {
+          // Save state when navigating away from index
+          document.addEventListener('htmx:beforeRequest', function(evt) {
+            // Check if we're on the index page and navigating to a project or tag page
+            const currentPath = window.location.pathname;
+            const isIndexPage = currentPath.endsWith('index.html') || currentPath === '/' || currentPath === '';
+            const targetUrl = evt.detail.path || evt.detail.pathInfo?.requestPath;
+            
+            if (isIndexPage && targetUrl && !targetUrl.includes('index.html') && !targetUrl.includes('grid-')) {
+              // Save scroll position
+              sessionStorage.setItem('indexScrollY', window.scrollY.toString());
+              
+              // Determine current view by checking which button is visible
+              const browseBtn = document.getElementById('browse-toggle-btn');
+              if (browseBtn) {
+                const btnText = browseBtn.textContent.trim();
+                const currentView = btnText.includes('Alphabetically') ? 'platform' : 'alphabetical';
+                sessionStorage.setItem('indexView', currentView);
+              }
+            }
+          });
+          
+          // Restore state when returning to index - use afterSettle for complete DOM readiness
+          document.addEventListener('htmx:afterSettle', function(evt) {
+            const targetUrl = evt.detail.pathInfo?.requestPath;
+            if (targetUrl && targetUrl.includes('index.html')) {
+              // Restore view
+              const savedView = sessionStorage.getItem('indexView');
+              if (savedView === 'alphabetical') {
+                // Trigger alphabetical view
+                const browseBtn = document.getElementById('browse-toggle-btn');
+                if (browseBtn && browseBtn.textContent.includes('Alphabetically')) {
+                  // Click the button to switch to alphabetical view
+                  browseBtn.click();
+                }
+              }
+              // If savedView is 'platform' or null, default view is already correct
+              
+              // Restore scroll position after view restoration
+              const savedScrollY = sessionStorage.getItem('indexScrollY');
+              if (savedScrollY) {
+                // Use requestAnimationFrame to ensure smooth scrolling after DOM updates
+                requestAnimationFrame(() => {
+                  window.scrollTo({
+                    top: parseInt(savedScrollY, 10),
+                    behavior: 'instant'
+                  });
+                });
+              }
+            }
+          });
+        })();
+      """))
     ),
     body(
       content,
