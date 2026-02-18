@@ -285,15 +285,8 @@ p {
 }
 
 /* Hero CTA Container - Below title on left */
-.hero-left .github-cta-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--spacing-md);
-  margin: var(--spacing-xl) 0 0 0;
-}
-
 .hero-left .github-cta {
+  margin-top: var(--spacing-xl);
   padding: var(--spacing-sm) var(--spacing-xl);
 }
 
@@ -522,6 +515,20 @@ p {
 /* Browse toggle button - prevent text wrapping on toggle */
 #browse-toggle-btn {
   white-space: nowrap;
+}
+
+/* === Sort Controls Section === */
+.sort-controls-section {
+  margin: var(--spacing-2xl) 0 var(--spacing-xl) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .sort-controls-section {
+    margin: var(--spacing-3xl) 0 var(--spacing-2xl) 0;
+  }
 }
 
 /* === Segmented Control for Sorting === */

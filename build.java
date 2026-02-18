@@ -466,46 +466,17 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
   return div(
     // Hero Section with split layout
     div(
-      // Left column - Title and CTAs
+      // Left column - Title and CTA
       div(
         h1("Awesome Java UI").withClass("hero-title"),
-        div(
-          // Segmented control for sorting
-          div(
-            button(
-              i().withClass("bi bi-sort-alpha-down"),
-              text(" Alphabetical")
-            )
-              .withClass("sort-btn")
-              .attr("hx-get", "grid-alphabetical.html")
-              .attr("hx-target", "#browse-section")
-              .attr("hx-swap", "outerHTML transition:true"),
-            button(
-              i().withClass("bi bi-tags"),
-              text(" Platform")
-            )
-              .withClass("sort-btn active")
-              .attr("hx-get", "grid-by-tag.html")
-              .attr("hx-target", "#browse-section")
-              .attr("hx-swap", "outerHTML transition:true"),
-            button(
-              i().withClass("bi bi-clock-history"),
-              text(" Recently Added")
-            )
-              .withClass("sort-btn")
-              .attr("hx-get", "grid-by-date.html")
-              .attr("hx-target", "#browse-section")
-              .attr("hx-swap", "outerHTML transition:true")
-          ).withClass("sort-button-group").withId("sort-buttons"),
-          a(
-            i().withClass("bi bi-github"),
-            text(" Contribute on GitHub")
-          )
-            .withHref("https://github.com/teggr/java-ui-the-complete-guide")
-            .withTarget("_blank")
-            .withRel("noopener noreferrer")
-            .withClass("github-cta")
-        ).withClass("github-cta-container")
+        a(
+          i().withClass("bi bi-github"),
+          text(" Contribute on GitHub")
+        )
+          .withHref("https://github.com/teggr/java-ui-the-complete-guide")
+          .withTarget("_blank")
+          .withRel("noopener noreferrer")
+          .withClass("github-cta")
       ).withClass("hero-left"),
       // Right column - Description paragraphs
       div(
@@ -513,7 +484,36 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
         p("This is a community-driven resource, built by Java developers for Java developers. Whether you're discovering a new framework, sharing your expertise, or helping others navigate the Java UI landscape - your contributions make this guide better for everyone. Join us in building the most comprehensive resource for Java UI development!")
       ).withClass("hero-right")
     ).withClass("hero-section"),
-    gridByTagContent(markdownData),
+    // Sort controls section - above the project grid
+    div(
+      div(
+        button(
+          i().withClass("bi bi-sort-alpha-down"),
+          text(" Alphabetical")
+        )
+          .withClass("sort-btn active")
+          .attr("hx-get", "grid-alphabetical.html")
+          .attr("hx-target", "#browse-section")
+          .attr("hx-swap", "outerHTML transition:true"),
+        button(
+          i().withClass("bi bi-tags"),
+          text(" Platform")
+        )
+          .withClass("sort-btn")
+          .attr("hx-get", "grid-by-tag.html")
+          .attr("hx-target", "#browse-section")
+          .attr("hx-swap", "outerHTML transition:true"),
+        button(
+          i().withClass("bi bi-clock-history"),
+          text(" Recently Added")
+        )
+          .withClass("sort-btn")
+          .attr("hx-get", "grid-by-date.html")
+          .attr("hx-target", "#browse-section")
+          .attr("hx-swap", "outerHTML transition:true")
+      ).withClass("sort-button-group").withId("sort-buttons")
+    ).withClass("sort-controls-section"),
+    gridAlphabeticalContent(markdownData),
     div(
       hr().withClass("tag-separator"),
       div(
