@@ -58,7 +58,7 @@ void main(String... args) throws IOException, NoSuchAlgorithmException {
                 }
                 
                 // Generate thumbnail
-                generateThumbnail(imagePath, thumbnailPath, 180);
+                generateThumbnail(imagePath, thumbnailPath, 540);
                 System.out.println("  Generated: " + thumbnailName);
                 
             } catch (Exception e) {
