@@ -226,6 +226,32 @@ private static String tagToSlug(String tag) {
     .replaceAll("[^a-z0-9-]", "");
 }
 
+/**
+ * Get the thumbnail URL for an image, falling back to the original if thumbnail doesn't exist
+ */
+private static String getThumbnailUrl(String originalImageUrl) {
+  // Skip if it's a placeholder or external URL
+  if (!originalImageUrl.startsWith("images/") || originalImageUrl.contains("placeholder")) {
+    return originalImageUrl;
+  }
+  
+  // Extract the filename after the last dash (e.g., "ui-casciian.png" -> "casciian.png")
+  String filename = originalImageUrl.substring(originalImageUrl.lastIndexOf('/') + 1);
+  if (filename.startsWith("ui-")) {
+    String thumbnailName = "thumbnail-" + filename.substring(filename.lastIndexOf('-') + 1);
+    String thumbnailUrl = "images/" + thumbnailName;
+    
+    // Check if thumbnail exists
+    Path thumbnailPath = Paths.get(thumbnailUrl);
+    if (Files.exists(thumbnailPath)) {
+      return thumbnailUrl;
+    }
+  }
+  
+  // Fallback to original
+  return originalImageUrl;
+}
+
 static DomContent tagPage(String tag, Map<String, Map<String, List<String>>> markdownData) {
   // Filter projects by tag
   Map<String, Map<String, List<String>>> filteredProjects = new TreeMap<>();
@@ -252,9 +278,10 @@ static DomContent tagPage(String tag, Map<String, Map<String, List<String>>> mar
         String htmlFileName = entry.getKey();
         String projectName = entry.getValue().getOrDefault("name", List.of("ProjectX")).get(0);
         String imageUrl = entry.getValue().getOrDefault("image", List.of("https://via.placeholder.com/150")).get(0);
+        String thumbnailUrl = getThumbnailUrl(imageUrl);
         return a(
           div(
-            img().withSrc(imageUrl).withAlt(projectName).withClass("project-thumbnail"),
+            img().withSrc(thumbnailUrl).withAlt(projectName).withClass("project-thumbnail"),
             div(projectName).withClass("project-name")
           ).withClass("project-card-content")
         )
@@ -276,9 +303,10 @@ static DomContent gridAlphabeticalContent(Map<String, Map<String, List<String>>>
       String htmlFileName = entry.getKey();
       String projectName = entry.getValue().getOrDefault("name", List.of("ProjectX")).get(0);
       String imageUrl = entry.getValue().getOrDefault("image", List.of("https://via.placeholder.com/150")).get(0);
+      String thumbnailUrl = getThumbnailUrl(imageUrl);
       return a(
         div(
-          img().withSrc(imageUrl).withAlt(projectName).withClass("project-thumbnail"),
+          img().withSrc(thumbnailUrl).withAlt(projectName).withClass("project-thumbnail"),
           div(projectName).withClass("project-name")
         ).withClass("project-card-content")
       )
@@ -331,9 +359,10 @@ static DomContent gridByTagContent(Map<String, Map<String, List<String>>> markdo
             String htmlFileName = entry.getKey();
             String projectName = entry.getValue().getOrDefault("name", List.of("ProjectX")).get(0);
             String imageUrl = entry.getValue().getOrDefault("image", List.of("https://via.placeholder.com/150")).get(0);
+            String thumbnailUrl = getThumbnailUrl(imageUrl);
             return a(
               div(
-                img().withSrc(imageUrl).withAlt(projectName).withClass("project-thumbnail"),
+                img().withSrc(thumbnailUrl).withAlt(projectName).withClass("project-thumbnail"),
                 div(projectName).withClass("project-name")
               ).withClass("project-card-content")
             )
