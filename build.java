@@ -173,12 +173,13 @@ private DomContent project(Map<String, List<String>> data, DomContent content) {
 
   return div(
     div(
-      a("← Back to Home")
+      a("← Back")
         .withHref("index.html")
-        .attr("hx-get", "index.html")
-        .attr("hx-target", "body")
-        .attr("hx-swap", "innerHTML transition:true show:window:top")
-        .attr("hx-push-url", "true")
+        .attr("onclick", "history.back(); return false;") // just navigate back in history for better UX, instead of reloading the page
+//        .attr("hx-get", "index.html")
+//        .attr("hx-target", "body")
+//        .attr("hx-swap", "innerHTML transition:true show:window:top")
+//        .attr("hx-push-url", "true")
         .withClass("back-link")
     ),
     each(
@@ -264,12 +265,13 @@ static DomContent tagPage(String tag, Map<String, Map<String, List<String>>> mar
   
   return div(
     div(
-      a("← Back to Home")
+        a("← Back")
         .withHref("index.html")
-        .attr("hx-get", "index.html")
-        .attr("hx-target", "body")
-        .attr("hx-swap", "innerHTML transition:true show:window:top")
-        .attr("hx-push-url", "true")
+        .attr("onclick", "history.back(); return false;") // just navigate back in history for better UX, instead of reloading the page
+//        .attr("hx-get", "index.html")
+//        .attr("hx-target", "body")
+//        .attr("hx-swap", "innerHTML transition:true show:window:top")
+//        .attr("hx-push-url", "true")
         .withClass("back-link")
     ),
     h1("Projects tagged: " + tag),
