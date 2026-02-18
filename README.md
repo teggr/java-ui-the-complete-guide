@@ -38,7 +38,7 @@ The site will be available at `http://localhost:8000`
 **About Thumbnails:**
 The site uses automatically generated thumbnails for faster page loading. When you add a new image to the `images/` directory:
 1. Run `jbang GenerateThumbnails.java` to generate thumbnails
-2. Thumbnails are created as `thumbnail-{name}.png` with max height of 180px
+2. Thumbnails are created as `thumbnail-{name}.png` with max height of 540px
 3. The script intelligently skips unchanged images using hash tracking
 4. The build process automatically uses thumbnails with fallback to original images
 
