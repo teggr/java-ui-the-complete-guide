@@ -94,6 +94,11 @@ void main(String... args) throws IOException {
   Files.writeString(outputDirectory.resolve("grid-by-tag.html"), gridTagWriter.toString());
   System.out.println("Generated grid-by-tag.html");
 
+  StringWriter gridDateWriter = new StringWriter();
+  gridDateWriter.append(gridByDate(markdownData).render(IndentedHtml.inMemory()));
+  Files.writeString(outputDirectory.resolve("grid-by-date.html"), gridDateWriter.toString());
+  System.out.println("Generated grid-by-date.html");
+
   // Collect unique tags from all markdown data
   Set<String> uniqueTags = collectUniqueTags(markdownData);
 
@@ -326,17 +331,7 @@ static DomContent gridAlphabeticalContent(Map<String, Map<String, List<String>>>
 static DomContent gridAlphabetical(Map<String, Map<String, List<String>>> markdownData) {
   return each(
     gridAlphabeticalContent(markdownData),
-    a(
-      i().withClass("bi bi-tags"),
-      text(" Browse by Platform")
-    )
-      .withHref("grid-by-tag.html")
-      .withClass("github-cta")
-      .attr("hx-get", "grid-by-tag.html")
-      .attr("hx-target", "#browse-section")
-      .attr("hx-swap", "outerHTML transition:true")
-      .withId("browse-toggle-btn")
-      .attr("hx-swap-oob", "true")
+    sortButtons("alphabetical")
   );
 }
 
@@ -385,18 +380,83 @@ static DomContent gridByTagContent(Map<String, Map<String, List<String>>> markdo
 static DomContent gridByTag(Map<String, Map<String, List<String>>> markdownData) {
   return each(
     gridByTagContent(markdownData),
-    a(
+    sortButtons("platform")
+  );
+}
+
+// Grid content for date-sorted initial page render
+static DomContent gridByDateContent(Map<String, Map<String, List<String>>> markdownData) {
+  // Sort by dateAdded (most recent first)
+  Map<String, Map<String, List<String>>> sortedData = new LinkedHashMap<>();
+  markdownData.entrySet().stream()
+    .sorted((e1, e2) -> {
+      String date1 = e1.getValue().getOrDefault("dateAdded", List.of("1900-01-01")).get(0);
+      String date2 = e2.getValue().getOrDefault("dateAdded", List.of("1900-01-01")).get(0);
+      return date2.compareTo(date1); // Reverse order for most recent first
+    })
+    .forEach(entry -> sortedData.put(entry.getKey(), entry.getValue()));
+  
+  return div(
+    each(sortedData.entrySet(), entry -> {
+      String htmlFileName = entry.getKey();
+      String projectName = entry.getValue().getOrDefault("name", List.of("ProjectX")).get(0);
+      String imageUrl = entry.getValue().getOrDefault("image", List.of("https://via.placeholder.com/150")).get(0);
+      String thumbnailUrl = getThumbnailUrl(imageUrl);
+      return a(
+        div(
+          img().withSrc(thumbnailUrl).withAlt(projectName).withClass("project-thumbnail"),
+          div(projectName).withClass("project-name")
+        ).withClass("project-card-content")
+      )
+        .withHref(htmlFileName)
+        .attr("hx-get", htmlFileName)
+        .attr("hx-target", "body")
+        .attr("hx-swap", "innerHTML transition:true show:window:top")
+        .attr("hx-push-url", "true")
+        .withClass("project-card");
+    })
+  ).withClass("project-list").withId("browse-section");
+}
+
+// Partial response for htmx: date-sorted grid + OOB button swap
+static DomContent gridByDate(Map<String, Map<String, List<String>>> markdownData) {
+  return each(
+    gridByDateContent(markdownData),
+    sortButtons("date")
+  );
+}
+
+// Generate the segmented control buttons for sorting with proper active state
+static DomContent sortButtons(String activeSort) {
+  return div(
+    button(
       i().withClass("bi bi-sort-alpha-down"),
-      text(" Browse Alphabetically")
+      text(" Alphabetical")
     )
-      .withHref("grid-alphabetical.html")
-      .withClass("github-cta")
+      .withClass("sort-btn" + ("alphabetical".equals(activeSort) ? " active" : ""))
       .attr("hx-get", "grid-alphabetical.html")
       .attr("hx-target", "#browse-section")
+      .attr("hx-swap", "outerHTML transition:true"),
+    button(
+      i().withClass("bi bi-tags"),
+      text(" Platform")
+    )
+      .withClass("sort-btn" + ("platform".equals(activeSort) ? " active" : ""))
+      .attr("hx-get", "grid-by-tag.html")
+      .attr("hx-target", "#browse-section")
+      .attr("hx-swap", "outerHTML transition:true"),
+    button(
+      i().withClass("bi bi-clock-history"),
+      text(" Recently Added")
+    )
+      .withClass("sort-btn" + ("date".equals(activeSort) ? " active" : ""))
+      .attr("hx-get", "grid-by-date.html")
+      .attr("hx-target", "#browse-section")
       .attr("hx-swap", "outerHTML transition:true")
-      .withId("browse-toggle-btn")
-      .attr("hx-swap-oob", "true")
-  );
+  )
+    .withClass("sort-button-group")
+    .withId("sort-buttons")
+    .attr("hx-swap-oob", "true");
 }
 
 static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData) {
@@ -410,16 +470,33 @@ static DomContent indexPage(Map<String, Map<String, List<String>>> markdownData)
       div(
         h1("Awesome Java UI").withClass("hero-title"),
         div(
-          a(
-            i().withClass("bi bi-sort-alpha-down"),
-            text(" Browse Alphabetically")
-          )
-            .withHref("grid-alphabetical.html")
-            .withClass("github-cta")
-            .attr("hx-get", "grid-alphabetical.html")
-            .attr("hx-target", "#browse-section")
-            .attr("hx-swap", "outerHTML transition:true")
-            .withId("browse-toggle-btn"),
+          // Segmented control for sorting
+          div(
+            button(
+              i().withClass("bi bi-sort-alpha-down"),
+              text(" Alphabetical")
+            )
+              .withClass("sort-btn")
+              .attr("hx-get", "grid-alphabetical.html")
+              .attr("hx-target", "#browse-section")
+              .attr("hx-swap", "outerHTML transition:true"),
+            button(
+              i().withClass("bi bi-tags"),
+              text(" Platform")
+            )
+              .withClass("sort-btn active")
+              .attr("hx-get", "grid-by-tag.html")
+              .attr("hx-target", "#browse-section")
+              .attr("hx-swap", "outerHTML transition:true"),
+            button(
+              i().withClass("bi bi-clock-history"),
+              text(" Recently Added")
+            )
+              .withClass("sort-btn")
+              .attr("hx-get", "grid-by-date.html")
+              .attr("hx-target", "#browse-section")
+              .attr("hx-swap", "outerHTML transition:true")
+          ).withClass("sort-button-group").withId("sort-buttons"),
           a(
             i().withClass("bi bi-github"),
             text(" Contribute on GitHub")

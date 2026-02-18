@@ -10,6 +10,7 @@ image: images/ui-avaje-webview.png
 tags:
     - Desktop UI
     - Web UI
+dateAdded: 2026-02-18
 ---
 
 Avaje WebView provides Java bindings for native webview components, enabling developers to create cross-platform desktop applications using web technologies (HTML, CSS, JavaScript) with a Java backend. Similar in concept to Electron but more lightweight, Avaje WebView embeds platform-native webview controls (WebKit on macOS/Linux, WebView2 on Windows) rather than bundling an entire Chromium instance. This results in significantly smaller application sizes and lower memory footprints compared to Electron-based alternatives. The library allows bidirectional communication between Java code and JavaScript in the webview, making it possible to build hybrid desktop applications where the UI is HTML-based but business logic and system integration happens in Java. While still in early development, Avaje WebView shows promise for Java developers wanting to build modern desktop UIs using web technologies without the overhead of full browser engines. It's suitable for internal tools, utilities, and applications where native webview capabilities are sufficient and bundle size matters.

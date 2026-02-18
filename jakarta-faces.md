@@ -9,6 +9,7 @@ learnMoreHref: https://jakarta.ee/specifications/faces/
 image: images/ui-jsf.png
 tags:
     - Web UI
+dateAdded: 2026-02-18
 ---
 
 Jakarta Faces (the evolution of JavaServer Faces under the Jakarta EE umbrella) is a component-focused web framework deeply integrated with enterprise Java. As part of the Jakarta EE specification, it provides standardized UI component development with server-side state management, event handling, and validation. The framework includes drag-and-drop features in supporting IDEs and works seamlessly with other Jakarta EE technologies like CDI, JPA, and Bean Validation. For teams already invested in the Jakarta EE ecosystem, Faces provides a stable, standardized approach to web UI development with broad vendor support and extensive enterprise tooling.

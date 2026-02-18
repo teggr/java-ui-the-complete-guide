@@ -11,6 +11,7 @@ tags:
     - Desktop UI
     - Web UI
     - Hybrid Framework
+dateAdded: 2026-02-18
 ---
 
 Krema is to the Java ecosystem what Tauri is to Rust—a framework for building lightweight, native desktop applications powered by system webviews instead of a bundled browser. Write your backend in Java, your frontend in React/Vue/Angular/Svelte, and ship small, fast, cross-platform apps. Unlike Electron's ~150 MB overhead, Krema apps start around ~5 MB, using the OS-native webview (WebKit on macOS, WebView2 on Windows, WebKitGTK on Linux) and communicating with Java via Project Panama's Foreign Function & Memory API—no JNI, no bundled browser, no Electron bloat. You get the full power of the JDK ecosystem for backend logic with complete freedom to use any web framework for the UI.

@@ -10,6 +10,7 @@ image: images/ui-jgoodies.png
 tags:
     - Desktop UI
     - UI Components
+dateAdded: 2026-02-18
 ---
 
 JGoodies is a collection of libraries that enhance Java Swing with better layouts, look-and-feels, data binding, and validation. The JGoodies Looks library provides professional-looking, platform-native-inspired themes that make Swing applications look significantly better than the default Metal theme. JGoodies Forms offers a powerful layout manager based on a grid system with support for growing/non-growing components, gaps, and separators—making complex forms much easier to create than with GridBagLayout. JGoodies Binding provides presentation model support with buffering, validation, and data synchronization between domain models and UI components. JGoodies Validation offers a consistent validation framework with visual feedback. While development has slowed (last major release in 2016), the libraries remain popular in enterprise Swing applications because they solve real pain points with minimal complexity. JGoodies is particularly valued for making Swing forms that look professional and are maintainable, addressing the historical criticism that Swing applications look dated or are hard to lay out properly.

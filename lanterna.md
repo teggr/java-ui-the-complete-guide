@@ -9,6 +9,7 @@ learnMoreHref: https://github.com/mabe02/lanterna
 image: images/ui-lanterna.png
 tags:
     - Terminal UI
+dateAdded: 2026-02-18
 ---
 
 Lanterna is Java's answer to the C curses library for building text-based GUIs in terminal environments—with even more functionality. It's 100% pure Java with no native dependencies, working on any xterm-compatible terminal (konsole, gnome-terminal, putty, xterm, etc.) across Windows, macOS, Linux, and Unix-like systems. The framework provides three layers of abstraction: a low-level terminal layer for direct cursor control, a screen layer using a full-screen buffer/bitmap approach, and a complete GUI layer with windows, buttons, labels, and layouts. Notably, Lanterna bundles a Swing terminal emulator, so you can develop in your IDE (even though it doesn't support ANSI) and deploy unchanged to headless servers. It's perfect for temperature monitoring systems, server administration tools, text-based dashboards, or any headless environment requiring interactive UI.

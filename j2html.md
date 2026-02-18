@@ -9,6 +9,7 @@ learnMoreHref: https://j2html.com/
 image: images/ui-j2html.png
 tags:
     - Web UI
+dateAdded: 2026-02-18
 ---
 
 j2html is not a template engine—it's a type-safe HTML builder for pure Java code. Using a fluent API, you construct HTML with compile-time safety, eliminating risks of unclosed tags, mistyped attributes, or XSS vulnerabilities through automatic escaping. It's extremely fast (100k renders in under 1 second, roughly 1000x faster than Velocity) and enables dynamic reuse of view code that's difficult with templates. j2html works particularly well with lightweight frameworks like Javalin for building APIs that return HTML fragments or generating dynamic emails and forms. While not suitable for traditional websites with large amounts of static HTML or heavy copy-pasted CSS framework markup, it excels when type safety and Java-centric development are priorities.

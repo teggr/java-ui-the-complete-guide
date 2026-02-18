@@ -9,6 +9,7 @@ learnMoreHref: https://www.teamdev.com/jxbrowser
 image: images/ui-jxbrowser.png
 tags:
     - Desktop UI
+dateAdded: 2026-02-18
 ---
 
 JxBrowser is a commercial Chromium integration solution from TeamDev that provides superior architecture compared to JCEF. It supports Swing, JavaFX, and SWT with separate process isolation, regular Chromium upgrades (every 3-4 weeks after stable releases), and comprehensive features including hardware acceleration, HiDPI/Retina support, Chrome extensions, PDF rendering, network interception, and DOM manipulation. The Chromium sandbox is fully enabled on Windows and macOS, providing better security than alternatives. With a 30-day free trial and perpetual licensing starting at $1,799 for indie developers, JxBrowser is the professional choice when you need enterprise-grade Chromium embedding with excellent technical support.

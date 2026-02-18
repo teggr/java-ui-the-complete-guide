@@ -11,6 +11,7 @@ tags:
     - Web UI
     - Web Framework
     - Real-Time
+dateAdded: 2026-02-18
 ---
 
 Oorian is a pure Java web framework that enables building real-time web applications with flexible communication modes (AJAX, SSE, or WebSocket per page). For over 10 years, Oorian has powered iGradePlus—a commercial SaaS with 500k+ lines of code. It offers pure Java development with no vendor lock-in and integrates with best-of-breed UI libraries like Webix, SyncFusion, WebAwesome, and ECharts. The framework features a JDK-style event model similar to Swing or JavaFX, lightweight JSON messaging architecture, and built-in security, accessibility, and data format support. Oorian can deploy applications as a single executable JAR with embedded Jetty server, requiring no external application server. Unlike proprietary frameworks like Vaadin or ZK, Oorian lets developers choose and mix UI libraries without being locked into proprietary components.

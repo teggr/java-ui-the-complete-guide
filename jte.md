@@ -10,6 +10,7 @@ image: images/ui-jte.png
 tags:
     - Template Engine
     - Web UI
+dateAdded: 2026-02-18
 ---
 
 JTE (Java Template Engine) is a secure, lightweight, and blazingly fast template engine for Java and Kotlin. What sets JTE apart is its intuitive syntax that builds upon existing Java/Kotlin language features—you write plain Java or Kotlin code for expressions without learning a new expression language. JTE performs context-sensitive HTML escaping at compile time to prevent XSS attacks, making security a default rather than an afterthought. The framework offers hot reloading during development for instant feedback and includes a full-featured IntelliJ plugin with code completion, refactoring support, and syntax highlighting. JTE compiles templates to Java classes, resulting in exceptional performance (benchmarks show it's one of the fastest template engines available). It's particularly popular in the Kotlin community and integrates seamlessly with Spring Boot, Javalin, Ktor, and other frameworks. With minimal dependencies and straightforward syntax, JTE is ideal for teams building modern web applications who want type safety, security, and performance without complexity.
