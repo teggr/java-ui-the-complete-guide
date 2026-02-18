@@ -288,6 +288,15 @@ p {
 .hero-left .github-cta {
   margin-top: var(--spacing-xl);
   padding: var(--spacing-sm) var(--spacing-xl);
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .hero-left .github-cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* Hero Right Column - Description text */
@@ -542,6 +551,14 @@ p {
   box-shadow: var(--shadow-sm);
 }
 
+@media (max-width: 640px) {
+  .sort-button-group {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
 .sort-btn {
   display: inline-flex;
   align-items: center;
@@ -561,6 +578,14 @@ p {
     background var(--transition-normal) var(--ease-out),
     color var(--transition-normal) var(--ease-out),
     transform var(--transition-fast) var(--ease-out);
+}
+
+@media (max-width: 640px) {
+  .sort-btn {
+    width: 100%;
+    justify-content: flex-start;
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
 }
 
 .sort-btn i {
