@@ -10,7 +10,7 @@ image: images/ui-gwt.png
 tags:
     - Web UI
     - Compiler/Transpiler
-dateAdded: 2026-02-18
+dateAdded: 2026-02-13
 ---
 
 GWT (Google Web Toolkit) is a development toolkit for building high-performance web applications in Java that compiles to optimized JavaScript. Originally developed by Google and now maintained as an open source project, GWT allows developers to write complex browser-based applications using the Java language and tools, then deploy as pure JavaScript that runs in any modern browser. The GWT compiler performs aggressive code splitting, dead code elimination, and optimization to produce small, fast JavaScript bundles. GWT provides a rich set of UI widgets, RPC mechanisms for client-server communication, internationalization support, and the ability to use Java's type system and IDE features (refactoring, debugging, etc.) for web development. Despite being considered "legacy" by some, GWT remains actively maintained and used in production by thousands of applications worldwide, particularly in enterprise settings where Java expertise is abundant. It's ideal for complex, data-intensive web applications where Java developers want to leverage their existing skills without learning JavaScript frameworks.

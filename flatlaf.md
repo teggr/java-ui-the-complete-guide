@@ -9,7 +9,7 @@ learnMoreHref: https://www.formdev.com/flatlaf/
 image: images/ui-flatlaf.png
 tags:
     - Desktop UI
-dateAdded: 2026-02-18
+dateAdded: 2026-02-09
 ---
 
 Swing may be a legacy framework, but it's far from dead. The IntelliJ plugin ecosystem relies heavily on Swing, and modern look-and-feel libraries like FlatLaf have completely revitalized its appearance. FlatLaf brings flat, modern design inspired by IntelliJ IDEA and Darcula themes, with built-in light and dark modes, HiDPI/Retina support, and cross-platform consistency. It's actively developed by FormDev Software and used in production by commercial applications like Burp Suite, JOSM (OpenStreetMap editor), and countless IntelliJ plugins. If you're building IntelliJ plugins or maintaining Swing applications, FlatLaf makes them look contemporary with minimal effort.

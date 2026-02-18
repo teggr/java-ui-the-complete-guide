@@ -10,7 +10,7 @@ image: images/ui-zk.png
 tags:
     - Web UI
     - Web Framework
-dateAdded: 2026-02-18
+dateAdded: 2026-02-13
 ---
 
 ZK is an enterprise-focused, component-based web framework that enables building rich web applications entirely in Java with minimal JavaScript. Following an event-driven programming model similar to Swing or JavaFX, ZK synchronizes UI components between server and browser automatically. The framework provides over 100 Ajax-enabled UI components including grids, charts, calendars, trees, and specialized widgets for business applications. ZK supports both Java and XML (ZUL) for UI definition, offering MVVM and MVC patterns for application architecture. The framework includes ZK Studio (Eclipse plugin) for visual development, and comes in Community (open source) and Enterprise editions, with the latter adding features like a spreadsheet component, pivot tables, advanced theming, and professional support. ZK is particularly popular in enterprise environments for dashboards, admin panels, and line-of-business applications where Java developers can build sophisticated UIs without JavaScript expertise. It competes with frameworks like Vaadin but offers more widgets out of the box and a different component lifecycle model.

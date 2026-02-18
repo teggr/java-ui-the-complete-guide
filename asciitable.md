@@ -9,7 +9,7 @@ learnMoreHref: https://github.com/vdmeer/asciitable
 image: images/ui-asciitable.png
 tags:
     - Terminal UI
-dateAdded: 2026-02-18
+dateAdded: 2026-02-09
 ---
 
 AsciiTable is a versatile library for rendering beautifully formatted ASCII tables in terminal applications, perfect for displaying tabular data in CLI tools, monitoring dashboards, and log outputs. The library removes excessive whitespace and provides fine-grained control over every aspect of table appearance: text alignment (left, right, centered, justified), padding characters for all sides, customizable grid styles with various line weights (normal, light, strong, heavy), and configurable margins and frames. Tables can span columns, handle text wrapping, and even convert characters for LaTeX or HTML output, making it suitable for generating documentation or reports.

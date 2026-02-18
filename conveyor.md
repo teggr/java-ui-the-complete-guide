@@ -10,7 +10,7 @@ image: images/ui-conveyor.png
 tags:
     - Build Tools
     - Desktop UI
-dateAdded: 2026-02-18
+dateAdded: 2026-02-13
 ---
 
 Conveyor is a commercial tool (with free tier) from Hydraulic Software that revolutionizes Java desktop application distribution by creating native installers and self-updating packages for Windows, macOS, and Linux from a single configuration file. Unlike traditional tools like jpackage or Install4j, Conveyor handles code signing, notarization (macOS), Windows Store submission, Linux repository management, and automatic updates out of the box. It supports Electron, JVM apps (JavaFX, Swing), and native applications, with deep integration for Kotlin/JVM projects. Conveyor's standout feature is its update mechanism—applications can update themselves in the background without interrupting users, similar to Chrome's update system. The tool handles platform-specific concerns like DMG creation for macOS, MSI/EXE for Windows, and DEB/RPM for Linux, plus generates download pages with platform detection. For commercial JavaFX or Swing applications requiring professional deployment and updates, Conveyor significantly reduces DevOps complexity compared to rolling your own solution with jpackage and other tools.

@@ -9,7 +9,7 @@ learnMoreHref: https://github.com/kusoroadeolu/Clique
 image: images/ui-clique.png
 tags:
     - Terminal UI
-dateAdded: 2026-02-18
+dateAdded: 2026-02-13
 ---
 
 Clique is a dependency-free, lightweight, and extensible CLI library for beautifying Java terminal applications. It provides a simple, markup-based syntax for styling terminal output that's far more readable than raw ANSI escape codes. The library offers a comprehensive feature set including a markup parser with intuitive tag syntax like `[red, bold]Error:[/]`, built-in themes (Catppuccin, Dracula, Gruvbox, Nord, Tokyo Night) through an extensible theme system, ASCII tables with multiple rendering styles, single-cell boxes with text wrapping, hierarchical text indentation, a fluent StyleBuilder API, and progress bars with animations and customizable styles.

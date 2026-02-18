@@ -10,7 +10,7 @@ image: images/ui-webforj.png
 tags:
     - Web UI
     - UI Components
-dateAdded: 2026-02-18
+dateAdded: 2026-02-17
 ---
 
 webforJ is a Java web framework built on composition — views assemble from server-side components that the DWC (Dynamic Web Client), webforJ's rendering engine and design system, renders as matching web components in the browser, synchronizing all state transparently. The component set spans data tables, application shells, form fields, dialogs, and more, all sharing a cohesive visual language with a companion Figma kit. The framework goes well beyond rendering, addressing routing, data management, security, and internationalization as first-class concerns. Any web component from the JavaScript ecosystem can be brought into type-safe Java, and a Webswing connector lets legacy Swing desktop applications run in the browser for incremental modernization. Deep Spring Boot integration makes it a natural choice for teams already working in the Spring ecosystem.

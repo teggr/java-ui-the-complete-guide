@@ -9,7 +9,7 @@ learnMoreHref: https://www.qtjambi.io/doc
 image: images/ui-qtjambi.png
 tags:
     - Desktop UI
-dateAdded: 2026-02-18
+dateAdded: 2026-02-13
 ---
 
 QtJambi brings the powerful Qt framework to Java and Kotlin, providing comprehensive Java bindings for the entire Qt C++ API. Originally developed by Trolltech (predecessor of The Qt Company), QtJambi is now actively maintained with support for Qt6 and modern Java versions. The framework automatically generates Java wrappers from Qt's C++ headers through introspection, offering access to QtCore, QtGui, QtWidgets for traditional desktop UIs, and QtQuick/QML for declarative interfaces. QtJambi handles native memory management and object lifecycle automatically through its JNI kernel. With support for Windows, Linux, macOS, and Android, it provides cross-platform native UI capabilities, OpenGL integration, multimedia support, SQL processing, and access to Qt's extensive module ecosystem. It's ideal for Java teams wanting professional, native-looking applications with the maturity and breadth of the Qt framework.

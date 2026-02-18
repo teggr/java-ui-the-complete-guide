@@ -12,7 +12,7 @@ tags:
     - Web UI
     - Desktop UI
     - Mobile
-dateAdded: 2026-02-18
+dateAdded: 2026-02-17
 ---
 
 WebFX is a JavaFX application transpiler powered by GWT or TeaVM that converts JavaFX applications into standalone, self-contained JavaScript or WebAssembly web apps requiring no plugins or server execution in the browser. The WebFX kit is a modified version of OpenJFX with a patched higher layer made compatible with GWT and TeaVM, and a replaced lower layer that maps the scene graph directly to the DOM for browser rendering. Beyond web deployment, WebFX applications can also run on desktop (with embedded JRE) and mobile platforms (via Gluon), enabling true cross-platform development from a single JavaFX codebase. This approach offers a Java full-stack solution where developers can share code between frontend and backend using the Java module system, avoiding the complexity of JavaScript/TypeScript ecosystems. WebFX produces surprisingly lightweight web applications despite OpenJFX's size, with demos ranging from 97-176 kB, and benefits from the simplicity of self-contained web packaging versus server-based approaches.

@@ -10,7 +10,7 @@ image: images/ui-javalin.png
 tags:
     - Web Framework
     - Microservices
-dateAdded: 2026-02-18
+dateAdded: 2026-02-13
 ---
 
 Javalin is a simple, lightweight web framework for Java and Kotlin built on top of Jetty. Unlike other frameworks, Javalin has very few concepts to learn—you never extend classes and rarely implement interfaces, making it one of the easiest Java web frameworks to pick up. With just a few thousand lines of code, Javalin's performance is equivalent to raw Jetty while being far more developer-friendly. It's designed with inter-operability in mind, so applications are built identically in both Java and Kotlin. Javalin embraces a simple, blocking programming model that's easy to reason about, but automatically switches to asynchronous mode when you set a Future as result. It includes built-in OpenAPI support with Swagger UI and ReDoc, comprehensive WebSocket support, and access to all of Jetty's configuration options including SSL and HTTP3. Perfect for microservices, REST APIs, and lightweight web applications where you want minimal ceremony and maximum clarity.
