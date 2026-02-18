@@ -54,16 +54,16 @@ void main(String... args) throws IOException {
         // Fix formatting: add newline after opening code tag for proper indentation
         html = html.replaceAll("(<code[^>]*>)([^ \\n])", "$1\n$2");
 
+        String htmlFileName = path.getFileName().toString().replace(".md", ".html");
+
         // Write HTML to docs directory
-        HtmlTag htmlTag = output(project(frontMatterVisitor.getData(), rawHtml(html)),
-          SeoMetadata.forProject(frontMatterVisitor.getData(), path.getFileName().toString().replace(".md", ".html")));
+        HtmlTag htmlTag = output(project(frontMatterVisitor.getData(), rawHtml(html), htmlFileName),
+          SeoMetadata.forProject(frontMatterVisitor.getData(), htmlFileName));
 
         StringWriter writer = new StringWriter();
         writer.append(htmlTag.render(IndentedHtml.inMemory()));
 
         String finalHtml = writer.toString();
-
-        String htmlFileName = path.getFileName().toString().replace(".md", ".html");
 
         markdownData.put( htmlFileName, frontMatterVisitor.getData() );
 
@@ -159,7 +159,7 @@ void main(String... args) throws IOException {
 
 }
 
-private DomContent project(Map<String, List<String>> data, DomContent content) {
+private DomContent project(Map<String, List<String>> data, DomContent content, String htmlFileName) {
 
   String name = data.getOrDefault("name", List.of("Unknown Project")).get(0);
   String status = data.getOrDefault("status", List.of("Unknown Status")).get(0);
@@ -170,16 +170,20 @@ private DomContent project(Map<String, List<String>> data, DomContent content) {
   String learnMoreHref = data.getOrDefault("learnMoreHref", List.of("#")).get(0);
   String image = data.getOrDefault("image", List.of("https://via.placeholder.com/150")).get(0);
   List<String> tags = data.getOrDefault("tags", List.of());
+  
+  // Generate project ID from filename (remove .html extension)
+  String projectId = htmlFileName.replace(".html", "");
 
   return div(
     div(
       a("← Back to Home")
-        .withHref("index.html")
+        .withHref("index.html#project-" + projectId)
         .attr("hx-get", "index.html")
         .attr("hx-target", "body")
         .attr("hx-swap", "innerHTML transition:true show:window:top")
         .attr("hx-push-url", "true")
         .withClass("back-link")
+        .withId("back-to-home-link")
     ),
     each(
       h1(name),
@@ -270,12 +274,15 @@ static DomContent tagPage(String tag, Map<String, Map<String, List<String>>> mar
 }
 
 // Grid content for initial page render (no OOB button)
+// Grid content for initial page render (no OOB button)
 static DomContent gridAlphabeticalContent(Map<String, Map<String, List<String>>> markdownData) {
   return div(
     each( markdownData.entrySet(), entry -> {
       String htmlFileName = entry.getKey();
       String projectName = entry.getValue().getOrDefault("name", List.of("ProjectX")).get(0);
       String imageUrl = entry.getValue().getOrDefault("image", List.of("https://via.placeholder.com/150")).get(0);
+      // Generate project ID from filename (remove .html extension)
+      String projectId = "project-" + htmlFileName.replace(".html", "");
       return a(
         div(
           img().withSrc(imageUrl).withAlt(projectName).withClass("project-thumbnail"),
@@ -287,7 +294,8 @@ static DomContent gridAlphabeticalContent(Map<String, Map<String, List<String>>>
         .attr("hx-target", "body")
         .attr("hx-swap", "innerHTML transition:true show:window:top")
         .attr("hx-push-url", "true")
-        .withClass("project-card");
+        .withClass("project-card")
+        .withId(projectId);
     })
   ).withClass("project-list").withId("browse-section");
 }
@@ -331,6 +339,8 @@ static DomContent gridByTagContent(Map<String, Map<String, List<String>>> markdo
             String htmlFileName = entry.getKey();
             String projectName = entry.getValue().getOrDefault("name", List.of("ProjectX")).get(0);
             String imageUrl = entry.getValue().getOrDefault("image", List.of("https://via.placeholder.com/150")).get(0);
+            // Generate project ID from filename (remove .html extension)
+            String projectId = "project-" + htmlFileName.replace(".html", "");
             return a(
               div(
                 img().withSrc(imageUrl).withAlt(projectName).withClass("project-thumbnail"),
@@ -342,7 +352,8 @@ static DomContent gridByTagContent(Map<String, Map<String, List<String>>> markdo
               .attr("hx-target", "body")
               .attr("hx-swap", "innerHTML transition:true show:window:top")
               .attr("hx-push-url", "true")
-              .withClass("project-card");
+              .withClass("project-card")
+              .withId(projectId);
           })
         ).withClass("project-list")
       ).withClass("tag-group");
@@ -568,56 +579,95 @@ static HtmlTag output(DomContent content, SeoMetadata seo) {
       script().withSrc("https://unpkg.com/htmx.org@2.0.4"),
       rawHtml("<!-- 100% privacy-first analytics -->"),
       script().withSrc("https://scripts.simpleanalyticscdn.com/latest.js").attr("async", ""),
-      // State preservation script for navigation
+      // Web-native navigation using query params and anchors
       script(rawHtml("""
         (function() {
-          // Save state when navigating away from index
-          document.addEventListener('htmx:beforeRequest', function(evt) {
-            // Check if we're on the index page and navigating to a project or tag page
+          // On index page load, check for sort query parameter
+          window.addEventListener('DOMContentLoaded', function() {
             const currentPath = window.location.pathname;
             const isIndexPage = currentPath.endsWith('index.html') || currentPath === '/' || currentPath === '';
-            const targetUrl = evt.detail.path || evt.detail.pathInfo?.requestPath;
             
-            if (isIndexPage && targetUrl && !targetUrl.includes('index.html') && !targetUrl.includes('grid-')) {
-              // Save scroll position
-              sessionStorage.setItem('indexScrollY', window.scrollY.toString());
+            if (isIndexPage) {
+              const params = new URLSearchParams(window.location.search);
+              const sortParam = params.get('sort');
               
-              // Determine current view by checking which button is visible
-              const browseBtn = document.getElementById('browse-toggle-btn');
-              if (browseBtn) {
-                const btnText = browseBtn.textContent.trim();
-                const currentView = btnText.includes('Alphabetically') ? 'platform' : 'alphabetical';
-                sessionStorage.setItem('indexView', currentView);
+              // If sort=alphabetical is in URL, trigger the alphabetical view
+              if (sortParam === 'alphabetical') {
+                const browseBtn = document.getElementById('browse-toggle-btn');
+                if (browseBtn && browseBtn.textContent.includes('Alphabetically')) {
+                  setTimeout(() => browseBtn.click(), 50);
+                }
               }
+              // Default is platform view, so no action needed if sort=platform or no param
+              
+              // Update all project card links to include current sort
+              updateProjectLinks();
             }
           });
           
-          // Restore state when returning to index - use afterSettle for complete DOM readiness
+          // Update project links when view changes via HTMX
+          document.addEventListener('htmx:afterSwap', function(evt) {
+            // Detect if browse section was swapped (view change)
+            if (evt.detail.target && evt.detail.target.id === 'browse-section') {
+              updateProjectLinks();
+            }
+          });
+          
+          // Also update when returning to index page via HTMX
           document.addEventListener('htmx:afterSettle', function(evt) {
             const targetUrl = evt.detail.pathInfo?.requestPath;
             if (targetUrl && targetUrl.includes('index.html')) {
-              // Restore view
-              const savedView = sessionStorage.getItem('indexView');
-              if (savedView === 'alphabetical') {
-                // Trigger alphabetical view
+              // Check URL for sort parameter
+              const params = new URLSearchParams(window.location.search);
+              const sortParam = params.get('sort');
+              if (sortParam === 'alphabetical') {
                 const browseBtn = document.getElementById('browse-toggle-btn');
                 if (browseBtn && browseBtn.textContent.includes('Alphabetically')) {
-                  // Click the button to switch to alphabetical view
                   browseBtn.click();
                 }
               }
-              // If savedView is 'platform' or null, default view is already correct
-              
-              // Restore scroll position after view restoration
-              const savedScrollY = sessionStorage.getItem('indexScrollY');
-              if (savedScrollY) {
-                // Use requestAnimationFrame to ensure smooth scrolling after DOM updates
-                requestAnimationFrame(() => {
-                  window.scrollTo({
-                    top: parseInt(savedScrollY, 10),
-                    behavior: 'instant'
-                  });
-                });
+              updateProjectLinks();
+            }
+          });
+          
+          function updateProjectLinks() {
+            // Determine current view from the browse toggle button
+            const browseBtn = document.getElementById('browse-toggle-btn');
+            if (!browseBtn) return;
+            
+            const btnText = browseBtn.textContent.trim();
+            // If button says "Browse Alphabetically", we're in platform view
+            // If button says "Browse by Platform", we're in alphabetical view
+            const currentView = btnText.includes('Alphabetically') ? 'platform' : 'alphabetical';
+            
+            // Update all project card links to include sort parameter
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+              const href = card.getAttribute('href');
+              if (href && href.endsWith('.html') && !href.includes('index.html')) {
+                // Add sort parameter to project links
+                const newHref = href + '?sort=' + currentView;
+                card.setAttribute('href', newHref);
+              }
+            });
+          }
+          
+          // On project pages, update back-to-home link with sort param from URL
+          window.addEventListener('DOMContentLoaded', function() {
+            const backLink = document.getElementById('back-to-home-link');
+            if (backLink) {
+              const params = new URLSearchParams(window.location.search);
+              const sortParam = params.get('sort');
+              if (sortParam) {
+                const href = backLink.getAttribute('href');
+                if (href && href.includes('index.html')) {
+                  // Parse href to get anchor
+                  const url = new URL(href, window.location.origin);
+                  const hash = url.hash;
+                  // Update href with sort parameter
+                  const newHref = 'index.html?sort=' + sortParam + hash;
+                  backLink.setAttribute('href', newHref);
+                }
               }
             }
           });
