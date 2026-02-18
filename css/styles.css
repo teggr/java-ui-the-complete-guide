@@ -252,6 +252,7 @@ p {
     flex: 0 0 46%;
     position: sticky;
     top: var(--spacing-2xl);
+    text-align: center;
   }
 }
 
@@ -292,6 +293,10 @@ p {
 }
 
 @media (max-width: 768px) {
+  .hero-left {
+    text-align: center;
+  }
+  
   .hero-left .github-cta {
     display: block;
     width: 100%;
