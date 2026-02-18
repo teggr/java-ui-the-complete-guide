@@ -10,6 +10,7 @@ image: images/ui-smartgwt.png
 tags:
     - Web UI
     - Web Framework
+dateAdded: 2026-02-13
 ---
 
 SmartGWT is a comprehensive GWT-based framework for building enterprise web applications with rich, desktop-like interfaces. It wraps the SmartClient JavaScript library, providing Java APIs for an extensive widget set including advanced data grids with inline editing, filtering, and grouping; tree grids; calendars; sophisticated form controls; and charting components. SmartGWT emphasizes data-driven applications with built-in support for RESTful services, SQL DataSources, and automatic data binding. The framework includes a visual design tool (Visual Builder), extensive documentation, and targets enterprise scenarios requiring complex data manipulation, batch editing, and rich client capabilities. Available in both open-source (LGPL) and commercial editions, SmartGWT is particularly popular in financial services, healthcare, and other enterprise domains where web applications need to match desktop application sophistication. The learning curve is steep due to the framework's comprehensive nature, but it provides capabilities difficult to achieve with lighter-weight frameworks, especially for data-intensive applications requiring advanced grid features.

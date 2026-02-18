@@ -9,6 +9,7 @@ learnMoreHref: https://github.com/WilliamAGH/tui4j
 image: images/ui-tui4j.png
 tags:
     - Terminal UI
+dateAdded: 2026-02-13
 ---
 
 tui4j is a lightweight Java library for building text-based user interfaces (TUIs) in the terminal. Inspired by terminal UI libraries from other languages, tui4j provides widgets like buttons, text inputs, menus, and layouts for creating interactive command-line applications. The library handles ANSI escape codes for colors and cursor positioning, making it easier to build terminal applications without manually managing terminal state. While the project aimed to bring modern terminal UI capabilities to Java similar to what libraries like `blessed` provide for Node.js or `bubbletea` for Go, development appears to have stopped around 2020 and the project is effectively archived. For active terminal UI development in Java, alternatives like Lanterna offer more mature, actively maintained solutions with broader terminal compatibility and richer widget sets. tui4j may still work for simple projects but lacks the polish, documentation, and ongoing maintenance of more established terminal UI frameworks.

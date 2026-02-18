@@ -9,6 +9,7 @@ learnMoreHref: https://github.com/bailuk/java-gtk
 image: images/ui-gtk.png
 tags:
     - Desktop UI
+dateAdded: 2026-02-13
 ---
 
 java-gtk provides Java bindings for GTK+ (GIMP Toolkit), enabling Java developers to create native Linux desktop applications using the GTK widget toolkit. GTK is the foundation of the GNOME desktop environment and many Linux applications, offering truly native Linux UI with platform integration, theming support (GTK themes), and adherence to GNOME Human Interface Guidelines. Unlike Swing or JavaFX which provide their own rendering, java-gtk wraps native GTK widgets, resulting in applications that look and feel completely native to Linux systems. The project is experimental and in early development, aimed at bringing modern GTK (GTK 3/4) capabilities to Java. While Java has historically had limited options for truly native Linux UI (most frameworks provide cross-platform solutions that don't always integrate perfectly with Linux desktops), java-gtk addresses this gap. However, given its early stage, it's not yet suitable for production use. For production Linux desktop development in Java, JavaFX or Swing (with appropriate look-and-feel) remain more mature options, though java-gtk shows promise for future native Linux integration.

@@ -9,6 +9,7 @@ learnMoreHref: https://github.com/crramirez/casciian
 image: images/ui-casciian.png
 tags:
     - Terminal UI
+dateAdded: 2026-02-09
 ---
 
 Casciian is a sophisticated text-based windowing system inspired by Borland's Turbo Vision, designed for building modern terminal UIs with advanced visual features. It supports translucent windows, layered images, and desktop effects that create a polished, game-like aesthetic—all within a terminal environment. The library works seamlessly across xterm-compatible terminals and can even run inside its own terminal window with full mouse support. Casciian combines the nostalgia of classic text UIs with contemporary features like pulsing button text, window animations, and multiple terminal support, making it perfect for creating visually impressive terminal applications.

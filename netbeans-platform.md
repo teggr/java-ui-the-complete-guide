@@ -9,6 +9,7 @@ learnMoreHref: https://netbeans.apache.org/
 image: images/ui-netbeans.png
 tags:
     - Desktop UI
+dateAdded: 2026-02-09
 ---
 
 The NetBeans Platform is a full Rich Client Platform (RCP) for building modular desktop applications. NetBeans IDE itself is built on this platform, demonstrating its scalability for large, complex applications. The platform provides 100+ modules covering window management, auto-update systems, file system abstractions, wizards, property sheets, and more. It's Swing-based and includes the Matisse visual GUI builder for drag-and-drop interface design. If you're building complex, modular desktop applications that need plugin architectures and extensive built-in services, NetBeans Platform provides a comprehensive foundation.

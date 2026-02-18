@@ -9,6 +9,7 @@ learnMoreHref: https://github.com/globaltcad/swing-tree
 image: images/ui-swing-tree.png
 tags:
     - Desktop UI
+dateAdded: 2026-02-09
 ---
 
 Swing-Tree brings declarative, fluent APIs to Swing development—think Jetpack Compose or SwiftUI, but for Swing. Developed by Global TCAD Solutions for their own desktop applications, it eliminates Swing's verbose boilerplate with a clean, lambda-friendly API. The entire framework centers around a single `UI` class that can be statically imported, making Swing development feel modern and expressive. It integrates seamlessly with existing Swing components and works beautifully alongside FlatLaf for modern aesthetics. This is a community-driven library that's well-suited for developers seeking a more contemporary Swing development experience.

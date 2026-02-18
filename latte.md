@@ -9,6 +9,7 @@ learnMoreHref: https://github.com/flatscrew/latte
 image: images/ui-latte.png
 tags:
     - Terminal UI
+dateAdded: 2026-02-09
 ---
 
 Latte is a Java port of Golang's Bubble Tea framework, bringing The Elm Architecture's clean separation of concerns to terminal UI development in Java. The framework follows a simple pattern: you define a Model (your application state), implement an `init()` method for initialization, an `update()` method for handling events and state changes, and a `view()` method for rendering the UI. This architecture makes terminal applications predictable, testable, and easy to reason about. Latte handles all the complexity of terminal I/O, event handling, and rendering, letting you focus on your application logic.

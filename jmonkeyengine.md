@@ -11,6 +11,7 @@ tags:
     - Game Development
     - Desktop UI
     - Mobile
+dateAdded: 2026-02-18
 ---
 
 jMonkeyEngine (jME3) is a complete, modern 3D game development engine written entirely in Java. It provides everything needed to create professional 3D games including advanced rendering with PBR (physically-based rendering), a flexible material system, skeletal animation, particle effects, post-processing, and integrated physics through Bullet. The engine ships with a powerful SDK built on the NetBeans platform, offering visual scene editing, material editors, terrain tools, and a comprehensive asset pipeline. jMonkeyEngine emphasizes ease of use with clean APIs while maintaining high performance through batching, instancing, and multi-threading. The project is fully open source (BSD license) with an active community, extensive documentation, and proven track record in both commercial and indie games. Perfect for developers who want full control over their game engine with Java-native development, cross-platform deployment (desktop, mobile, web via TeaVM), and no licensing fees. Its Scene Graph architecture makes complex 3D scenes manageable while the Component System enables flexible game object composition.

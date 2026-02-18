@@ -11,6 +11,7 @@ tags:
     - Game Development
     - UI Components
     - Desktop UI
+dateAdded: 2026-02-13
 ---
 
 VisUI is a flat design UI skin and widget library for LibGDX's Scene2D that provides a modern, professional look and additional UI components beyond what Scene2D offers out of the box. While Scene2D is powerful, its default skin looks dated, and creating custom widgets requires significant boilerplate. VisUI addresses both issues by providing a cohesive, attractive flat design theme (inspired by Material Design principles) and pre-built widgets like file choosers, color pickers, menu bars, tab panes, toast notifications, and more. The library also includes a form validator, focus management utilities, and helper classes for common UI patterns. VisUI maintains compatibility with standard Scene2D widgets, so you can mix and match or gradually adopt it in existing projects. It's particularly popular in game development tools, level editors, and in-game UI where you want a modern, desktop-application feel rather than a stylized game UI. For LibGDX developers building tools or games with significant UI needs, VisUI is nearly essential for achieving a polished, professional appearance without extensive custom skinning work.

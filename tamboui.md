@@ -9,6 +9,7 @@ learnMoreHref: https://tamboui.dev/docs/main/
 image: images/ui-tamboui.png
 tags:
     - Terminal UI
+dateAdded: 2026-02-18
 ---
 
 TamboUI is a Java library for building modern terminal user interfaces, bringing TUI paradigms from Rust's ratatui and Go's bubbletea to the Java ecosystem. It features immediate-mode rendering with an intermediate buffer system for efficient diff-based terminal updates, a flexible constraint-based layout system, and multiple backends including JLine 3, Panama (FFM), and Aesh for cross-platform support. The library includes a high-level TUI framework called TuiRunner that eliminates boilerplate with built-in event handling, and a declarative Toolkit DSL with fluent APIs for building components with focus management. TamboUI supports mouse capture, 60fps animations, CSS-based styling (TCSS), PicoCLI integration, and GraalVM native image compilation for instant startup. With comprehensive widget implementations including blocks, paragraphs, lists, tables, charts, canvas drawing, and text inputs, TamboUI provides everything needed for rich terminal applications while maintaining Java 8+ compatibility.

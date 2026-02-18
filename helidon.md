@@ -11,6 +11,7 @@ tags:
     - Web Framework
     - Cloud-Native
     - Microservices
+dateAdded: 2026-02-13
 ---
 
 Helidon is Oracle's collection of lightweight Java libraries for building cloud-native microservices, designed around Java virtual threads (Project Loom). It's the world's first web server written entirely on virtual threads, providing exceptional throughput and scalability. Helidon offers two programming models: Helidon MP (MicroProfile) with familiar JAX-RS, CDI, and JSON-P/B APIs, and Helidon SE with a modern functional/reactive approach. The framework includes comprehensive observability with health checks, metrics, telemetry (OpenTelemetry), and fault tolerance integrations with Prometheus, Jaeger, and Zipkin. GraalVM Native Image support allows compilation to small-footprint native executables, while persistence support covers JDBC drivers and both relational and non-relational databases. Helidon is ideal for enterprise teams building cloud-ready microservices that need MicroProfile compatibility combined with cutting-edge virtual thread performance.

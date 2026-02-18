@@ -9,6 +9,7 @@ learnMoreHref: https://github.com/eclipse-platform/eclipse.platform.ui/blob/mast
 image: images/ui-eclipse-rcp.png
 tags:
     - Desktop UI
+dateAdded: 2026-02-09
 ---
 
 Eclipse RCP is an OSGi-based Rich Client Platform that powers the Eclipse IDE and countless enterprise applications from companies like IBM and SAP. It uses SWT for native widget rendering, giving applications a true native look and feel on each platform. The platform provides complete application infrastructure including window management, perspectives, views, plugin architectures, and update mechanisms. Eclipse RCP applications can support multiple versions of the same library simultaneously thanks to OSGi's sophisticated class loading. While the learning curve is steep due to OSGi and SWT concepts, the result is highly modular, enterprise-grade desktop applications with massive ecosystem support.
