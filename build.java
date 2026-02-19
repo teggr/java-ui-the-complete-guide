@@ -241,10 +241,10 @@ private static String getThumbnailUrl(String originalImageUrl) {
     return originalImageUrl;
   }
   
-  // Extract the filename after the last dash (e.g., "ui-casciian.png" -> "casciian.png")
+  // Extract the filename after the last slash (e.g., "ui-casciian.png" -> "ui-casciian.png")
   String filename = originalImageUrl.substring(originalImageUrl.lastIndexOf('/') + 1);
   if (filename.startsWith("ui-")) {
-    String thumbnailName = "thumbnail-" + filename.substring(filename.lastIndexOf('-') + 1);
+    String thumbnailName = "thumbnail-" + filename.substring("ui-".length());
     String thumbnailUrl = "images/" + thumbnailName;
     
     // Check if thumbnail exists
