@@ -47,7 +47,10 @@ void main(String... args) throws IOException, NoSuchAlgorithmException {
                 currentHashes.put(fileName, imageHash);
                 
                 // Determine thumbnail filename
-                String thumbnailName = "thumbnail-" + fileName.substring(fileName.lastIndexOf('-') + 1);
+                String thumbnailBaseName = fileName.startsWith("ui-")
+                    ? fileName.substring("ui-".length())
+                    : fileName.substring(fileName.lastIndexOf('-') + 1);
+                String thumbnailName = "thumbnail-" + thumbnailBaseName;
                 Path thumbnailPath = imagesDir.resolve(thumbnailName);
                 
                 // Check if thumbnail needs to be generated

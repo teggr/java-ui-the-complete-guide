@@ -145,6 +145,28 @@ After capturing, inform the user:
   - Format: PNG
 ```
 
+### 7. Generate Thumbnails (Post-Capture)
+
+After adding a new image to the `images/` directory, generate thumbnails so the site can use optimized versions.
+
+```bash
+jbang GenerateThumbnails.java
+```
+
+**Notes:**
+- The script creates `thumbnail-{name}.png` with a max height of 540px.
+- It skips unchanged images using hash tracking.
+
+### 8. (Optional) Rebuild the Site
+
+If you want to preview the updated image and thumbnail locally, rebuild the site after generating thumbnails:
+
+```bash
+jbang run build.java
+```
+
+---
+
 ## Tool Selection Guide
 
 Choose the appropriate tool based on availability:
@@ -251,31 +273,4 @@ This skill integrates with the add-project skill:
 2. After determining the project's URL (learnMoreHref field)
 3. Use this skill to automatically capture the screenshot
 4. Reference the image in the markdown front matter: `image: images/ui-{project}.png`
-
-**Manual Fallback**: If automated screenshot capture fails:
-1. Manually open the URL in a browser
-2. Resize window to approximately 1280x800px
-3. Use browser's built-in screenshot tool or OS screenshot tool
-4. Save as PNG with correct naming in images folder
-
-## Best Practices
-
-1. **Consistent Sizing**: Always use same viewport dimensions (1280x800px recommended)
-2. **Wait for Load**: Allow sufficient time for page to fully render
-3. **Check Quality**: Verify screenshot is clear and representative
-4. **Optimize Files**: Keep PNG files under 500KB when possible
-5. **Update Regularly**: Re-capture screenshots when projects rebrand or update their websites
-6. **Backup URLs**: Keep note of the URL and date captured for reference
-
-## Requirements
-
-**Tool Requirements** (choose one):
-- Node.js 16+ (for Playwright or pageres-cli)
-- Python 3.8+ (for shot-scraper)
-- Internet connection for accessing websites
-
-**Project Requirements**:
-- Valid project URL
-- Write access to `/images/` folder
-- Confirmation from user if overwriting existing image
-
+5. Run `jbang GenerateThumbnails.java` to generate the thumbnail
