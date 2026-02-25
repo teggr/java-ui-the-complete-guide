@@ -206,5 +206,13 @@
     "processed": true,
     "markdownFile": "gtk.md",
     "notes": "Early development, not production-ready"
+  },
+  {
+    "name": "Gluon",
+    "urls": ["https://gluonhq.com/"],
+    "description": "Cross-platform JavaFX platform with Scene Builder, GluonFX, Gluon Mobile, and JavaFX LTS support",
+    "processed": true,
+    "markdownFile": "gluon.md",
+    "notes": "Scene Builder 25.0.0, GluonFX Maven plugin 1.0.28"
   }
 ]
