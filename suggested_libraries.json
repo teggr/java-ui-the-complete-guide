@@ -206,5 +206,13 @@
     "processed": true,
     "markdownFile": "gtk.md",
     "notes": "Early development, not production-ready"
+  },
+  {
+    "name": "JFX-Central",
+    "urls": ["https://www.jfx-central.com/"],
+    "description": "Community hub and resource portal for the JavaFX ecosystem - libraries, tools, tutorials, and showcases",
+    "processed": true,
+    "markdownFile": "jfxcentral.md",
+    "notes": "Resource website, not a library - built with JavaFX and deployed via JPro"
   }
 ]
