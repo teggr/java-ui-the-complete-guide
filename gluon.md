@@ -18,23 +18,32 @@ Gluon is a Java-focused company and platform that co-leads the OpenJFX project a
 
 ## Code Example
 
-```xml
-<!-- pom.xml – GluonFX Maven plugin for cross-platform JavaFX deployment -->
-<plugin>
-    <groupId>com.gluonhq</groupId>
-    <artifactId>gluonfx-maven-plugin</artifactId>
-    <version>1.0.28</version>
-    <configuration>
-        <!-- 'host' builds for the current OS; use 'ios' or 'android' for mobile -->
-        <mainClass>com.example.HelloGluon</mainClass>
-        <target>host</target>
-    </configuration>
-</plugin>
+```java
+import com.gluonhq.charm.glisten.application.MobileApplication;
+import com.gluonhq.charm.glisten.control.AppBar;
+import com.gluonhq.charm.glisten.mvc.View;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
 
-<!--
-    Run on desktop:   mvn gluonfx:run
-    Compile native:   mvn gluonfx:build
-    Package:          mvn gluonfx:package
-    Run on device:    mvn gluonfx:run -Dtarget=android
--->
+public class HelloGluon extends MobileApplication {
+
+    @Override
+    public void init() {
+        addViewFactory(HOME_VIEW, () -> {
+            Label label = new Label("Hello, Gluon Mobile!");
+            View view = new View(new StackPane(label));
+            view.showingProperty().addListener((obs, oldValue, newValue) -> {
+                if (newValue) {
+                    AppBar appBar = getAppBar();
+                    appBar.setTitleText("Gluon Mobile");
+                }
+            });
+            return view;
+        });
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
 ```
